@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.EndTurn = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // EndTurn
+            // 
+            this.EndTurn.Location = new System.Drawing.Point(972, 25);
+            this.EndTurn.Name = "EndTurn";
+            this.EndTurn.Size = new System.Drawing.Size(75, 23);
+            this.EndTurn.TabIndex = 0;
+            this.EndTurn.Text = "Next";
+            this.EndTurn.UseVisualStyleBackColor = true;
+            this.EndTurn.Click += new System.EventHandler(this.EndTurn_Click);
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1102, 507);
+            this.Controls.Add(this.EndTurn);
             this.Name = "GUI";
             this.Text = "Draughts";
             this.ResumeLayout(false);
@@ -42,6 +54,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button EndTurn;
     }
 }
 

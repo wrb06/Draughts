@@ -17,12 +17,13 @@ namespace DraughtsGUI
 
         Board board;
         List<TextBox> boxes;
+        AIPlayer AIBlack = new AIPlayer(false, 2);
 
         public GUI()
         {
             InitializeComponent();
-
             SetupBoard();
+            
             
         }
 
@@ -56,10 +57,30 @@ namespace DraughtsGUI
             }
         }
 
+        private void UpdateBoard()
+        {
+            for (int i = 0; i < 64; i++)
+            {
+                boxes[i].ForeColor = Color.Yellow;
+                boxes[i].Clear();
+                if (board.GetBoard()[i/8, i%8] != null)
+                {
+                    boxes[i].ForeColor = (board.GetBoard()[i / 8, i % 8].IsWhite) ? Color.White : Color.Black;
+                    boxes[i].Text = "O";
+                }
+
+            }
+        }
 
         private void GUI_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void EndTurn_Click(object sender, EventArgs e)
+        {
+            board = AIBlack.MakeMove(board);
+            UpdateBoard();
         }
     }
 }

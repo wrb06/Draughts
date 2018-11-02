@@ -14,7 +14,7 @@ namespace Draughts
         // properties
         public int X => _x;
         public int Y => _y;
-        const int size = 8
+        const int size = 8;
 
         public Position(int x_value, int y_value)
         {

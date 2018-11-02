@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Draughts
 {
     // Need to improve EvaluateBoard and GamEnded functs
-
     class Board
     {
         const int size = 8;

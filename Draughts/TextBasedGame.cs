@@ -13,7 +13,10 @@ namespace Draughts
        
         static void Main(string[] args)
         {
+            Piece p = new Piece(true, 0, 0);
+            
 
+            
             //test
             ShowBoard();
             Console.WriteLine();
@@ -21,9 +24,6 @@ namespace Draughts
             AIPlayer white = new AIPlayer(true, 2);            
             AIPlayer black = new AIPlayer(false, 2);
 
-
-
-            
             for (int i = 0; i < 50; i++)
             {
                 b = black.MakeMove(b);
@@ -46,6 +46,8 @@ namespace Draughts
 
 
             }
+            
+
             
 
 

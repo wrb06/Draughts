@@ -9,15 +9,14 @@ namespace Draughts
     class Piece
     {
         // private variables
-        private readonly int _value;
-        private readonly bool _isWhite;
-        private Position _currentPosition;
+        protected int _value;
+        protected readonly bool _isWhite;
+        protected Position _currentPosition;
 
         // Properties to access private variables
-        public int Value => _value;
+        public int Value { get => _value; set => _value = value;  }
         public bool IsWhite => _isWhite;
         public Position CurrentPosition { get => _currentPosition; set => _currentPosition = value; }
-        public int[] CurrentPosition { }
 
         // Constructor
         public Piece(bool White, Position position)

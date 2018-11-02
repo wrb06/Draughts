@@ -11,13 +11,13 @@ namespace Draughts
         // Constructor
         public KingPiece(bool white, Position position) : base(white, position)
         {
-            if (IsWhite) { value = 100; }
-            else { value = 100; }
+            if (IsWhite) { _value = 100; }
+            else { _value = 100; }
         }
         public KingPiece(bool white, int x, int y) : base(white, x, y)
         {
-            if (IsWhite) { value = 100; }
-            else { value = 100; }
+            if (IsWhite) { _value = 100; }
+            else { _value = 100; }
         }
 
         // Returns all possible moves this peice can make

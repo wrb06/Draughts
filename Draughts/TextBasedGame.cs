@@ -13,46 +13,26 @@ namespace Draughts
        
         static void Main(string[] args)
         {
-            Piece p = new Piece(true, 0, 0);
-            
+            AIPlayer white = new AIPlayer(true, 1);            
+            AIPlayer black = new AIPlayer(false, 4);
 
             
-            //test
-            ShowBoard();
-            Console.WriteLine();
-
-            AIPlayer white = new AIPlayer(true, 2);            
-            AIPlayer black = new AIPlayer(false, 2);
-
             for (int i = 0; i < 50; i++)
             {
+
+                white.MakeMove(b);
+                ShowBoard();
+                Console.WriteLine(b.EvaluateBoard());
+                Console.WriteLine("white moved");
+                Console.WriteLine();
+
                 b = black.MakeMove(b);
                 ShowBoard();
                 Console.WriteLine(b.EvaluateBoard());
                 Console.WriteLine("black moved");
                 Console.WriteLine();
-                System.Threading.Thread.Sleep(3000);
-
-                int a, e, c, d;
-                a = int.Parse(Console.ReadLine());
-                e = int.Parse(Console.ReadLine());
-                c = int.Parse(Console.ReadLine());
-                d = int.Parse(Console.ReadLine());
-
-                b.MovePeice(new Position(a, e), new Position(c, d));
-                Console.WriteLine(b.EvaluateBoard());
-                Console.WriteLine("white moved");
-                Console.WriteLine();
-
-
             }
             
-
-            
-
-
-
-
             Console.ReadLine();
         }
 

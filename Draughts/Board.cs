@@ -44,7 +44,6 @@ namespace Draughts
             return _boardArray;
         }
 
-
         // Moves a piece in position from to position to
         public void MovePeice(Position from, Position to)
         {
@@ -83,7 +82,6 @@ namespace Draughts
         {
             return _boardArray[y, x];
         }
-
 
         // Adds the piece to the board
         public void PlacePeice(Piece piece)
@@ -137,6 +135,10 @@ namespace Draughts
         // Evaluates the board, more white is positive, more black is negative
         public float EvaluateBoard()
         {
+            // Check if either player has won
+            if (WhiteHasWon()) { return 9999f; }
+            if (BlackHasWon()) { return -9999f; }
+
             float BoardScore = 0.0f;
             int PieceValue;
 
@@ -159,9 +161,22 @@ namespace Draughts
 
 
         // Evaluates whether someone, returns 1 if white wins, -1 if black wins, 0 if neither side has won.
-        public bool BothPlayersHavePeices()
+        public bool WhiteHasWon()
         {
-            return !((GetWhitePositions().Count == 0) || (GetBlackPositions().Count == 0));
+            foreach (Position pieceposition in GetBlackPositions())
+            {
+                if (GetPiece(pieceposition).GetMoves(this).Count != 0) { return false; }
+            }
+            return GetBlackPositions().Count == 0;
+        }
+        public bool BlackHasWon()
+        {
+            bool OppoHasMoves = false;
+            foreach (Position pieceposition in GetWhitePositions())
+            {
+                if (GetPiece(pieceposition).GetMoves(this).Count != 0) { OppoHasMoves = true; break; }
+            }
+            return GetWhitePositions().Count == 0 || !OppoHasMoves;
         }
 
         // creates a new version of the board

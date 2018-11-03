@@ -46,12 +46,14 @@ namespace Draughts
             return (Math.Abs(this.X - to.X) == 2 && Math.Abs(this.Y - to.Y) == 2);
         }
 
-        // Each peice sees themselves as moving forward
-        // RFT|__|__|__|LFT 
-        //  __|RF|__|LF|__
-        //  __|__|W_|__|__
-        //  __|RB|__|LB|__
-        // RBT|__|__|__|LBT
+        /* Each peice sees themselves as moving forward
+         * RFT|__|__|__|LFT
+         *  __|RF|__|LF|__
+         *  __|__|W_|__|__
+         *  __|RB|__|LB|__
+         * RBT|__|__|__|LBT 
+         */
+
         public Position GetRightForward(bool iswhite)
         {
             if (iswhite) { return new Position(X + 1, Y - 1); }

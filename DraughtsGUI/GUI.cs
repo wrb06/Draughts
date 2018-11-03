@@ -13,63 +13,79 @@ namespace DraughtsGUI
 {
     public partial class GUI : Form
     {
-        const int scale = 50;
+        const int scale = 60;
 
         Board board;
-        List<TextBox> boxes;
-        AIPlayer AIBlack = new AIPlayer(false, 2);
+        List<PictureBox> boxes;
+        AIPlayer AIBlack = new AIPlayer(false, 5);
+        AIPlayer AIWhite = new AIPlayer(true, 1);
+        bool turn = false;
 
         public GUI()
         {
             InitializeComponent();
-            SetupBoard();
-            
-            
+            SetupBoard(); 
         }
 
         private void SetupBoard(bool empty = false)
         {
             board = new Board(empty);
-            boxes = new List<TextBox>();
+            boxes = new List<PictureBox>();
             int i = 0;
             foreach (Piece p in board.GetBoard())
             {
-                TextBox txt = new TextBox();
-
-                txt.BackColor = (i % 2 + i / 8) % 2 == 0 ? Color.LightGray : Color.Gray;
-
-                if (p != null)
+                PictureBox picture = new PictureBox();
+                
+                if (p == null)
                 {
-                    txt.ForeColor = (p.IsWhite) ? Color.White : Color.Black;
-                    txt.Text = "O";
+                    picture.ImageLocation = (i % 2 + i / 8) % 2 == 0 ? "../../EmptyPiece.png" : "../../EmptyPiece1.png";
                 }
-                txt.Font = new Font(FontFamily.GenericSansSerif, scale / 1.5f);
-                txt.Location = new Point((i % 8) * scale, (i / 8) * scale);
-                txt.AutoSize = false;
-                txt.Size = new Size(scale, scale);
+                else
+                {
+                    if (p.Value == 1) { picture.ImageLocation = "../../WhitePiece.png"; }
+                    
+                    if (p.Value == 100) { picture.ImageLocation = "../../WhiteKingPiece.png"; }
+                    if (p.Value == -1) { picture.ImageLocation = "../../BlackPiece.png"; }
+                    if (p.Value == -100) { picture.ImageLocation = "../../WhiteKingPiece.png"; }
+                }
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
 
-                txt.TextAlign = HorizontalAlignment.Center;
-                txt.ReadOnly = true;
 
-                this.Controls.Add(txt);
-                boxes.Add(txt);
+
+
+
+                picture.Location = new Point((i % 8) * scale, (i / 8) * scale);
+                picture.Size = new Size(scale, scale);
+ 
+               
+
+
+                this.Controls.Add(picture);
+                boxes.Add(picture);
                 i++;
-            }
+                            }
         }
 
         private void UpdateBoard()
         {
+            
             for (int i = 0; i < 64; i++)
             {
-                boxes[i].ForeColor = Color.Yellow;
-                boxes[i].Clear();
-                if (board.GetBoard()[i/8, i%8] != null)
+                Piece p = board.GetBoard()[i / 8, i % 8];
+                if (p == null)
                 {
-                    boxes[i].ForeColor = (board.GetBoard()[i / 8, i % 8].IsWhite) ? Color.White : Color.Black;
-                    boxes[i].Text = "O";
+                    boxes[i].ImageLocation = (i % 2 + i / 8) % 2 == 0 ? "../../EmptyPiece.png" : "../../EmptyPiece1.png";
+                }
+                else
+                {
+                    if (p.Value == 1) { boxes[i].ImageLocation = "../../WhitePiece.png"; }
+                    if (p.Value == 100) { boxes[i].ImageLocation = "../../WhiteKingPiece.png"; }
+                    if (p.Value == -1) { boxes[i].ImageLocation = "../../BlackPiece.png"; }
+                    if (p.Value == -100) { boxes[i].ImageLocation = "../../BlackKingPiece.png"; }
                 }
 
             }
+            
         }
 
         private void GUI_Load(object sender, EventArgs e)
@@ -79,8 +95,10 @@ namespace DraughtsGUI
 
         private void EndTurn_Click(object sender, EventArgs e)
         {
-            board = AIBlack.MakeMove(board);
+            if (turn) { board = AIBlack.MakeMove(board); } else { board = AIWhite.MakeMove(board); }
+            turn = !turn;
             UpdateBoard();
+            textBox1.Text = board.EvaluateBoard().ToString();
         }
     }
 }

@@ -53,7 +53,6 @@ namespace Draughts
          *  __|RB|__|LB|__
          * RBT|__|__|__|LBT 
          */
-
         public Position GetRightForward(bool iswhite)
         {
             if (iswhite) { return new Position(X + 1, Y - 1); }
@@ -91,9 +90,14 @@ namespace Draughts
             return GetLeftForwardTake(!iswhite);
         }
 
+        // Override functions
         public override string ToString()
         {
             return X.ToString() + "," + Y.ToString();
+        }
+        public override bool Equals(object obj)
+        {
+            return obj.ToString() == this.ToString();
         }
     }
 

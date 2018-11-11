@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Draughts
 {
-    // Need to improve EvaluateBoard and GamEnded functs
+    // Need to improve islegalmove funct
     class Board
     {
         const int size = 8;
@@ -143,15 +143,21 @@ namespace Draughts
             int PieceValue;
 
             foreach (Position pos in GetWhitePositions())
-            {
+            { 
+                // Add up the values of the white pieces
                 PieceValue = GetPiece(pos).Value;
                 BoardScore += PieceValue;
+
+                // If it's not a king, it also gains score by being further up the board, the maximum score for a normal piece is 37
                 if (PieceValue == 1) { BoardScore += (7 - pos.Y) * (7 - pos.Y); }
             }
             foreach (Position pos in GetBlackPositions())
             {
+                // Add up the values of the black pieces
                 PieceValue = GetPiece(pos).Value;
                 BoardScore += PieceValue;
+
+                // If it's not a king, it also gains score by being down the board, the maximum score for a normal piece is 37
                 if (PieceValue == -1) { BoardScore -= pos.Y * pos.Y; }
             }
 
@@ -163,17 +169,20 @@ namespace Draughts
         // Evaluates whether someone, returns 1 if white wins, -1 if black wins, 0 if neither side has won.
         public bool WhiteHasWon()
         {
+            bool OppoHasMoves = false;
             foreach (Position pieceposition in GetBlackPositions())
             {
-                if (GetPiece(pieceposition).GetMoves(this).Count != 0) { return false; }
+                // If any black piece exists and has moves, white has not won
+                if (GetPiece(pieceposition).GetMoves(this).Count != 0) { OppoHasMoves = true; break; }
             }
-            return GetBlackPositions().Count == 0;
+            return GetWhitePositions().Count == 0 || !OppoHasMoves;
         }
         public bool BlackHasWon()
         {
             bool OppoHasMoves = false;
             foreach (Position pieceposition in GetWhitePositions())
             {
+                // If any white piece exists and has moves, black has not won
                 if (GetPiece(pieceposition).GetMoves(this).Count != 0) { OppoHasMoves = true; break; }
             }
             return GetWhitePositions().Count == 0 || !OppoHasMoves;
@@ -188,6 +197,42 @@ namespace Draughts
                 if (p != null) { copy.PlacePeice(new Piece(p.IsWhite, p.CurrentPosition)); }
             }
             return copy;
+        }
+    
+        public bool IsLegalMove(Position from, Position to)
+        {
+            if (!from.InBoard() || !to.InBoard()) { return false; }
+
+            int i = to.GetAsSingleNum();
+            if ((i % 2 + i / 8) % 2 == 0) { return false; }
+
+            if (GetPiece(to) != null) { return false; }
+
+            if (GetPiece(from).Value == 1)
+            {
+                // if its a normal white piece
+                List<Position> PosMoves = new List<Position>()
+                {
+                    from.GetLeftForward(true), from.GetRightForward(true), from.GetRightForwardTake(true), from.GetLeftForwardTake(true)
+                };
+
+                if (!PosMoves.Contains(to)) { return false; }
+            }
+            else
+            {
+                // if its a white king 
+                List<Position> PosMoves = new List<Position>()
+                {
+                    from.GetLeftForward(true), from.GetRightForward(true), from.GetRightForwardTake(true), from.GetLeftForwardTake(true),
+                    from.GetLeftBack(true), from.GetRightBack(true), from.GetRightBackTake(true), from.GetLeftBackTake(true)
+                };
+
+                if (!PosMoves.Contains(to)) { return false; }
+            }
+            
+
+                
+            return true;
         }
     }
 }

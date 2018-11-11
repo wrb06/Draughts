@@ -13,18 +13,22 @@ namespace DraughtsGUI
 {
     public partial class GUI : Form
     {
-        const int scale = 60;
+        private const int scale = 60;
+
+        private Position MoveFrom;
+        public bool FoundFirstMove;
 
         Board board;
         List<PictureBox> boxes;
+
         AIPlayer AIBlack = new AIPlayer(false, 5);
-        AIPlayer AIWhite = new AIPlayer(true, 1);
-        bool turn = false;
 
         public GUI()
         {
             InitializeComponent();
-            SetupBoard(); 
+            SetupBoard();
+            board = AIBlack.MakeMove(board);
+            UpdateBoard();
         }
 
         private void SetupBoard(bool empty = false)
@@ -35,35 +39,66 @@ namespace DraughtsGUI
             foreach (Piece p in board.GetBoard())
             {
                 PictureBox picture = new PictureBox();
-                
-                if (p == null)
-                {
-                    picture.ImageLocation = (i % 2 + i / 8) % 2 == 0 ? "../../EmptyPiece.png" : "../../EmptyPiece1.png";
-                }
+
+                if (p == null){ picture.ImageLocation = (i % 2 + i / 8) % 2 == 0 ? "../../EmptyPiece.png" : "../../EmptyPiece1.png"; }
                 else
                 {
                     if (p.Value == 1) { picture.ImageLocation = "../../WhitePiece.png"; }
-                    
                     if (p.Value == 100) { picture.ImageLocation = "../../WhiteKingPiece.png"; }
                     if (p.Value == -1) { picture.ImageLocation = "../../BlackPiece.png"; }
                     if (p.Value == -100) { picture.ImageLocation = "../../WhiteKingPiece.png"; }
                 }
                 picture.SizeMode = PictureBoxSizeMode.Zoom;
-
-
-
-
-
                 picture.Location = new Point((i % 8) * scale, (i / 8) * scale);
                 picture.Size = new Size(scale, scale);
- 
-               
 
+                picture.Click += Picture_Click;
 
                 this.Controls.Add(picture);
                 boxes.Add(picture);
                 i++;
-                            }
+            }
+        }
+
+        private void Picture_Click(object sender, EventArgs e)
+        {
+            Position point1 = PointToPosition(PointToClient(Cursor.Position));
+            textBox3.Text = point1.ToString();
+            if (FoundFirstMove)
+            {
+
+                if (MoveFrom != point1 && board.IsLegalMove(MoveFrom, point1))
+                {
+                    // Move
+                    board.MovePeice(MoveFrom, point1);
+                    FoundFirstMove = false;
+                    UpdateBoard();
+                    textBox1.Text = board.EvaluateBoard().ToString();
+ 
+                }
+                else
+                {
+                    // Deselect the piece
+                    textBox2.Text = "";
+                    FoundFirstMove = false;
+                }
+            }
+            else
+            {
+                if (board.GetPiece(point1) != null)
+                {
+                    // if its our piece
+                    if (board.GetPiece(point1).Value > 0)
+                    {
+                        FoundFirstMove = true;
+                        MoveFrom = point1;
+                        textBox2.Text = MoveFrom.ToString();
+                    }
+                }
+
+            }
+                
+            
         }
 
         private void UpdateBoard()
@@ -77,7 +112,7 @@ namespace DraughtsGUI
                     boxes[i].ImageLocation = (i % 2 + i / 8) % 2 == 0 ? "../../EmptyPiece.png" : "../../EmptyPiece1.png";
                 }
                 else
-                {
+                { 
                     if (p.Value == 1) { boxes[i].ImageLocation = "../../WhitePiece.png"; }
                     if (p.Value == 100) { boxes[i].ImageLocation = "../../WhiteKingPiece.png"; }
                     if (p.Value == -1) { boxes[i].ImageLocation = "../../BlackPiece.png"; }
@@ -88,15 +123,14 @@ namespace DraughtsGUI
             
         }
 
-        private void GUI_Load(object sender, EventArgs e)
+        private Position PointToPosition(Point point)
         {
-
+            return new Position(point.X / scale, point.Y / scale);
         }
 
-        private void EndTurn_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (turn) { board = AIBlack.MakeMove(board); } else { board = AIWhite.MakeMove(board); }
-            turn = !turn;
+            board = AIBlack.MakeMove(board);
             UpdateBoard();
             textBox1.Text = board.EvaluateBoard().ToString();
         }

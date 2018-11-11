@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//  This is to test the AI's without having to make a GUI.
 namespace Draughts
 {
     class TextBasedGame
@@ -13,6 +14,9 @@ namespace Draughts
        
         static void Main(string[] args)
         {
+            ShowBoard();
+
+            /*
             AIPlayer white = new AIPlayer(true, 1);            
             AIPlayer black = new AIPlayer(false, 4);
 
@@ -32,7 +36,7 @@ namespace Draughts
                 Console.WriteLine("black moved");
                 Console.WriteLine();
             }
-            
+            */
             Console.ReadLine();
         }
 

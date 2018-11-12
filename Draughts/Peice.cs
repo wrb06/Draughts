@@ -47,8 +47,10 @@ namespace Draughts
             {
                 if (board.GetPiece(Left) == null)
                 {
-                    List<Position> moveset = new List<Position>();
-                    moveset.Add(Left);
+                    List<Position> moveset = new List<Position>
+                    {
+                        Left
+                    };
                     Moves.Add(moveset);
                 }
             }
@@ -56,8 +58,10 @@ namespace Draughts
             {
                 if (board.GetPiece(Right) == null)
                 {
-                    List<Position> moveset = new List<Position>();
-                    moveset.Add(Right);
+                    List<Position> moveset = new List<Position>
+                    {
+                        Right
+                    };
                     Moves.Add(moveset);
                 }
             }
@@ -66,6 +70,11 @@ namespace Draughts
             Moves.AddRange(GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>()));
 
             return Moves;
+        }
+
+        public virtual List<List<Position>> GetTakeMovesOnly(Board board)
+        {
+            return GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>());
         }
 
         // recursive structure to find multi-step moves

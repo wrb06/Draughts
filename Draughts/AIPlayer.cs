@@ -63,8 +63,8 @@ namespace Draughts
             List<Position> BestMoveset = new List<Position>();
 
             // detect wins
-            if (board.WhiteHasWon()) { return Tuple.Create(9999f, BestPiecePosition, BestMoveset); }
-            if (board.BlackHasWon()) { return Tuple.Create(-9999f, BestPiecePosition, BestMoveset); }
+            if (board.WhiteHasWon()) { return Tuple.Create(float.MaxValue, BestPiecePosition, BestMoveset); }
+            if (board.BlackHasWon()) { return Tuple.Create(float.MinValue, BestPiecePosition, BestMoveset); }
 
             // detect if we should stop
             if (Depth == 0 || usablepieces.Count == 0)

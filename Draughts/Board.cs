@@ -136,8 +136,8 @@ namespace Draughts
         public float EvaluateBoard()
         {
             // Check if either player has won
-            if (WhiteHasWon()) { return 9999f; }
-            if (BlackHasWon()) { return -9999f; }
+            if (WhiteHasWon()) { return float.MaxValue; }
+            if (BlackHasWon()) { return float.MinValue; }
 
             float BoardScore = 0.0f;
             int PieceValue;
@@ -161,7 +161,6 @@ namespace Draughts
                 if (PieceValue == -1) { BoardScore -= pos.Y * pos.Y; }
             }
 
-            //BoardScore /= NumberOfPeices;
             return BoardScore;
         }
 

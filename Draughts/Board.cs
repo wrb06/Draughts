@@ -148,7 +148,7 @@ namespace Draughts
                 PieceValue = GetPiece(pos).Value;
                 BoardScore += PieceValue;
 
-                // If it's not a king, it also gains score by being further up the board, the maximum score for a normal piece is 37
+                // If it's not a king, it also gains score by being further up the board, the maximum score for a normal piece is 37 (1 + 36 bonus)
                 if (PieceValue == 1) { BoardScore += (7 - pos.Y) * (7 - pos.Y); }
             }
             foreach (Position pos in GetBlackPositions())
@@ -191,10 +191,16 @@ namespace Draughts
         public Board MakeNewCopyOf()
         {
             Board copy = new Board(true);
+
             foreach (Piece p in _boardArray)
             {
-                if (p != null) { copy.PlacePeice(new Piece(p.IsWhite, p.CurrentPosition)); }
+                if (p != null)
+                {
+                    if (typeof(p)) ############################################
+                    copy.PlacePeice(new Piece(p.IsWhite, p.CurrentPosition));
+                }
             }
+
             return copy;
         }
     

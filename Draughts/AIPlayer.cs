@@ -68,19 +68,15 @@ namespace Draughts
             List<Position> BestMoveset = new List<Position>();
 
             // Show the tree (console only)
-            try
-            {
-                for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+           
+            if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
+            else { Console.Write("> MIN | "); }
 
-                if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
-                else { Console.Write("> MIN | "); }
-
-                Console.WriteLine("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString() + " | White Position: "+ board.GetWhitePositions().First().ToString());
-            }
-            catch
-            {
-                Console.WriteLine("No more white pieces");
-            }
+            Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString());
+            try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
+            Console.WriteLine();
+            ShowBoard(board, Depth);
             
 
             // detect wins
@@ -164,6 +160,50 @@ namespace Draughts
                 return Tuple.Create(BestValue, BestPiecePosition, BestMoveset);
             }
         }
+
+        void ShowBoard(Board b, int depth)
+        {
+            for (int po = 0; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
+            Console.WriteLine("#|0_1_2_3_4_5_6_7");
+            for (int po = 0; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
+            Console.Write("0|");
+            int i = 0;
+            foreach (Piece p in b.GetBoard())
+            {
+
+                i++;
+                if (p != null)
+                {
+                    if (p.IsWhite)
+                    {
+                        if (p.GetType() == typeof(KingPiece)) { Console.Write("W "); }
+                        else { Console.Write("w "); }
+                    }
+                    else
+                    {
+                        if (p.GetType() == typeof(KingPiece)) { Console.Write("B "); }
+                        else { Console.Write("b "); }
+                    }
+                }
+                else
+                {
+                    Console.Write(". ");
+                }
+
+
+
+                if (i % 8 == 0 && i != 64)
+                {
+                    Console.WriteLine();
+                    for (int po = 0; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
+                    Console.Write((i / 8) + "|");
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+        }
+
 
     }
 

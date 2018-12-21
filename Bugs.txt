@@ -1,0 +1,4 @@
+
+BUGS
+
+	- When calculating sucessive minimax recursions, the Piece/KingPiece status is not transfered 

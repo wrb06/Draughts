@@ -10,33 +10,43 @@ namespace Draughts
     class TextBasedGame
     {
         Random rng = new Random();
-        static Board b = new Board(); // REMOVE TEST
+        static Board b = new Board(true); // REMOVE TEST
        
         static void Main(string[] args)
         {
+            b.PlacePeice(new Piece(true, 6, 1));
+            b.PlacePeice(new Piece(false, 7, 0));
+            b.PlacePeice(new Piece(false, 1, 7));
+            b.PlacePeice(new Piece(false, 4, 6));
+
+            AIPlayer white = new AIPlayer(true, 2);            
+            AIPlayer black = new AIPlayer(false, 1);
+
             ShowBoard();
-
+            b = white.MakeMove(b);
+            ShowBoard();
+            b = black.MakeMove(b);
             /*
-            AIPlayer white = new AIPlayer(true, 1);            
-            AIPlayer black = new AIPlayer(false, 4);
-
-            
             for (int i = 0; i < 50; i++)
             {
 
-                white.MakeMove(b);
-                ShowBoard();
+                b = white.MakeMove(b);
+                //ShowBoard();
                 Console.WriteLine(b.EvaluateBoard());
-                Console.WriteLine("white moved");
-                Console.WriteLine();
+                //Console.WriteLine("white moved");
+                //Console.WriteLine();
+                //Console.ReadLine();
 
                 b = black.MakeMove(b);
-                ShowBoard();
+                //ShowBoard();
                 Console.WriteLine(b.EvaluateBoard());
-                Console.WriteLine("black moved");
-                Console.WriteLine();
+                //Console.WriteLine("black moved");
+                //Console.WriteLine();
+                //Console.ReadLine();
             }
             */
+            ShowBoard();
+
             Console.ReadLine();
         }
 

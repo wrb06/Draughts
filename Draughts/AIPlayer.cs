@@ -26,6 +26,9 @@ namespace Draughts
         {
             Tuple<float, Position, List<Position>> mm = Minimax(DepthOfSearch, IsWhite, board);
 
+            Console.WriteLine();
+            Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
+            Console.WriteLine(mm.Item1);
 
             if (!mm.Item2.InBoard()) { return board; }
             else
@@ -50,21 +53,40 @@ namespace Draughts
             List<Position> usablepieces = new List<Position>();
             if (MaximisingPlayer)
             {
-                BestValue = int.MinValue;
+                // Start low, aim high
+                BestValue = float.MinValue;
                 usablepieces = board.GetWhitePositions();
             }
             else
             {
-                BestValue = int.MaxValue;
+                // Start High, aim low
+                BestValue = float.MaxValue;
                 usablepieces = board.GetBlackPositions();
             }
 
             // setup best moveset
             List<Position> BestMoveset = new List<Position>();
 
+            // Show the tree (console only)
+            try
+            {
+                for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+
+                if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
+                else { Console.Write("> MIN | "); }
+
+                Console.WriteLine("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString() + " | White Position: "+ board.GetWhitePositions().First().ToString());
+            }
+            catch
+            {
+                Console.WriteLine("No more white pieces");
+            }
+            
+
             // detect wins
             if (board.WhiteHasWon()) { return Tuple.Create(float.MaxValue, BestPiecePosition, BestMoveset); }
             if (board.BlackHasWon()) { return Tuple.Create(float.MinValue, BestPiecePosition, BestMoveset); }
+
 
             // detect if we should stop
             if (Depth == 0 || usablepieces.Count == 0)

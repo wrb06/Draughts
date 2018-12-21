@@ -195,5 +195,10 @@ namespace DraughtsGUI
             MovedThisTurn = false;
             TakeMoveMade = false;
         }
+
+        private void GUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

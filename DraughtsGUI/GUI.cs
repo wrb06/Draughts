@@ -35,7 +35,7 @@ namespace DraughtsGUI
         Board board;
         List<PictureBox> boxes;
 
-        AIPlayer AIBlack = new AIPlayer(false, 5);
+        AIPlayer AIBlack = new AIPlayer(false, 3);
 
         public GUI()
         {

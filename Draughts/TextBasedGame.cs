@@ -15,10 +15,11 @@ namespace Draughts
         static void Main(string[] args)
         {
             b.PlacePeice(new Piece(true, 6, 1));
+
             b.PlacePeice(new KingPiece(false, 7, 0));
             b.PlacePeice(new KingPiece(false, 1, 7));
             b.PlacePeice(new Piece(false, 4, 6));
-
+            
             AIPlayer white = new AIPlayer(true, 2);            
             AIPlayer black = new AIPlayer(false, 2);
 
@@ -37,25 +38,7 @@ namespace Draughts
             ShowBoard();
             b = black.MakeMove(b);
             Console.WriteLine();
-            /*
-            for (int i = 0; i < 50; i++)
-            {
 
-                b = white.MakeMove(b);
-                //ShowBoard();
-                Console.WriteLine(b.EvaluateBoard());
-                //Console.WriteLine("white moved");
-                //Console.WriteLine();
-                //Console.ReadLine();
-
-                b = black.MakeMove(b);
-                //ShowBoard();
-                Console.WriteLine(b.EvaluateBoard());
-                //Console.WriteLine("black moved");
-                //Console.WriteLine();
-                //Console.ReadLine();
-            }
-            */
             ShowBoard();
 
             Console.ReadLine();

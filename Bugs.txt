@@ -1,4 +1,15 @@
 
 BUGS
 
-	- When calculating sucessive minimax recursions, the Piece/KingPiece status is not transfered 
+	            > MAX | Depth: 0 | Score: 3.402823E+38
+                #|0_1_2_3_4_5_6_7
+                0|. . . . . . . .
+                1|. . . . . . . .
+                2|. . . . . B . .
+                3|. . . . . . . .
+                4|. . . . . . . .
+                5|. . . . . . . .
+                6|. . . . . . . .
+                7|. B . . . B . .
+
+				evaluation might be wrong?

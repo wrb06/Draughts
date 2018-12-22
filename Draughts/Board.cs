@@ -138,7 +138,6 @@ namespace Draughts
             // Check if either player has won
             if (WhiteHasWon()) { return float.MaxValue; }
             if (BlackHasWon()) { return float.MinValue; }
-
             float BoardScore = 0.0f;
             int PieceValue;
 
@@ -168,23 +167,29 @@ namespace Draughts
         // Evaluates whether someone, returns 1 if white wins, -1 if black wins, 0 if neither side has won.
         public bool WhiteHasWon()
         {
-            bool OppoHasMoves = false;
-            foreach (Position pieceposition in GetBlackPositions())
+            List<Position> BlackPositions = GetBlackPositions();
+            if (BlackPositions.Count == 0) { return true; }
+            else
             {
-                // If any black piece exists and has moves, white has not won
-                if (GetPiece(pieceposition).GetMoves(this).Count != 0) { OppoHasMoves = true; break; }
+                foreach (Position PiecePosition in BlackPositions)
+                {
+                    if (GetPiece(PiecePosition).GetMoves(this).Count != 0) { return false; }
+                }
+                return true;
             }
-            return GetWhitePositions().Count == 0 || !OppoHasMoves;
         }
         public bool BlackHasWon()
         {
-            bool OppoHasMoves = false;
-            foreach (Position pieceposition in GetWhitePositions())
+            List<Position> WhitePositions = GetWhitePositions();
+            if (WhitePositions.Count == 0) { return true; }
+            else
             {
-                // If any white piece exists and has moves, black has not won
-                if (GetPiece(pieceposition).GetMoves(this).Count != 0) { OppoHasMoves = true; break; }
+                foreach (Position PiecePosition in WhitePositions)
+                {
+                    if (GetPiece(PiecePosition).GetMoves(this).Count != 0) { return false; }
+                }
+                return true;
             }
-            return GetWhitePositions().Count == 0 || !OppoHasMoves;
         }
 
         // creates a new version of the board
@@ -196,8 +201,15 @@ namespace Draughts
             {
                 if (p != null)
                 {
-                    if (typeof(p)) ############################################
-                    copy.PlacePeice(new Piece(p.IsWhite, p.CurrentPosition));
+                    if (p.GetType() == typeof(Piece))
+                    {
+                        copy.PlacePeice(new Piece(p.IsWhite, p.CurrentPosition));
+                    }
+                    else
+                    {
+                        copy.PlacePeice(new KingPiece(p.IsWhite, p.CurrentPosition));
+                    }
+                    
                 }
             }
 

@@ -1,15 +1,6 @@
 
-BUGS
+KNOWN BUGS:
 
-	            > MAX | Depth: 0 | Score: 3.402823E+38
-                #|0_1_2_3_4_5_6_7
-                0|. . . . . . . .
-                1|. . . . . . . .
-                2|. . . . . B . .
-                3|. . . . . . . .
-                4|. . . . . . . .
-                5|. . . . . . . .
-                6|. . . . . . . .
-                7|. B . . . B . .
+	- When highlighting kingpieces, a normal highlighted piece is shown
 
-				evaluation might be wrong?
+	- When the AI makes moves, it is sometimes hard to see what/where a move has been made

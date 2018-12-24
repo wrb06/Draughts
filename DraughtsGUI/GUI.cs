@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Draughts;
 
 namespace DraughtsGUI
@@ -20,9 +21,8 @@ namespace DraughtsGUI
         const string EmptyPieceLocation1 = "../../EmptyPiece.png";
         const string EmptyPieceLocation2 = "../../EmptyPiece1.png";
         const string EmptyPieceHighlightLocation = "../../EmptyPieceHighlight.png";
-        const string WhiteHighlightPieceLocation = "../../WhitePieceHighlight.png";
-
-
+        const string WhitePieceHighlightLocation = "../../WhitePieceHighlight.png";
+        const string WhiteKingPieceHighlightLocation = "../../WhiteKingPieceHighlight.png";
 
         private const int scale = 60;
         private bool MovedThisTurn = false;
@@ -41,18 +41,7 @@ namespace DraughtsGUI
             InitializeComponent();
             SetupBoard();
 
-            /*
-            board.PlacePeice(new Piece(true, 4, 7));
-            board.PlacePeice(new Piece(true, 7, 6));
-
-            board.PlacePeice(new Piece(false, 3, 6));
-            board.PlacePeice(new Piece(false, 3, 4));
-            board.PlacePeice(new Piece(false, 3, 2));
-            board.PlacePeice(new Piece(false, 0, 6));
-            */
-
             UpdateBoard();
-
             board = AIBlack.MakeMove(board);
             UpdateBoard();
 
@@ -156,7 +145,8 @@ namespace DraughtsGUI
                         textBox2.Text = SelectedPosition.ToString();
 
                         // Highlight this piece
-                        UpdatePiece(ClickedPoint, WhiteHighlightPieceLocation);
+                        if (board.GetPiece(ClickedPoint).Value == 1) { UpdatePiece(ClickedPoint, WhitePieceHighlightLocation); }
+                        else { UpdatePiece(ClickedPoint, WhiteKingPieceHighlightLocation); }
 
                         // Highlight take moves
                         if (MovedThisTurn && TakeMoveMade)
@@ -221,17 +211,6 @@ namespace DraughtsGUI
             return new Position(point.X / scale, point.Y / scale);
         }
 
-        private void EndTurn_Click(object sender, EventArgs e)
-        {
-            board = AIBlack.MakeMove(board);
-            UpdateBoard();
-            textBox1.Text = board.EvaluateBoard().ToString();
-            textBox2.Text = "";
-            textBox3.Text = "";
-            MovedThisTurn = false;
-            TakeMoveMade = false;
-        }
-
         private void GUI_Load(object sender, EventArgs e)
         {
 
@@ -246,7 +225,109 @@ namespace DraughtsGUI
                 textBox2.Text = "Calculating";
                 textBox3.Text = "Calculating";
                 Application.DoEvents();
-                Endturn.PerformClick();
+
+                board = AIBlack.MakeMove(board);
+                UpdateBoard();
+
+                textBox1.Text = board.EvaluateBoard().ToString();
+                textBox2.Text = "";
+                textBox3.Text = "";
+
+                MovedThisTurn = false;
+                TakeMoveMade = false;
+            }
+        }
+
+        private void SaveFile(object sender, EventArgs e)
+        {
+            // Opens a new dialogue box
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Save the board";
+            saveFileDialog.Filter = "Board File|*.txt";
+            saveFileDialog.ShowDialog();
+
+            if (saveFileDialog.FileName != "")
+            {
+                // Convert the board into computer readable form
+                string FileData = board.ConvertForSave();
+                FileData += Environment.NewLine;
+
+
+                // Add a human readable form so the user can see what state the board is in easily
+                FileData += "#|0_1_2_3_4_5_6_7" + Environment.NewLine +
+                            "0|";
+
+                int i = 0;
+                foreach (Piece p in board.GetBoard())
+                {
+                    i++;
+                    if (p != null)
+                    {
+                        if (p.IsWhite)
+                        {
+                            if (p.GetType() == typeof(KingPiece)) { FileData += "W "; }
+                            else { FileData += "w "; }
+                        }
+                        else
+                        {
+                            if (p.GetType() == typeof(KingPiece)) { FileData += "B "; }
+                            else { FileData += "b "; }
+                        }
+                    }
+                    else
+                    {
+                        FileData += ". ";
+                    }
+
+                    if (i % 8 == 0 && i != 64)
+                    {
+                        FileData += Environment.NewLine + (i / 8) + "|";
+                    }
+                }
+
+
+                // Open the file
+                FileStream file = (FileStream)saveFileDialog.OpenFile();
+
+                // Convert to bytes
+                byte[] FileBytes = Encoding.Default.GetBytes(FileData);
+
+
+                file.Write(FileBytes, 0, FileBytes.Length);
+                file.Close();
+            }
+        }
+
+        private void LoadFile(object sender, EventArgs e)
+        {
+            // Open a new Dialogue box
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Open a previous Board";
+            openFileDialog.ShowDialog();
+
+            if (openFileDialog.FileName != "")
+            {
+                // Read the file to bytes
+                FileStream fileStream = (FileStream)openFileDialog.OpenFile();
+                byte[] FileBytes = new byte[fileStream.Length];
+
+                // Only take the first 64 characters as that is the board
+                fileStream.Read(FileBytes, 0, 64);
+
+                // Empty board, place new pieces on board
+                board = new Board(true);
+                int i = 0;
+                foreach (byte b in FileBytes)
+                {
+                    if (b == (byte)'w') { board.PlacePeice(new Piece(true, i % 8, i / 8)); }
+                    else if (b == (byte)'b') { board.PlacePeice(new Piece(false, i % 8, i / 8)); }
+                    else if (b == (byte)'W') { board.PlacePeice(new KingPiece(true, i % 8, i / 8)); }
+                    else if (b == (byte)'w') { board.PlacePeice(new KingPiece(false, i % 8, i / 8)); }
+
+                    i++;
+                }
+
+                UpdateBoard();
             }
         }
     }

@@ -163,7 +163,6 @@ namespace Draughts
             return BoardScore;
         }
 
-
         // Evaluates whether someone, returns 1 if white wins, -1 if black wins, 0 if neither side has won.
         public bool WhiteHasWon()
         {
@@ -250,6 +249,24 @@ namespace Draughts
 
                 
             return true;
+        }
+
+        public string ConvertForSave()
+        {
+            string BoardString = "";
+            foreach (Piece p in _boardArray)
+            {
+                if (p == null) { BoardString += "E"; }
+                else
+                {
+                    if (p.Value == 1) { BoardString += "w"; }
+                    else if (p.Value == -1) { BoardString += "b"; }
+                    else if (p.Value == 500) { BoardString += "W"; }
+                    else if (p.Value == -500) { BoardString += "B"; }
+                    else { BoardString += "A"; }
+                }
+            }
+            return BoardString;
         }
     }
 }

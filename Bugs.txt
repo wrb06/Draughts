@@ -1,6 +1,3 @@
 
 KNOWN BUGS:
-
-	- When highlighting kingpieces, a normal highlighted piece is shown
-
 	- When the AI makes moves, it is sometimes hard to see what/where a move has been made

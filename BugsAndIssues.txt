@@ -1,6 +1,12 @@
 
-BUGS:
+KNOWN BUGS:
 
 
-Issues
+TODO:
 	- When the AI makes moves, it is sometimes hard to see what/where a move has been made
+
+	- Prune the tree
+
+	- Difficulty settings
+
+	- Make end game more agressive

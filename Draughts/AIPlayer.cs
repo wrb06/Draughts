@@ -30,6 +30,8 @@ namespace Draughts
             Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
             Console.WriteLine(mm.Item1);
 
+            ShowBoard(board, DepthOfSearch);
+
             if (!mm.Item2.InBoard()) { return board; }
             else
             {
@@ -48,6 +50,8 @@ namespace Draughts
         {
             // Setup 
             float BestValue;
+            bool FoundTakeMove = false;
+            List<List<Position>> possibleMovesets;
 
             Position BestPiecePosition = new Position(-1, -1);
             List<Position> usablepieces = new List<Position>();
@@ -96,7 +100,24 @@ namespace Draughts
                 foreach (Position pieceposition in usablepieces)
                 {
                     // generate all possible movesets
-                    List<List<Position>> possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
+                    // testing prioritisation of take moves
+                    possibleMovesets = board.GetPiece(pieceposition).GetTakeMovesOnly(board);
+                    if (possibleMovesets.Count > 0)
+                    {
+                        if (!FoundTakeMove)
+                        {
+                            // mark it so that every move is better that this
+                            BestValue = float.MinValue;
+                            FoundTakeMove = true;
+                        }
+                    }
+                    else if (!FoundTakeMove)
+                    {
+                        possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
+                    }
+
+                    for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    Console.WriteLine("Take Moves found: " + FoundTakeMove);
 
                     foreach (List<Position> moveset in possibleMovesets)
                     {
@@ -130,7 +151,25 @@ namespace Draughts
                 foreach (Position pieceposition in usablepieces)
                 {
                     // generate all possible movesets
-                    List<List<Position>> possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
+                    // testing prioritisation of take moves                   
+                    possibleMovesets = board.GetPiece(pieceposition).GetTakeMovesOnly(board);
+                    if (possibleMovesets.Count > 0)
+                    {
+                        if (!FoundTakeMove)
+                        {
+                            // mark it so that every move is better that this
+                            BestValue = float.MaxValue;
+                            FoundTakeMove = true;
+                        }
+                    }
+                    else if (!FoundTakeMove)
+                    {
+                        possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
+                    }
+
+                    for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    Console.WriteLine("Take Moves found: " + FoundTakeMove);
+
 
                     foreach (List<Position> moveset in possibleMovesets)
                     {
@@ -160,7 +199,7 @@ namespace Draughts
                 return Tuple.Create(BestValue, BestPiecePosition, BestMoveset);
             }
         }
-
+        
         void ShowBoard(Board b, int depth)
         {
             for (int po = 0; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
@@ -203,6 +242,8 @@ namespace Draughts
             Console.WriteLine();
 
         }
+        
+       
 
 
     }

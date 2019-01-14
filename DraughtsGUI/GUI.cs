@@ -24,7 +24,7 @@ namespace DraughtsGUI
         const string WhitePieceHighlightLocation = "../../WhitePieceHighlight.png";
         const string WhiteKingPieceHighlightLocation = "../../WhiteKingPieceHighlight.png";
 
-        private const int scale = 60;
+        private int scale;
         private bool MovedThisTurn = false;
         private bool TakeMoveMade = false;
         private Position TakingPiecePosition;
@@ -38,7 +38,9 @@ namespace DraughtsGUI
 
         public GUI()
         {
+            
             InitializeComponent();
+            scale = FindScale();
             SetupBoard();
 
             UpdateBoard();
@@ -46,6 +48,13 @@ namespace DraughtsGUI
             UpdateBoard();
 
         }
+
+        private int FindScale()
+        {
+            if (Height<Width) { return (Height-140) / 8; }
+            else { return (Width-8) / 8; }
+        }
+
 
         private void SetupBoard(bool empty = false)
         {
@@ -65,7 +74,7 @@ namespace DraughtsGUI
                     if (p.Value == -500) { picture.ImageLocation = BlackKingPieceLocation; }
                 }
                 picture.SizeMode = PictureBoxSizeMode.Zoom;
-                picture.Location = new Point((i % 8) * scale, (i / 8) * scale);
+                picture.Location = new Point((i % 8) * scale, 100 + (i / 8) * scale);
                 picture.Size = new Size(scale, scale);
 
                 picture.Click += Picture_Click;
@@ -213,7 +222,7 @@ namespace DraughtsGUI
 
         private void GUI_Load(object sender, EventArgs e)
         {
-
+            this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void CheckForTurnEnd()
@@ -329,6 +338,23 @@ namespace DraughtsGUI
 
                 UpdateBoard();
             }
+        }
+
+        private void ChangeDifficulty(object sender, EventArgs e)
+        {
+            AIBlack = new AIPlayer(false, (int)numericUpDown1.Value);
+        }
+
+        private void Resized(object sender, EventArgs e)
+        {
+            scale = FindScale();
+            for (int i = 0; i<64; i++)
+            {
+                boxes[i].Location = new Point((i % 8) * scale, 100 + (i / 8) * scale);
+                boxes[i].Size = new Size(scale, scale);
+            }
+            UpdateBoard();
+            this.Invalidate();
         }
     }
 }

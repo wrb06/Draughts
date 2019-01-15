@@ -25,12 +25,12 @@ namespace Draughts
         public Board MakeMove(Board board)
         {
             Tuple<float, Position, List<Position>> mm = Minimax(DepthOfSearch, IsWhite, board);
+            
+            //Console.WriteLine();
+            //Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
+            //Console.WriteLine(mm.Item1);
 
-            Console.WriteLine();
-            Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
-            Console.WriteLine(mm.Item1);
-
-            ShowBoard(board, DepthOfSearch);
+            //ShowBoard(board, DepthOfSearch);
 
             if (!mm.Item2.InBoard()) { return board; }
             else
@@ -72,15 +72,15 @@ namespace Draughts
             List<Position> BestMoveset = new List<Position>();
 
             // Show the tree (console only)
-            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+            //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
            
-            if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
-            else { Console.Write("> MIN | "); }
+            //if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
+            //else { Console.Write("> MIN | "); }
 
-            Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString());
-            try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
-            Console.WriteLine();
-            ShowBoard(board, Depth);
+            //Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString());
+            //try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
+            //Console.WriteLine();
+            //ShowBoard(board, Depth);
             
 
             // detect wins
@@ -116,8 +116,8 @@ namespace Draughts
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
 
-                    for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                    Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
 
                     foreach (List<Position> moveset in possibleMovesets)
                     {
@@ -167,8 +167,8 @@ namespace Draughts
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
 
-                    for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                    Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
 
 
                     foreach (List<Position> moveset in possibleMovesets)

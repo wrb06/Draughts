@@ -51,8 +51,8 @@ namespace DraughtsGUI
 
         private int FindScale()
         {
-            if (Height<Width) { return (Height-140) / 8; }
-            else { return (Width-8) / 8; }
+            if (Height-140<Width) { return (Height-140) / 8; }
+            else { return (Width-16) / 8; }
         }
 
 
@@ -217,7 +217,7 @@ namespace DraughtsGUI
 
         private Position PointToPosition(Point point)
         {
-            return new Position(point.X / scale, point.Y / scale);
+            return new Position(point.X / scale, (point.Y-100) / scale);
         }
 
         private void GUI_Load(object sender, EventArgs e)
@@ -340,11 +340,6 @@ namespace DraughtsGUI
             }
         }
 
-        private void ChangeDifficulty(object sender, EventArgs e)
-        {
-            AIBlack = new AIPlayer(false, (int)numericUpDown1.Value);
-        }
-
         private void Resized(object sender, EventArgs e)
         {
             scale = FindScale();
@@ -355,6 +350,13 @@ namespace DraughtsGUI
             }
             UpdateBoard();
             this.Invalidate();
+        }
+
+        private void ChangeDifficulty(object sender, EventArgs e)
+        {
+            AIBlack = new AIPlayer(false, trackBar1.Value/10 + 1);
+            label4.Text = trackBar1.Value.ToString();
+            Console.WriteLine((trackBar1.Value / 10 + 1).ToString());
         }
     }
 }

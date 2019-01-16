@@ -71,16 +71,18 @@ namespace Draughts
             // setup best moveset
             List<Position> BestMoveset = new List<Position>();
 
-            // Show the tree (console only)
-            //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+            //Show the tree (console only)
+            /*
+            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
            
-            //if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
-            //else { Console.Write("> MIN | "); }
+            if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
+            else { Console.Write("> MIN | "); }
 
-            //Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString());
-            //try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
-            //Console.WriteLine();
-            //ShowBoard(board, Depth);
+            Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString());
+            try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
+            Console.WriteLine();
+            ShowBoard(board, Depth);
+            */
             
 
             // detect wins

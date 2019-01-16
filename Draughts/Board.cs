@@ -214,7 +214,7 @@ namespace Draughts
 
             return copy;
         }
-    
+
         public bool IsLegalMove(Position from, Position to)
         {
             if (!from.InBoard() || !to.InBoard()) { return false; }
@@ -222,32 +222,68 @@ namespace Draughts
             int i = to.GetAsSingleNum();
             if ((i % 2 + i / 8) % 2 == 0) { return false; }
 
-            if (GetPiece(to) != null) { return false; }
+   
+            if (from.IsTakeMove(to))
+            {
+                // Store middlepiece in a variable
+                Piece middlepiece = this.GetPiece(from.GetMiddlePosition(to));
+
+                // middlepiece has to be black
+                if (middlepiece == null) { return false; }
+                else if (middlepiece.IsWhite) { return false; }
+
+                // EndPiece has to be null
+                if (this.GetPiece(to) != null) { return false; }
+            }
 
             if (GetPiece(from).Value == 1)
             {
-                // if its a normal white piece
-                List<Position> PosMoves = new List<Position>()
+                List<Position> PosMoves;
+
+                if (from.IsTakeMove(to))
+                {                   
+                    // if its a normal white piece and is taking
+                    PosMoves = new List<Position>()
+                    {
+                    from.GetRightForwardTake(true), from.GetLeftForwardTake(true)
+                    };
+                }
+                else
                 {
-                    from.GetLeftForward(true), from.GetRightForward(true), from.GetRightForwardTake(true), from.GetLeftForwardTake(true)
+                    // if its a normal white piece and is not taking
+                    PosMoves = new List<Position>()
+                    {
+                    from.GetLeftForward(true), from.GetRightForward(true)
+                    };
                 };
 
                 if (!PosMoves.Contains(to)) { return false; }
             }
             else
             {
-                // if its a white king 
-                List<Position> PosMoves = new List<Position>()
+                List<Position> PosMoves;
+
+                if (from.IsTakeMove(to))
                 {
-                    from.GetLeftForward(true), from.GetRightForward(true), from.GetRightForwardTake(true), from.GetLeftForwardTake(true),
-                    from.GetLeftBack(true), from.GetRightBack(true), from.GetRightBackTake(true), from.GetLeftBackTake(true)
+                    // if its a normal white piece and is taking
+                    PosMoves = new List<Position>()
+                    {
+                    from.GetRightBackTake(true), from.GetLeftBackTake(true),
+                    from.GetRightForwardTake(true), from.GetLeftForwardTake(true)
+                    };
+                }
+                else
+                {
+                    // if its a normal white piece and is not taking
+                    PosMoves = new List<Position>()
+                    {
+                    from.GetLeftForward(true), from.GetRightForward(true),
+                    from.GetLeftBack(true), from.GetRightBack(true)
+                    };
                 };
 
                 if (!PosMoves.Contains(to)) { return false; }
             }
-            
-
-                
             return true;
         }
 

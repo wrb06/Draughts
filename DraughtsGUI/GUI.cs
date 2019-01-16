@@ -331,7 +331,7 @@ namespace DraughtsGUI
                     if (b == (byte)'w') { board.PlacePeice(new Piece(true, i % 8, i / 8)); }
                     else if (b == (byte)'b') { board.PlacePeice(new Piece(false, i % 8, i / 8)); }
                     else if (b == (byte)'W') { board.PlacePeice(new KingPiece(true, i % 8, i / 8)); }
-                    else if (b == (byte)'w') { board.PlacePeice(new KingPiece(false, i % 8, i / 8)); }
+                    else if (b == (byte)'B') { board.PlacePeice(new KingPiece(false, i % 8, i / 8)); }
 
                     i++;
                 }

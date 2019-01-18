@@ -1,8 +1,4 @@
 
-KNOWN BUGS:
-	- Pieces can sometimes perform take moves when they shouldnt be able to
-		use Position.IsTakeMove then test jumped over square to see if not null
-
 TODO:
 	- When the AI makes moves, it is sometimes hard to see what/where a move has been made - Animations?
 
@@ -13,3 +9,11 @@ TODO:
 	- Something for small changes in difficulty
 
 	- Improve board redraws so we dont update the entire board every time
+
+	- bad
+
+	- not good
+
+	- worse than neutral
+
+	- remove the big gay

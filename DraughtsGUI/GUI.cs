@@ -356,7 +356,7 @@ namespace DraughtsGUI
         {
             AIBlack = new AIPlayer(false, trackBar1.Value/10 + 1);
             label4.Text = trackBar1.Value.ToString();
-            Console.WriteLine((trackBar1.Value / 10 + 1).ToString());
+            //Console.WriteLine((trackBar1.Value / 10 + 1).ToString());
         }
     }
 }

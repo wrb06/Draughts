@@ -1,0 +1,10 @@
+EbEEEEEEbEbEEEEEEEEEEEEEEEEEEEbEEEEEEEEEwEEEwEEEEwEEEBEbEEEEBEBE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . . 
+1|b . b . . . . . 
+2|. . . . . . . . 
+3|. . . . . . b . 
+4|. . . . . . . . 
+5|w . . . w . . . 
+6|. w . . . B . b 
+7|. . . . B . B . 

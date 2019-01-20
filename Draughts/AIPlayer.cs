@@ -83,7 +83,6 @@ namespace Draughts
             Console.WriteLine();
             ShowBoard(board, Depth);
             */
-            
 
             // detect wins
             if (board.WhiteHasWon()) { return Tuple.Create(float.MaxValue, BestPiecePosition, BestMoveset); }
@@ -118,8 +117,8 @@ namespace Draughts
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
 
-                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                    // for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    // Console.WriteLine("Take Moves found: " + FoundTakeMove);
 
                     foreach (List<Position> moveset in possibleMovesets)
                     {
@@ -169,8 +168,8 @@ namespace Draughts
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
 
-                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                    // for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    // Console.WriteLine("Take Moves found: " + FoundTakeMove);
 
 
                     foreach (List<Position> moveset in possibleMovesets)
@@ -244,10 +243,6 @@ namespace Draughts
             Console.WriteLine();
 
         }
-        
-       
-
-
     }
 
 }

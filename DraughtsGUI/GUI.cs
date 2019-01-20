@@ -24,12 +24,13 @@ namespace DraughtsGUI
         const string WhitePieceHighlightLocation = "../../WhitePieceHighlight.png";
         const string WhiteKingPieceHighlightLocation = "../../WhiteKingPieceHighlight.png";
 
-        private int scale;
-        private bool MovedThisTurn = false;
-        private bool TakeMoveMade = false;
-        private Position TakingPiecePosition;
-        private Position SelectedPosition;
-        public bool FoundPieceToMove;
+        int scale;
+        bool MovedThisTurn = false;
+        bool TakeMoveMade = false;
+        Position TakingPiecePosition;
+        Position SelectedPosition;
+        bool FoundPieceToMove;
+        bool GameEnded = false;
 
         Board board;
         List<PictureBox> boxes;
@@ -46,6 +47,7 @@ namespace DraughtsGUI
             UpdateBoard();
             board = AIBlack.MakeMove(board);
             UpdateBoard();
+            //Console.WriteLine("B " + board.ConvertForSave());
 
         }
 
@@ -55,10 +57,16 @@ namespace DraughtsGUI
             else { return (Width-16) / 8; }
         }
 
-
-        private void SetupBoard(bool empty = false)
+        private void SetupBoard(bool empty = true)
         {
             board = new Board(empty);
+
+            //Console.WriteLine("  " + board.ConvertForSave());
+
+
+            board.PlacePeice(new Piece(true, 6, 7));
+            board.PlacePeice(new Piece(false, 5, 4));
+
             boxes = new List<PictureBox>();
             int i = 0;
             foreach (Piece p in board.GetBoard())
@@ -87,97 +95,99 @@ namespace DraughtsGUI
 
         private void Picture_Click(object sender, EventArgs e)
         {
-            Position ClickedPoint = PointToPosition(PointToClient(Cursor.Position));
-            textBox3.Text = ClickedPoint.ToString();
-
-            if (FoundPieceToMove)
+            if (!GameEnded)
             {
-                if (!MovedThisTurn && board.IsLegalMove(SelectedPosition, ClickedPoint))
+                Position ClickedPoint = PointToPosition(PointToClient(Cursor.Position));
+                textBox3.Text = ClickedPoint.ToString();
+
+                if (FoundPieceToMove)
                 {
-                    // Select the empty spot and move
-                    board.MovePeice(SelectedPosition, ClickedPoint);
+                    if (!MovedThisTurn && board.IsLegalMove(SelectedPosition, ClickedPoint))
+                    {
+                        // Select the empty spot and move
+                        board.MovePeice(SelectedPosition, ClickedPoint);
 
-                    // Redraw board, clearing highlights
-                    UpdateBoard();
+                        // Redraw board, clearing highlights
+                        UpdateBoard();
 
-                    // Update Variables
-                    FoundPieceToMove = false;
-                    MovedThisTurn = true;
-                    TakingPiecePosition = ClickedPoint;
+                        // Update Variables
+                        FoundPieceToMove = false;
+                        MovedThisTurn = true;
+                        TakingPiecePosition = ClickedPoint;
 
-                    // Update Display
-                    textBox1.Text = board.EvaluateBoard().ToString();
+                        // Update Display
+                        textBox1.Text = board.EvaluateBoard().ToString();
 
-                    // Update to show we have made a take move
-                    if (SelectedPosition.IsTakeMove(ClickedPoint)) { TakeMoveMade = true; SelectedPosition = ClickedPoint; }
+                        // Update to show we have made a take move
+                        if (SelectedPosition.IsTakeMove(ClickedPoint)) { TakeMoveMade = true; SelectedPosition = ClickedPoint; }
 
-                    // auto end turn stuff
-                    CheckForTurnEnd();
-                    
-                }
-                else if (TakeMoveMade && SelectedPosition.Equals(TakingPiecePosition) && SelectedPosition.IsTakeMove(ClickedPoint))
-                {
-                    // Select the empty spot and move
-                    board.MovePeice(SelectedPosition, ClickedPoint);
+                        // auto end turn stuff
+                        CheckForTurnEnd();
 
-                    // Redraw board, clearing highlights
-                    UpdateBoard();
+                    }
+                    else if (TakeMoveMade && SelectedPosition.Equals(TakingPiecePosition) && SelectedPosition.IsTakeMove(ClickedPoint))
+                    {
+                        // Select the empty spot and move
+                        board.MovePeice(SelectedPosition, ClickedPoint);
 
-                    // Update Variables
-                    FoundPieceToMove = false;
-                    MovedThisTurn = true;
-                    SelectedPosition = ClickedPoint;
-                    TakingPiecePosition = ClickedPoint;
+                        // Redraw board, clearing highlights
+                        UpdateBoard();
 
-                    CheckForTurnEnd();
+                        // Update Variables
+                        FoundPieceToMove = false;
+                        MovedThisTurn = true;
+                        SelectedPosition = ClickedPoint;
+                        TakingPiecePosition = ClickedPoint;
+
+                        CheckForTurnEnd();
+                    }
+                    else
+                    {
+                        // Deselect the piece
+                        textBox2.Text = "";
+                        FoundPieceToMove = false;
+
+                        // Redraw board, clearing highlights
+                        UpdateBoard();
+                    }
                 }
                 else
                 {
-                    // Deselect the piece
-                    textBox2.Text = "";
-                    FoundPieceToMove = false;
-
-                    // Redraw board, clearing highlights
-                    UpdateBoard();
-                }
-            }
-            else
-            {
-                // if the square isnt empty
-                if (board.GetPiece(ClickedPoint) != null)
-                {
-                    // if its our piece
-                    if (board.GetPiece(ClickedPoint).Value > 0)
+                    // if the square isnt empty
+                    if (board.GetPiece(ClickedPoint) != null)
                     {
-                        FoundPieceToMove = true;
-                        SelectedPosition = ClickedPoint;
-                        textBox2.Text = SelectedPosition.ToString();
-
-                        // Highlight this piece
-                        if (board.GetPiece(ClickedPoint).Value == 1) { UpdatePiece(ClickedPoint, WhitePieceHighlightLocation); }
-                        else { UpdatePiece(ClickedPoint, WhiteKingPieceHighlightLocation); }
-
-                        // Highlight take moves
-                        if (MovedThisTurn && TakeMoveMade)
+                        // if its our piece
+                        if (board.GetPiece(ClickedPoint).Value > 0)
                         {
-                            // Highlight only take moves if we have moved allready
-                            foreach (List<Position> move in board.GetPiece(ClickedPoint).GetTakeMovesOnly(board))
+                            FoundPieceToMove = true;
+                            SelectedPosition = ClickedPoint;
+                            textBox2.Text = SelectedPosition.ToString();
+
+                            // Highlight this piece
+                            if (board.GetPiece(ClickedPoint).Value == 1) { UpdatePiece(ClickedPoint, WhitePieceHighlightLocation); }
+                            else { UpdatePiece(ClickedPoint, WhiteKingPieceHighlightLocation); }
+
+                            // Highlight take moves
+                            if (MovedThisTurn && TakeMoveMade)
                             {
-                                UpdatePiece(move.Last(), EmptyPieceHighlightLocation);
+                                // Highlight only take moves if we have moved allready
+                                foreach (List<Position> move in board.GetPiece(ClickedPoint).GetTakeMovesOnly(board))
+                                {
+                                    UpdatePiece(move.Last(), EmptyPieceHighlightLocation);
+                                }
                             }
-                        }
-                        else if (!MovedThisTurn)
-                        {
-                            // Highlight all moves if this is the first move this turn
-                            foreach (List<Position> move in board.GetPiece(ClickedPoint).GetMoves(board))
+                            else if (!MovedThisTurn)
                             {
-                                UpdatePiece(move.Last(), EmptyPieceHighlightLocation);
+                                // Highlight all moves if this is the first move this turn
+                                foreach (List<Position> move in board.GetPiece(ClickedPoint).GetMoves(board))
+                                {
+                                    UpdatePiece(move.Last(), EmptyPieceHighlightLocation);
+                                }
                             }
                         }
                     }
                 }
             }
-
         }
 
         private void UpdateBoard()
@@ -230,12 +240,11 @@ namespace DraughtsGUI
             // Auto ends turn if no more moves are found
             if ((MovedThisTurn && !TakeMoveMade) || (TakeMoveMade && board.GetPiece(SelectedPosition).GetTakeMovesOnly(board).Count == 0))
             {
-                textBox1.Text = board.EvaluateBoard().ToString();
-                textBox2.Text = "Calculating";
-                textBox3.Text = "Calculating";
+                //Console.WriteLine("W " + board.ConvertForSave());
                 Application.DoEvents();
 
                 board = AIBlack.MakeMove(board);
+                //Console.WriteLine("B " + board.ConvertForSave());
                 UpdateBoard();
 
                 textBox1.Text = board.EvaluateBoard().ToString();
@@ -244,6 +253,9 @@ namespace DraughtsGUI
 
                 MovedThisTurn = false;
                 TakeMoveMade = false;
+
+                if (board.BlackHasWon()) { DisplayEnd("Black"); GameEnded = true; }
+                else if (board.WhiteHasWon()) { DisplayEnd("White"); GameEnded = true; }
             }
         }
 
@@ -337,6 +349,15 @@ namespace DraughtsGUI
                 }
 
                 UpdateBoard();
+
+                restartgame.Visible = false;
+                restartgame.Location = new Point(0, 0);
+                restartgame.Size = new Size(0, 0);
+
+                MovedThisTurn = false;
+                TakeMoveMade = false;
+                GameEnded = false;
+
             }
         }
 
@@ -349,7 +370,11 @@ namespace DraughtsGUI
                 boxes[i].Size = new Size(scale, scale);
             }
             UpdateBoard();
-            this.Invalidate();
+            if (restartgame.Visible)
+            {
+                restartgame.Location = new Point(3 * scale, 100 + (int)(3.5 * scale));
+                restartgame.Size = new Size(2 * scale, scale);
+            }
         }
 
         private void ChangeDifficulty(object sender, EventArgs e)
@@ -357,6 +382,38 @@ namespace DraughtsGUI
             AIBlack = new AIPlayer(false, trackBar1.Value/10 + 1);
             label4.Text = trackBar1.Value.ToString();
             //Console.WriteLine((trackBar1.Value / 10 + 1).ToString());
+        }
+
+        private void DisplayEnd(string Winner)
+        {
+            restartgame.Text = Winner + " has won. \n Click to play again";
+            restartgame.Location = new Point(3*scale, 100+(int)(3.5 * scale));
+            restartgame.Size = new Size(2*scale, scale);
+            restartgame.Visible = true;
+
+        }
+
+        private void restartgame_Click(object sender, EventArgs e)
+        {
+            
+            board = new Board();
+            //Console.WriteLine("\n");
+            //Console.WriteLine("  " + board.ConvertForSave());
+
+
+            UpdateBoard();
+            board = AIBlack.MakeMove(board);
+            //Console.WriteLine("B " + board.ConvertForSave());
+            UpdateBoard();
+
+            
+            restartgame.Visible = false;
+            restartgame.Location = new Point(0, 0);
+            restartgame.Size = new Size(0, 0);
+
+            MovedThisTurn = false;
+            TakeMoveMade = false;
+            GameEnded = false;
         }
     }
 }

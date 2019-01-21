@@ -34,9 +34,20 @@ namespace Draughts
             else { _value = -1; }
         }
 
-
         // Returns all possible movesets a piece can make, including ones with multiple steps
         public virtual List<List<Position>> GetMoves(Board board)
+        {
+            List<List<Position>> Moves = new List<List<Position>>();
+         
+            Moves.AddRange(GetNonTakeMoves(board));
+
+            // Calls recursive function to find multi-step take moves
+            Moves.AddRange(GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>()));
+
+            return Moves;
+        }        
+           
+        public virtual List<List<Position>> GetNonTakeMoves(Board board)
         {
             List<List<Position>> Moves = new List<List<Position>>();
 
@@ -66,15 +77,7 @@ namespace Draughts
                 }
             }
 
-            // Calls recursive function to find multi-step take moves
-            Moves.AddRange(GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>()));
-
             return Moves;
-        }
-
-        public virtual List<List<Position>> GetTakeMovesOnly(Board board)
-        {
-            return GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>());
         }
 
         // recursive structure to find multi-step moves
@@ -126,12 +129,12 @@ namespace Draughts
             return Moves;
         }
 
-        // Returns a random move
-        public List<Position> GetRandomMove(Board CurrentBoard)
+        // public version of GetTakeMoves which only needs the board as an input
+        public virtual List<List<Position>> GetTakeMovesOnly(Board board)
         {
-            Random rng = new Random();
-            List<List<Position>> positions = GetMoves(CurrentBoard);
-            return positions[rng.Next(positions.Count())];
+            return GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>());
         }
+
+
     }
 }

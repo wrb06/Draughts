@@ -1,12 +1,9 @@
 BUGS:
-	- Kingpiece didnt take
-
-	- restart game button doesnt disappear when new game is loaded
 
 TODO:
 	- When the AI makes moves, it is sometimes hard to see what/where a move has been made - Animations?
 
-	- Prune the tree
+	- Prune the tree more with AB pruning
 
 	- Make end game more agressive
 

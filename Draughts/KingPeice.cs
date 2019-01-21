@@ -34,7 +34,8 @@ namespace Draughts
             return Moves;
         }
 
-        private List<List<Position>> GetNonTakeMoves(Board board)
+        // Non recursive checking the 4 moves around the piece
+        public override List<List<Position>> GetNonTakeMoves(Board board)
         {
             List<List<Position>> Moves = new List<List<Position>>();
 
@@ -91,6 +92,8 @@ namespace Draughts
 
             return Moves;
         }
+
+        // recursive structure to find multi-step moves
         private List<List<Position>> GetTakeMoves(Board board, Position position, bool iswhite, List<Position> moveset)
         {
             List<List<Position>> Moves = new List<List<Position>>();
@@ -187,5 +190,10 @@ namespace Draughts
             return Moves;
         }
 
+        // public version of GetTakeMoves which only needs the board as an input
+        public override List<List<Position>> GetTakeMovesOnly(Board board)
+        {
+            return GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>());
+        }
     }
 }

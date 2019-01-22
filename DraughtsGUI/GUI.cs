@@ -36,10 +36,18 @@ namespace DraughtsGUI
         List<PictureBox> boxes;
         AIPlayer AIBlack = new AIPlayer(false, 3);
 
+        BackgroundWorker worker;
+
         public GUI()
         {
-            
             InitializeComponent();
+
+            worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
+            worker.DoWork += BlackMove;
+            worker.RunWorkerCompleted += BlackFinishedMove;
+
+
             scale = FindScale();
             SetupBoard();
 
@@ -48,6 +56,31 @@ namespace DraughtsGUI
             UpdateBoard();
             Console.WriteLine("B " + board.ConvertForSave());
 
+        }
+
+        private void BlackFinishedMove(object sender, RunWorkerCompletedEventArgs e)
+        {
+            SaveButton.Enabled = true;
+            button1.Enabled = true;
+            button2.Enabled = true;
+            trackBar1.Enabled = true;
+
+            label7.Text = (++MoveNum).ToString();
+            Console.WriteLine("B " + board.ConvertForSave());
+            UpdateBoard();
+
+            MovedThisTurn = false;
+            TakeMoveMade = false;
+
+            if (board.BlackHasWon()) { DisplayEnd("Black"); GameEnded = true; }
+            else if (board.WhiteHasWon()) { DisplayEnd("White"); GameEnded = true; }
+        }
+
+        private void BlackMove(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker bgWorker = (BackgroundWorker)sender;
+
+            board = AIBlack.MakeMove(board);
         }
 
         private int FindScale()
@@ -245,16 +278,11 @@ namespace DraughtsGUI
                 Application.DoEvents();
 
                 // Let Black make a move and display
-                board = AIBlack.MakeMove(board);
-                label7.Text = (++MoveNum).ToString();
-                Console.WriteLine("B " + board.ConvertForSave());
-                UpdateBoard();
-
-                MovedThisTurn = false;
-                TakeMoveMade = false;
-
-                if (board.BlackHasWon()) { DisplayEnd("Black"); GameEnded = true; }
-                else if (board.WhiteHasWon()) { DisplayEnd("White"); GameEnded = true; }
+                worker.RunWorkerAsync();
+                SaveButton.Enabled = false;
+                button1.Enabled = false;
+                button2.Enabled = false;
+                trackBar1.Enabled = false;
             }
         }
 

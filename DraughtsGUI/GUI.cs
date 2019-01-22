@@ -25,16 +25,15 @@ namespace DraughtsGUI
         const string WhiteKingPieceHighlightLocation = "../../WhiteKingPieceHighlight.png";
 
         int scale;
+        int MoveNum = 0;
         bool MovedThisTurn = false;
         bool TakeMoveMade = false;
         Position TakingPiecePosition;
         Position SelectedPosition;
         bool FoundPieceToMove;
         bool GameEnded = false;
-
         Board board;
         List<PictureBox> boxes;
-
         AIPlayer AIBlack = new AIPlayer(false, 3);
 
         public GUI()
@@ -47,7 +46,7 @@ namespace DraughtsGUI
             UpdateBoard();
             board = AIBlack.MakeMove(board);
             UpdateBoard();
-            //Console.WriteLine("B " + board.ConvertForSave());
+            Console.WriteLine("B " + board.ConvertForSave());
 
         }
 
@@ -61,7 +60,7 @@ namespace DraughtsGUI
         {
             board = new Board(empty);
 
-            //Console.WriteLine("  " + board.ConvertForSave());
+            Console.WriteLine("  " + board.ConvertForSave());
 
 
             board.PlacePeice(new Piece(true, 6, 7));
@@ -240,16 +239,16 @@ namespace DraughtsGUI
             // Auto ends turn if no more moves are found
             if ((MovedThisTurn && !TakeMoveMade) || (TakeMoveMade && board.GetPiece(SelectedPosition).GetTakeMovesOnly(board).Count == 0))
             {
-                //Console.WriteLine("W " + board.ConvertForSave());
+                // Add one to the move count and display
+                label7.Text = (++MoveNum).ToString();
+                Console.WriteLine("W " + board.ConvertForSave());
                 Application.DoEvents();
 
+                // Let Black make a move and display
                 board = AIBlack.MakeMove(board);
-                //Console.WriteLine("B " + board.ConvertForSave());
+                label7.Text = (++MoveNum).ToString();
+                Console.WriteLine("B " + board.ConvertForSave());
                 UpdateBoard();
-
-                textBox1.Text = board.EvaluateBoard().ToString();
-                textBox2.Text = "";
-                textBox3.Text = "";
 
                 MovedThisTurn = false;
                 TakeMoveMade = false;
@@ -318,7 +317,6 @@ namespace DraughtsGUI
                 file.Close();
             }
         }
-
         private void LoadFile(object sender, EventArgs e)
         {
             // Open a new Dialogue box
@@ -393,7 +391,7 @@ namespace DraughtsGUI
 
         }
 
-        private void restartgame_Click(object sender, EventArgs e)
+        private void RestartGameClick(object sender, EventArgs e)
         {
             
             board = new Board();
@@ -403,10 +401,36 @@ namespace DraughtsGUI
 
             UpdateBoard();
             board = AIBlack.MakeMove(board);
+            MoveNum = 1;
             //Console.WriteLine("B " + board.ConvertForSave());
             UpdateBoard();
 
             
+            restartgame.Visible = false;
+            restartgame.Location = new Point(0, 0);
+            restartgame.Size = new Size(0, 0);
+
+            MovedThisTurn = false;
+            TakeMoveMade = false;
+            GameEnded = false;
+            
+        }
+
+        private void NewGame(object sender, EventArgs e)
+        {
+            board = new Board();
+            //Console.WriteLine("\n");
+            //Console.WriteLine("  " + board.ConvertForSave());
+
+
+            UpdateBoard();
+            board = AIBlack.MakeMove(board);
+            MoveNum = 1;
+            label7.Text = MoveNum.ToString();
+            //Console.WriteLine("B " + board.ConvertForSave());
+            UpdateBoard();
+
+
             restartgame.Visible = false;
             restartgame.Location = new Point(0, 0);
             restartgame.Size = new Size(0, 0);

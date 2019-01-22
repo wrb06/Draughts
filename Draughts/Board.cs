@@ -222,6 +222,7 @@ namespace Draughts
             int i = to.GetAsSingleNum();
             if ((i % 2 + i / 8) % 2 == 0) { return false; }
 
+            if (GetPiece(to) != null) { return false; }
    
             if (from.IsTakeMove(to))
             {

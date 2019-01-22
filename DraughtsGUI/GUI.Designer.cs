@@ -40,6 +40,9 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
             this.restartgame = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,7 +129,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(146, 12);
+            this.label5.Location = new System.Drawing.Point(210, 12);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 12;
@@ -134,11 +137,13 @@
             // 
             // trackBar1
             // 
+            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.LargeChange = 10;
-            this.trackBar1.Location = new System.Drawing.Point(146, 32);
+            this.trackBar1.Location = new System.Drawing.Point(213, 32);
             this.trackBar1.Maximum = 40;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(442, 45);
+            this.trackBar1.Size = new System.Drawing.Size(375, 45);
             this.trackBar1.TabIndex = 13;
             this.trackBar1.TickFrequency = 10;
             this.trackBar1.Value = 20;
@@ -147,7 +152,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(200, 11);
+            this.label4.Location = new System.Drawing.Point(263, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(19, 13);
             this.label4.TabIndex = 14;
@@ -162,7 +167,35 @@
             this.restartgame.Text = "RestartGame";
             this.restartgame.UseVisualStyleBackColor = true;
             this.restartgame.Visible = false;
-            this.restartgame.Click += new System.EventHandler(this.restartgame_Click);
+            this.restartgame.Click += new System.EventHandler(this.RestartGameClick);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(485, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(34, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Move";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(146, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(61, 65);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "New";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.NewGame);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(525, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "label7";
             // 
             // GUI
             // 
@@ -170,6 +203,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(600, 714);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.restartgame);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.trackBar1);
@@ -207,6 +243,9 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button restartgame;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Draughts
 {
@@ -19,18 +20,13 @@ namespace Draughts
         {
             _isWhite = white;
             _depthOfSearch = depth;
+            
         }
 
         // Gets the move from minimax, then makes the move
-        public Board MakeMove(Board board)
+        public Board MakeMove(Board board, BackgroundWorker worker)
         {
-            Tuple<float, Position, List<Position>> mm = Minimax(DepthOfSearch, IsWhite, board);
-            
-            //Console.WriteLine();
-            //Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
-            //Console.WriteLine(mm.Item1);
-
-            //ShowBoard(board, DepthOfSearch);
+            Tuple<float, Position, List<Position>> mm = Minimax(DepthOfSearch, IsWhite, board, worker);
 
             if (!mm.Item2.InBoard()) { return board; }
             else
@@ -46,7 +42,7 @@ namespace Draughts
         }
 
         // Returns the best move
-        private Tuple<float, Position, List<Position>> Minimax(int Depth, bool MaximisingPlayer, Board board)
+        private Tuple<float, Position, List<Position>> Minimax(int Depth, bool MaximisingPlayer, Board board, BackgroundWorker worker)
         {
             // Setup 
             float BestValue;
@@ -71,27 +67,6 @@ namespace Draughts
             // setup best moveset
             List<Position> BestMoveset = new List<Position>();
 
-            //Show the tree (console only)
-            /*
-            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-           
-            if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
-            else { Console.Write("> MIN | "); }
-
-            Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString());
-            try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
-            Console.WriteLine();
-            ShowBoard(board, Depth);
-            */
-
-
-
-
-
-
-
-
-
             // detect wins
             if (board.WhiteHasWon()) { return Tuple.Create(float.MaxValue, BestPiecePosition, BestMoveset); }
             if (board.BlackHasWon()) { return Tuple.Create(float.MinValue, BestPiecePosition, BestMoveset); }
@@ -106,6 +81,9 @@ namespace Draughts
             // If we shouldnt stop
             if (MaximisingPlayer)
             {
+                // Counts the number of pieces we have searched
+                int piececount = 0;
+
                 foreach (Position pieceposition in usablepieces)
                 {
                     // generate all possible movesets
@@ -125,9 +103,6 @@ namespace Draughts
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
 
-                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
-
                     foreach (List<Position> moveset in possibleMovesets)
                     {
                         // Make test board
@@ -141,7 +116,7 @@ namespace Draughts
                             oldpos = move;
                         }
 
-                        Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, false, testboard);
+                        Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, false, testboard, worker);
 
                         // Change the best result if we need to
                         if (mm.Item1 >= BestValue)
@@ -152,11 +127,20 @@ namespace Draughts
                         }
 
                     }
+                    // If its the first call (highest depth) and we have finished a piece, report back to the worker our progress 
+                    if (Depth == DepthOfSearch)
+                    {
+                        worker.ReportProgress((int)(100f * piececount) / usablepieces.Count);
+                    }
+                    piececount++;
                 }
                 return Tuple.Create(BestValue, BestPiecePosition, BestMoveset);
             }
             else
             {
+                // Counts the number of pieces we have searched
+                int piececount = 0;
+
                 foreach (Position pieceposition in usablepieces)
                 {
                     // generate all possible movesets
@@ -176,10 +160,6 @@ namespace Draughts
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
 
-                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
-
-
                     foreach (List<Position> moveset in possibleMovesets)
                     {
                         // Make test board
@@ -193,7 +173,7 @@ namespace Draughts
                             oldpos = move;
                         }
 
-                        Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, true, testboard);
+                        Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, true, testboard, worker);
 
                         // Change the best result if we need to
                         if (mm.Item1 <= BestValue)
@@ -202,7 +182,12 @@ namespace Draughts
                             BestMoveset = moveset;
                             BestPiecePosition = pieceposition;
                         }
+                    }
 
+                    // If its the first call (highest depth) and we have finished a piece, report back to the worker our progress 
+                    if (Depth == DepthOfSearch)
+                    {
+                        worker.ReportProgress((int)(100f * ++piececount) / usablepieces.Count);
                     }
                 }
                 return Tuple.Create(BestValue, BestPiecePosition, BestMoveset);

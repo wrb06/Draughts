@@ -53,15 +53,14 @@ namespace DraughtsGUI
             SetupBoard();
 
             UpdateBoard();
-            board = AIBlack.MakeMove(board);
-            UpdateBoard();
-            Console.WriteLine("B " + board.ConvertForSave());
+            worker.RunWorkerAsync();
 
         }
 
         private void BlackMoveProgress(object sender, ProgressChangedEventArgs e)
         {
-            progressBar1.Value += 100;
+            progressBar1.Value = e.ProgressPercentage;
+            Console.WriteLine(e.ProgressPercentage);
         }
 
         private void BlackFinishedMove(object sender, RunWorkerCompletedEventArgs e)
@@ -78,17 +77,19 @@ namespace DraughtsGUI
             MovedThisTurn = false;
             TakeMoveMade = false;
 
-            if (board.BlackHasWon()) { DisplayEnd("Black"); GameEnded = true; }
-            else if (board.WhiteHasWon()) { DisplayEnd("White"); GameEnded = true; }
+            if (board.BlackHasWon()) { DisplayEnd("Black");  }
+            else if (board.WhiteHasWon()) { DisplayEnd("White"); }
+
+            progressBar1.Value = 0;
         }
 
         private void BlackMove(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker bgWorker = (BackgroundWorker)sender;
 
-            board = AIBlack.MakeMove(board);
-            bgWorker.ReportProgress(100);
+            board = AIBlack.MakeMove(board, bgWorker);
         }
+
 
         private int FindScale()
         {
@@ -284,12 +285,12 @@ namespace DraughtsGUI
                 Console.WriteLine("W " + board.ConvertForSave());
                 Application.DoEvents();
 
-                // Let Black make a move and display
-                worker.RunWorkerAsync();
+                // Let Black make a move and display           
                 SaveButton.Enabled = false;
                 button1.Enabled = false;
                 button2.Enabled = false;
                 trackBar1.Enabled = false;
+                worker.RunWorkerAsync();
             }
         }
 
@@ -428,6 +429,7 @@ namespace DraughtsGUI
 
         private void DisplayEnd(string Winner)
         {
+            GameEnded = true;
             restartgame.Text = Winner + " has won. \n Click to play again";
             restartgame.Location = new Point(3*scale, 120+(int)(3.5 * scale));
             restartgame.Size = new Size(2*scale, scale);
@@ -444,7 +446,11 @@ namespace DraughtsGUI
 
 
             UpdateBoard();
-            board = AIBlack.MakeMove(board);
+            SaveButton.Enabled = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+            trackBar1.Enabled = false;
+            worker.RunWorkerAsync();
             MoveNum = 1;
             //Console.WriteLine("B " + board.ConvertForSave());
             UpdateBoard();
@@ -468,8 +474,12 @@ namespace DraughtsGUI
 
 
             UpdateBoard();
-            board = AIBlack.MakeMove(board);
-            MoveNum = 1;
+            SaveButton.Enabled = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+            trackBar1.Enabled = false;
+            worker.RunWorkerAsync();
+            MoveNum = 0;
             label7.Text = MoveNum.ToString();
             //Console.WriteLine("B " + board.ConvertForSave());
             UpdateBoard();

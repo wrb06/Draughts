@@ -84,6 +84,14 @@ namespace Draughts
             ShowBoard(board, Depth);
             */
 
+
+
+
+
+
+
+
+
             // detect wins
             if (board.WhiteHasWon()) { return Tuple.Create(float.MaxValue, BestPiecePosition, BestMoveset); }
             if (board.BlackHasWon()) { return Tuple.Create(float.MinValue, BestPiecePosition, BestMoveset); }

@@ -291,6 +291,7 @@ namespace DraughtsGUI
                 button2.Enabled = false;
                 trackBar1.Enabled = false;
                 worker.RunWorkerAsync();
+
             }
         }
 
@@ -446,11 +447,13 @@ namespace DraughtsGUI
 
 
             UpdateBoard();
+            
             SaveButton.Enabled = false;
             button1.Enabled = false;
             button2.Enabled = false;
             trackBar1.Enabled = false;
             worker.RunWorkerAsync();
+
             MoveNum = 1;
             //Console.WriteLine("B " + board.ConvertForSave());
             UpdateBoard();
@@ -474,12 +477,14 @@ namespace DraughtsGUI
 
 
             UpdateBoard();
+            
             SaveButton.Enabled = false;
             button1.Enabled = false;
             button2.Enabled = false;
             trackBar1.Enabled = false;
             worker.RunWorkerAsync();
             MoveNum = 0;
+
             label7.Text = MoveNum.ToString();
             //Console.WriteLine("B " + board.ConvertForSave());
             UpdateBoard();

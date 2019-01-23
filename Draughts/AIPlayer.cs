@@ -66,7 +66,20 @@ namespace Draughts
 
             // setup best moveset
             List<Position> BestMoveset = new List<Position>();
+          
+            //Show the tree (console only)
+            /*
+            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+           
+            if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
+            else { Console.Write("> MIN | "); }
 
+            Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString());
+            try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
+            Console.WriteLine();
+            ShowBoard(board, Depth);
+            */
+  
             // detect wins
             if (board.WhiteHasWon()) { return Tuple.Create(float.MaxValue, BestPiecePosition, BestMoveset); }
             if (board.BlackHasWon()) { return Tuple.Create(float.MinValue, BestPiecePosition, BestMoveset); }
@@ -103,6 +116,8 @@ namespace Draughts
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
 
+                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
                     foreach (List<Position> moveset in possibleMovesets)
                     {
                         // Make test board
@@ -159,6 +174,9 @@ namespace Draughts
                     {
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
+                  
+                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
 
                     foreach (List<Position> moveset in possibleMovesets)
                     {

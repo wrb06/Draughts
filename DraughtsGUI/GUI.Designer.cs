@@ -142,7 +142,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.LargeChange = 10;
             this.trackBar1.Location = new System.Drawing.Point(213, 32);
-            this.trackBar1.Maximum = 400;
+            this.trackBar1.Maximum = 40;
+
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(375, 45);
             this.trackBar1.TabIndex = 13;
@@ -179,6 +180,7 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Move";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+
             // 
             // button2
             // 
@@ -197,7 +199,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 19;
-            this.label7.Text = "label7";
+            this.label7.Text = "label7";        
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // progressBar1
@@ -214,6 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+
             this.ClientSize = new System.Drawing.Size(600, 721);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label7);

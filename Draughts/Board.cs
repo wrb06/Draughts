@@ -222,6 +222,7 @@ namespace Draughts
             int i = to.GetAsSingleNum();
             if ((i % 2 + i / 8) % 2 == 0) { return false; }
 
+            if (GetPiece(to) != null) { return false; }
    
             if (from.IsTakeMove(to))
             {
@@ -289,19 +290,23 @@ namespace Draughts
 
         public string ConvertForSave()
         {
+            Piece p;
             string BoardString = "";
-            foreach (Piece p in _boardArray)
+            for (int i = 0; i < 64; i++)
             {
-                if (p == null) { BoardString += "E"; }
-                else
-                {
-                    if (p.Value == 1) { BoardString += "w"; }
-                    else if (p.Value == -1) { BoardString += "b"; }
-                    else if (p.Value == 500) { BoardString += "W"; }
-                    else if (p.Value == -500) { BoardString += "B"; }
-                    else { BoardString += "A"; }
-                }
+                if ((i % 2 + i / 8) % 2 == 1) {
+                    p = this.GetPiece(i % 8, i / 8);
+                    if (p == null) { BoardString += "E"; }
+                    else
+                    {
+                        if (p.Value == 1) { BoardString += "w"; }
+                        else if (p.Value == -1) { BoardString += "b"; }
+                        else if (p.Value == 500) { BoardString += "W"; }
+                        else if (p.Value == -500) { BoardString += "B"; }
+                        else { BoardString += "A"; }
+                    } }
             }
+
             return BoardString;
         }
     }

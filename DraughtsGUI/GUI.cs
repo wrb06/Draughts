@@ -36,23 +36,64 @@ namespace DraughtsGUI
         List<PictureBox> boxes;
         AIPlayer AIBlack = new AIPlayer(false, 3);
 
+        BackgroundWorker worker;
+
         public GUI()
         {
-            
             InitializeComponent();
+
+            worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
+            worker.DoWork += BlackMove;
+            worker.ProgressChanged += BlackMoveProgress;
+            worker.RunWorkerCompleted += BlackFinishedMove;
+
+
             scale = FindScale();
             SetupBoard();
 
             UpdateBoard();
-            board = AIBlack.MakeMove(board);
-            UpdateBoard();
-            Console.WriteLine("B " + board.ConvertForSave());
+            worker.RunWorkerAsync();
 
         }
 
+        private void BlackMoveProgress(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+            Console.WriteLine(e.ProgressPercentage);
+        }
+
+        private void BlackFinishedMove(object sender, RunWorkerCompletedEventArgs e)
+        {
+            SaveButton.Enabled = true;
+            button1.Enabled = true;
+            button2.Enabled = true;
+            trackBar1.Enabled = true;
+
+            label7.Text = (++MoveNum).ToString();
+            Console.WriteLine("B " + board.ConvertForSave());
+            UpdateBoard();
+
+            MovedThisTurn = false;
+            TakeMoveMade = false;
+
+            if (board.BlackHasWon()) { DisplayEnd("Black");  }
+            else if (board.WhiteHasWon()) { DisplayEnd("White"); }
+
+            progressBar1.Value = 0;
+        }
+
+        private void BlackMove(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker bgWorker = (BackgroundWorker)sender;
+
+            board = AIBlack.MakeMove(board, bgWorker);
+        }
+
+
         private int FindScale()
         {
-            if (Height-140<Width) { return (Height-140) / 8; }
+            if (Height-160<Width) { return (Height-160) / 8; }
             else { return (Width-16) / 8; }
         }
 
@@ -81,7 +122,7 @@ namespace DraughtsGUI
                     if (p.Value == -500) { picture.ImageLocation = BlackKingPieceLocation; }
                 }
                 picture.SizeMode = PictureBoxSizeMode.Zoom;
-                picture.Location = new Point((i % 8) * scale, 100 + (i / 8) * scale);
+                picture.Location = new Point((i % 8) * scale, 120 + (i / 8) * scale);
                 picture.Size = new Size(scale, scale);
 
                 picture.Click += Picture_Click;
@@ -226,7 +267,7 @@ namespace DraughtsGUI
 
         private Position PointToPosition(Point point)
         {
-            return new Position(point.X / scale, (point.Y-100) / scale);
+            return new Position(point.X / scale, (point.Y-120) / scale);
         }
 
         private void GUI_Load(object sender, EventArgs e)
@@ -244,17 +285,13 @@ namespace DraughtsGUI
                 Console.WriteLine("W " + board.ConvertForSave());
                 Application.DoEvents();
 
-                // Let Black make a move and display
-                board = AIBlack.MakeMove(board);
-                label7.Text = (++MoveNum).ToString();
-                Console.WriteLine("B " + board.ConvertForSave());
-                UpdateBoard();
+                // Let Black make a move and display           
+                SaveButton.Enabled = false;
+                button1.Enabled = false;
+                button2.Enabled = false;
+                trackBar1.Enabled = false;
+                worker.RunWorkerAsync();
 
-                MovedThisTurn = false;
-                TakeMoveMade = false;
-
-                if (board.BlackHasWon()) { DisplayEnd("Black"); GameEnded = true; }
-                else if (board.WhiteHasWon()) { DisplayEnd("White"); GameEnded = true; }
             }
         }
 
@@ -269,14 +306,11 @@ namespace DraughtsGUI
             if (saveFileDialog.FileName != "")
             {
                 // Convert the board into computer readable form
-                string FileData = board.ConvertForSave();
-                FileData += Environment.NewLine;
-
+                string FileData = board.ConvertForSave() + MoveNum.ToString("00") + Environment.NewLine;
 
                 // Add a human readable form so the user can see what state the board is in easily
                 FileData += "#|0_1_2_3_4_5_6_7" + Environment.NewLine +
                             "0|";
-
                 int i = 0;
                 foreach (Piece p in board.GetBoard())
                 {
@@ -304,6 +338,7 @@ namespace DraughtsGUI
                         FileData += Environment.NewLine + (i / 8) + "|";
                     }
                 }
+                FileData += "Moves Made so far: " + MoveNum.ToString();
 
 
                 // Open the file
@@ -331,30 +366,41 @@ namespace DraughtsGUI
                 byte[] FileBytes = new byte[fileStream.Length];
 
                 // Only take the first 64 characters as that is the board
-                fileStream.Read(FileBytes, 0, 64);
+                fileStream.Read(FileBytes, 0, 34);
 
                 // Empty board, place new pieces on board
                 board = new Board(true);
-                int i = 0;
-                foreach (byte b in FileBytes)
-                {
-                    if (b == (byte)'w') { board.PlacePeice(new Piece(true, i % 8, i / 8)); }
-                    else if (b == (byte)'b') { board.PlacePeice(new Piece(false, i % 8, i / 8)); }
-                    else if (b == (byte)'W') { board.PlacePeice(new KingPiece(true, i % 8, i / 8)); }
-                    else if (b == (byte)'B') { board.PlacePeice(new KingPiece(false, i % 8, i / 8)); }
 
-                    i++;
+                // Read the first 32 characters and turn into pieces
+                int ByteCount = 0;
+                for (int i = 0; i < 64; i++)
+                {
+                    if ((i % 2 + i / 8) % 2 == 1)
+                    {
+                        byte b = FileBytes[ByteCount];
+
+                        if (b == (byte)'w') { board.PlacePeice(new Piece(true, i % 8, i / 8)); }
+                        else if (b == (byte)'b') { board.PlacePeice(new Piece(false, i % 8, i / 8)); }
+                        else if (b == (byte)'W') { board.PlacePeice(new KingPiece(true, i % 8, i / 8)); }
+                        else if (b == (byte)'B') { board.PlacePeice(new KingPiece(false, i % 8, i / 8)); }
+
+                        ByteCount++;
+                    }
                 }
 
+                // Read MoveNum from final two bytes
+                int.TryParse(((char)FileBytes[32]).ToString() + ((char)FileBytes[33]).ToString(), out MoveNum);
                 UpdateBoard();
 
                 restartgame.Visible = false;
                 restartgame.Location = new Point(0, 0);
                 restartgame.Size = new Size(0, 0);
-
+                
                 MovedThisTurn = false;
                 TakeMoveMade = false;
                 GameEnded = false;
+
+                label7.Text = MoveNum.ToString();
 
             }
         }
@@ -364,13 +410,13 @@ namespace DraughtsGUI
             scale = FindScale();
             for (int i = 0; i<64; i++)
             {
-                boxes[i].Location = new Point((i % 8) * scale, 100 + (i / 8) * scale);
+                boxes[i].Location = new Point((i % 8) * scale, 120 + (i / 8) * scale);
                 boxes[i].Size = new Size(scale, scale);
             }
             UpdateBoard();
             if (restartgame.Visible)
             {
-                restartgame.Location = new Point(3 * scale, 100 + (int)(3.5 * scale));
+                restartgame.Location = new Point(3 * scale, 120 + (int)(3.5 * scale));
                 restartgame.Size = new Size(2 * scale, scale);
             }
         }
@@ -384,8 +430,9 @@ namespace DraughtsGUI
 
         private void DisplayEnd(string Winner)
         {
+            GameEnded = true;
             restartgame.Text = Winner + " has won. \n Click to play again";
-            restartgame.Location = new Point(3*scale, 100+(int)(3.5 * scale));
+            restartgame.Location = new Point(3*scale, 120+(int)(3.5 * scale));
             restartgame.Size = new Size(2*scale, scale);
             restartgame.Visible = true;
 
@@ -400,7 +447,13 @@ namespace DraughtsGUI
 
 
             UpdateBoard();
-            board = AIBlack.MakeMove(board);
+            
+            SaveButton.Enabled = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+            trackBar1.Enabled = false;
+            worker.RunWorkerAsync();
+
             MoveNum = 1;
             //Console.WriteLine("B " + board.ConvertForSave());
             UpdateBoard();
@@ -424,8 +477,14 @@ namespace DraughtsGUI
 
 
             UpdateBoard();
-            board = AIBlack.MakeMove(board);
-            MoveNum = 1;
+            
+            SaveButton.Enabled = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+            trackBar1.Enabled = false;
+            worker.RunWorkerAsync();
+            MoveNum = 0;
+
             label7.Text = MoveNum.ToString();
             //Console.WriteLine("B " + board.ConvertForSave());
             UpdateBoard();

@@ -38,9 +38,13 @@ namespace DraughtsGUI
 
         BackgroundWorker worker;
 
+        List<String> pastboards;
+
         public GUI()
         {
             InitializeComponent();
+
+            pastboards = new List<string>();
 
             worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
@@ -60,7 +64,7 @@ namespace DraughtsGUI
         private void BlackMoveProgress(object sender, ProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
-            Console.WriteLine(e.ProgressPercentage);
+            //Console.WriteLine(e.ProgressPercentage);
         }
 
         private void BlackFinishedMove(object sender, RunWorkerCompletedEventArgs e)
@@ -71,7 +75,9 @@ namespace DraughtsGUI
             trackBar1.Enabled = true;
 
             label7.Text = (++MoveNum).ToString();
+            numericUpDown1.Value = MoveNum;
             Console.WriteLine("B " + board.ConvertForSave());
+            pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
             UpdateBoard();
 
             MovedThisTurn = false;
@@ -97,15 +103,12 @@ namespace DraughtsGUI
             else { return (Width-16) / 8; }
         }
 
-        private void SetupBoard(bool empty = true)
+        private void SetupBoard(bool empty = false)
         {
             board = new Board(empty);
 
             Console.WriteLine("  " + board.ConvertForSave());
-
-
-            board.PlacePeice(new Piece(true, 6, 7));
-            board.PlacePeice(new Piece(false, 5, 4));
+            pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
 
             boxes = new List<PictureBox>();
             int i = 0;
@@ -283,6 +286,7 @@ namespace DraughtsGUI
                 // Add one to the move count and display
                 label7.Text = (++MoveNum).ToString();
                 Console.WriteLine("W " + board.ConvertForSave());
+                pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
                 Application.DoEvents();
 
                 // Let Black make a move and display           
@@ -475,7 +479,6 @@ namespace DraughtsGUI
             //Console.WriteLine("\n");
             //Console.WriteLine("  " + board.ConvertForSave());
 
-
             UpdateBoard();
             
             SaveButton.Enabled = false;
@@ -486,6 +489,7 @@ namespace DraughtsGUI
             MoveNum = 0;
 
             label7.Text = MoveNum.ToString();
+            numericUpDown1.Value = MoveNum;
             //Console.WriteLine("B " + board.ConvertForSave());
             UpdateBoard();
 
@@ -497,6 +501,38 @@ namespace DraughtsGUI
             MovedThisTurn = false;
             TakeMoveMade = false;
             GameEnded = false;
+        }
+
+        private void numericUpDown1_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Step through debug mode
+            
+            bool changed = false;
+            if (e.KeyCode == Keys.Left) { numericUpDown1.Value--; changed = true; }
+            else if (e.KeyCode == Keys.Right) { numericUpDown1.Value++; changed = true; }
+
+            if (changed)
+            {
+                board = new Board(true);
+                // Load the board state with index stored
+                int Charcount = 0;
+                String Boardstate = pastboards[(int)numericUpDown1.Value];
+                for (int i = 0; i < 64; i++)
+                {
+                    if ((i % 2 + i / 8) % 2 == 1)
+                    {
+                        char c = Boardstate[Charcount];
+
+                        if (c == 'w') { board.PlacePeice(new Piece(true, i % 8, i / 8)); }
+                        else if (c == 'b') { board.PlacePeice(new Piece(false, i % 8, i / 8)); }
+                        else if (c == 'W') { board.PlacePeice(new KingPiece(true, i % 8, i / 8)); }
+                        else if (c == 'B') { board.PlacePeice(new KingPiece(false, i % 8, i / 8)); }
+
+                        Charcount++;
+                    }
+                }
+                UpdateBoard();
+            }
         }
     }
 }

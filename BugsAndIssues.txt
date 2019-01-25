@@ -3,8 +3,6 @@ BUGS:
 
 	- Black Doesnt move? end turn broken?
 
-	- Bug where pieces can take friendly pieces next to them.
-
 TODO:
 	- When the AI makes moves, it is sometimes hard to see what/where a move has been made - Animations?
 
@@ -13,6 +11,4 @@ TODO:
 	- Make end game more agressive
 
 	- Something for small changes in difficulty
-
-	- Move GUI rendering and move rendering to different threads
 

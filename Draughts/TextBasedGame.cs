@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 //  This is to test the AI's without having to make a GUI.
 namespace Draughts
@@ -10,44 +11,41 @@ namespace Draughts
     class TextBasedGame
     {
         Random rng = new Random();
-        static Board b = new Board(true); // REMOVE TEST
+        static Board b = new Board(); // REMOVE TEST
        
         static void Main(string[] args)
         {
-            
+            /*
             b.PlacePeice(new Piece(true, 4, 7));
 
             b.PlacePeice(new Piece(false, 3, 6));
             b.PlacePeice(new Piece(false, 1, 4));
             b.PlacePeice(new Piece(false, 5, 6));
-            
+            */
 
-            AIPlayer white = new AIPlayer(true, 2);            
-            AIPlayer black = new AIPlayer(false, 2);
+            AIPlayer white = new AIPlayer(true, 7);            
+            AIPlayer black = new AIPlayer(false, 7);
 
             
             ShowBoard();
 
             Console.WriteLine("\n BEGIN");
-            b = white.MakeMove(b);
-            Console.WriteLine("END\n");
 
-            ShowBoard();
-            
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
 
-            /*
-            for (int i = 0; i < 10; i++)
+
+            for (int i = 0; i < 100; i++)
             {
+                b = white.MakeMove(b, worker);
                 ShowBoard();
-                b = white.MakeMove(b);
                 Console.WriteLine();
 
+
+                b = black.MakeMove(b, worker);
                 ShowBoard();
-                b = black.MakeMove(b);
                 Console.WriteLine();
             }
-            */
-            
 
             Console.ReadLine();
         }

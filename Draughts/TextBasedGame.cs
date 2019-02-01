@@ -15,16 +15,8 @@ namespace Draughts
        
         static void Main(string[] args)
         {
-            /*
-            b.PlacePeice(new Piece(true, 4, 7));
-
-            b.PlacePeice(new Piece(false, 3, 6));
-            b.PlacePeice(new Piece(false, 1, 4));
-            b.PlacePeice(new Piece(false, 5, 6));
-            */
-
-            AIPlayer white = new AIPlayer(true, 7);            
-            AIPlayer black = new AIPlayer(false, 7);
+            AIPlayer white = new AIPlayer(true, 5);            
+            AIPlayer black = new AIPlayer(false, 5);
 
             
             ShowBoard();
@@ -33,7 +25,15 @@ namespace Draughts
 
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
-
+        
+            /*
+            b = black.MakeMove(b, worker);
+            ShowBoard();
+            Console.WriteLine();
+            */
+            
+                      
+            
 
             for (int i = 0; i < 100; i++)
             {
@@ -41,10 +41,15 @@ namespace Draughts
                 ShowBoard();
                 Console.WriteLine();
 
+                if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
+                if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
 
                 b = black.MakeMove(b, worker);
                 ShowBoard();
                 Console.WriteLine();
+
+                if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
+                if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
             }
 
             Console.ReadLine();

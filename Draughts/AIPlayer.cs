@@ -9,6 +9,9 @@ namespace Draughts
 {
     class AIPlayer
     {
+        const bool UsePruning = false;
+        const bool Debug = false;
+
         private readonly bool _isWhite;
         private readonly int _depthOfSearch;
         public bool IsWhite => _isWhite;
@@ -69,19 +72,20 @@ namespace Draughts
 
             // setup best moveset
             List<Position> BestMoveset = new List<Position>();
-          
-            //Show the tree (console only)
-            /*
-            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-           
-            if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
-            else { Console.Write("> MIN | "); }
 
-            Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString() + " | alpha: " + alpha.ToString() + " | beta: " + beta.ToString());
-            try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
-            Console.WriteLine();
-            ShowBoard(board, Depth);
-            */
+            //Show the tree (console only)
+            if (Debug)
+            {
+                for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+
+                if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
+                else { Console.Write("> MIN | "); }
+
+                Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString() + " | alpha: " + alpha.ToString() + " | beta: " + beta.ToString());
+                try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
+                Console.WriteLine();
+                ShowBoard(board, Depth);
+            }
             
   
             // detect wins
@@ -120,10 +124,12 @@ namespace Draughts
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
 
-                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
-
-                    bool BreakOuterLoop = false;
+                    if (Debug)
+                    {
+                        for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                    }
+                        bool BreakOuterLoop = false;
                     foreach (List<Position> moveset in possibleMovesets)
                     {
                         // Make test board
@@ -160,10 +166,13 @@ namespace Draughts
                     }
                     piececount++;
 
-                    if (BreakOuterLoop)
+                    if (BreakOuterLoop && UsePruning)
                     {
-                        //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        //Console.WriteLine("alpha - beta cutoff");
+                        if (Debug)
+                        {
+                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                            Console.WriteLine("alpha - beta cutoff");
+                        }
                         break;
                     }
                 }
@@ -192,9 +201,12 @@ namespace Draughts
                     {
                         possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
                     }
-                  
-                    //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                    //Console.WriteLine("Take Moves found: " + FoundTakeMove);
+
+                    if (Debug)
+                    {
+                        for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                    }
 
                     bool BreakOuterLoop = false;
                     foreach (List<Position> moveset in possibleMovesets)
@@ -233,10 +245,13 @@ namespace Draughts
                     {
                         worker.ReportProgress((int)(100f * ++piececount) / usablepieces.Count);
                     }
-                    if (BreakOuterLoop)
+                    if (BreakOuterLoop && UsePruning)
                     {
-                        //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        //Console.WriteLine("alpha - beta cutoff");
+                        if (Debug)
+                        {
+                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                            Console.WriteLine("alpha - beta cutoff");
+                        }
                         break;
                     }
                 }

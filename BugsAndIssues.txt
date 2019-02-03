@@ -6,8 +6,6 @@ BUGS:
 	- Some multistage moves cause an exception
 
 TODO:
-	- Prune the tree more with AB pruning
-
 	- Make end game more agressive
 
 	- Something for small changes in difficulty - randomness

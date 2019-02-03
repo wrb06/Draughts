@@ -34,7 +34,7 @@ namespace DraughtsGUI
         bool GameEnded = false;
         Board board;
         List<PictureBox> boxes;
-        AIPlayer AIBlack = new AIPlayer(false, 3);
+        AIPlayer AIBlack = new AIPlayer(false, 3, false);
 
         BackgroundWorker worker;
 
@@ -95,7 +95,6 @@ namespace DraughtsGUI
 
             board = AIBlack.MakeMove(board, bgWorker);
         }
-
 
         private int FindScale()
         {
@@ -427,7 +426,7 @@ namespace DraughtsGUI
 
         private void ChangeDifficulty(object sender, EventArgs e)
         {
-            AIBlack = new AIPlayer(false, trackBar1.Value/10 + 1);
+            AIBlack = new AIPlayer(false, trackBar1.Value / 10 + 1, checkBox1.Checked);
             label4.Text = trackBar1.Value.ToString();
             //Console.WriteLine((trackBar1.Value / 10 + 1).ToString());
         }
@@ -533,6 +532,12 @@ namespace DraughtsGUI
                 }
                 UpdateBoard();
             }
+        }
+
+        private void checkBox1_Click(object sender, EventArgs e)
+        {
+            AIBlack = new AIPlayer(false, trackBar1.Value / 10 + 1, checkBox1.Checked);
+            Console.WriteLine("prune" + checkBox1.Checked.ToString());
         }
     }
 }

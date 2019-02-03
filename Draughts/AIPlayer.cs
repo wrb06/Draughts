@@ -18,7 +18,7 @@ namespace Draughts
         public int DepthOfSearch => _depthOfSearch;
 
         // Constructor
-        public AIPlayer(bool white, int depth, bool usePruning = false, bool debug = false)
+        public AIPlayer(bool white, int depth, bool usePruning, bool debug = false)
         {
             _isWhite = white;
             _depthOfSearch = depth;
@@ -32,7 +32,7 @@ namespace Draughts
         {
             Tuple<float, Position, List<Position>> mm = Minimax(DepthOfSearch, float.MinValue, float.MaxValue, IsWhite, board, worker);
 
-            Console.WriteLine("\nSCORE: " + mm.Item1.ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
+            //Console.WriteLine("\nSCORE: " + mm.Item1.ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
 
             if (!mm.Item2.InBoard()) { throw new Exception("NOTHING HAPPENED SOMETHING IS WRONG"); } // return board; }
             else
@@ -42,7 +42,7 @@ namespace Draughts
                 {
                     board.MovePeice(MovingPiece.CurrentPosition, move);
                 }
-                Console.WriteLine(board.ConvertForSave());
+                //Console.WriteLine(board.ConvertForSave());
                 return board;
             }
             
@@ -139,7 +139,6 @@ namespace Draughts
                         Console.WriteLine("Take Moves found: " + FoundTakeMove);
                     }
 
-                    bool BreakOuterLoop = false;
                     foreach (List<Position> moveset in possibleMovesets)
                     {
                         // Make test board
@@ -153,20 +152,18 @@ namespace Draughts
                             oldpos = move;
                         }
 
-                        Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, alpha, beta, false, testboard, worker);
-                        alpha = Math.Max(alpha, mm.Item1);
-
-                        // Change the best result if we need to
-                        if (mm.Item1 >= BestValue)
+                        if (alpha <= beta || !UsePruning)
                         {
-                            BestValue = mm.Item1;
-                            BestMoveset = moveset;
-                            BestPiecePosition = pieceposition;
-                        }
+                            Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, alpha, beta, false, testboard, worker);
+                            alpha = Math.Max(alpha, mm.Item1);
 
-                        if (alpha >= beta)
-                        {
-                            BreakOuterLoop = true;
+                            // Change the best result if we need to
+                            if (mm.Item1 >= BestValue)
+                            {
+                                BestValue = mm.Item1;
+                                BestMoveset = moveset;
+                                BestPiecePosition = pieceposition;
+                            }
                         }
                     }
                     // If its the first call (highest depth) and we have finished a piece, report back to the worker our progress 
@@ -175,16 +172,6 @@ namespace Draughts
                         worker.ReportProgress((int)(100f * piececount) / usablepieces.Count);
                     }
                     piececount++;
-
-                    if (BreakOuterLoop && UsePruning)
-                    {
-                        if (Debug)
-                        {
-                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                            Console.WriteLine("alpha - beta cutoff");
-                        }
-                        break;
-                    }
                 }
                 return Tuple.Create(BestValue, BestPiecePosition, BestMoveset);
             }
@@ -225,7 +212,6 @@ namespace Draughts
                         Console.WriteLine("Take Moves found: " + FoundTakeMove);
                     }
 
-                    bool BreakOuterLoop = false;
                     foreach (List<Position> moveset in possibleMovesets)
                     {
                         // Make test board
@@ -239,21 +225,19 @@ namespace Draughts
                             oldpos = move;
                         }
 
-                        Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, alpha, beta, true, testboard, worker);
-                        beta = Math.Min(beta, mm.Item1);
-
-
-                        // Change the best result if we need to
-                        if (mm.Item1 <= BestValue)
+                        if (alpha <= beta || !UsePruning)
                         {
-                            BestValue = mm.Item1;
-                            BestMoveset = moveset;
-                            BestPiecePosition = pieceposition;
-                        }
+                            Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, alpha, beta, true, testboard, worker);
+                            beta = Math.Min(beta, mm.Item1);
 
-                        if (alpha >= beta)
-                        {
-                            BreakOuterLoop = true;
+
+                            // Change the best result if we need to
+                            if (mm.Item1 <= BestValue)
+                            {
+                                BestValue = mm.Item1;
+                                BestMoveset = moveset;
+                                BestPiecePosition = pieceposition;
+                            }
                         }
                     }
 
@@ -261,15 +245,6 @@ namespace Draughts
                     if (Depth == DepthOfSearch)
                     {
                         worker.ReportProgress((int)(100f * ++piececount) / usablepieces.Count);
-                    }
-                    if (BreakOuterLoop && UsePruning)
-                    {
-                        if (Debug)
-                        {
-                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                            Console.WriteLine("alpha - beta cutoff");
-                        }
-                        break;
                     }
                 }
                 return Tuple.Create(BestValue, BestPiecePosition, BestMoveset);

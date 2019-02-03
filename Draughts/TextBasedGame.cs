@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Diagnostics;
 
 //  This is to test the AI's without having to make a GUI.
 namespace Draughts
@@ -12,34 +13,58 @@ namespace Draughts
     {
         Random rng = new Random();
         static Board b = new Board(true); // REMOVE TEST
-       
+ 
         static void Main(string[] args)
         {
-            
-            AIPlayer white = new AIPlayer(true, 2, true, true);            
-            AIPlayer black = new AIPlayer(false, 2);
-
-            b.PlacePiece(new Piece(false, 7, 4));
-            b.PlacePiece(new KingPiece(true, 4, 5));
-            b.PlacePiece(new Piece(false, 6, 5));
-            b.PlacePiece(new KingPiece(false, 1, 6));
-            b.PlacePiece(new Piece(false, 5, 6));
-            b.PlacePiece(new Piece(false, 7, 6));
-            b.PlacePiece(new KingPiece(false, 0, 7));
-            b.PlacePiece(new KingPiece(false, 2, 7));
-            b.PlacePiece(new KingPiece(false, 4, 7));
-            b.PlacePiece(new KingPiece(false, 6, 7));
-
-            ShowBoard();
-
-            Console.WriteLine("\nBEGIN");
-            
+            // Setup
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
+            Stopwatch st = new Stopwatch();
 
-            b = white.MakeMove(b, worker);
+            // Do board
+            b.PlacePiece(new Piece(false, 1, 0));
+            b.PlacePiece(new Piece(false, 3, 0));
+            b.PlacePiece(new Piece(false, 5, 0));
+            b.PlacePiece(new Piece(false, 7, 0));
+            b.PlacePiece(new Piece(false, 0, 1));
+            b.PlacePiece(new Piece(false, 7, 2));
+            b.PlacePiece(new Piece(true, 2, 3));
+            b.PlacePiece(new Piece(false, 5, 4));
+            b.PlacePiece(new Piece(true, 1, 6));
+            b.PlacePiece(new Piece(true, 7, 6));
+            b.PlacePiece(new Piece(true, 0, 7));
+            b.PlacePiece(new Piece(true, 2, 7));
+            b.PlacePiece(new Piece(true, 4, 7));
+            b.PlacePiece(new Piece(true, 6, 7));
+
+            AIPlayer white = new AIPlayer(true, 3, false);
+            AIPlayer black = new AIPlayer(false, 3, false);
+
             ShowBoard();
             Console.WriteLine();
+            b = black.MakeMove(b, worker);
+            ShowBoard();
+
+            /*
+            for (int i = 0; i < 10; i++)
+            {
+                st.Start();
+                b = white.MakeMove(b, worker);
+                st.Stop();
+                ShowBoard();
+                Console.WriteLine(b.ConvertForSave());
+
+                st.Start();
+                b = black.MakeMove(b, worker);
+                st.Stop();
+                ShowBoard();
+                Console.WriteLine(b.ConvertForSave());
+            }
+            ShowBoard();
+            Console.WriteLine(st.Elapsed);
+            Console.WriteLine();
+            st.Reset();
+           
 
             /*
             for (int i = 0; i < 100; i++)
@@ -59,7 +84,6 @@ namespace Draughts
                 if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
             }
             */
-
 
 
             Console.ReadLine();

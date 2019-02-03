@@ -156,6 +156,11 @@ namespace Draughts
                         {
                             Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, alpha, beta, false, testboard, worker);
                             alpha = Math.Max(alpha, mm.Item1);
+                            if (Debug)
+                            {
+                                for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                                Console.WriteLine(alpha.ToString() + ", " + beta.ToString());
+                            }
 
                             // Change the best result if we need to
                             if (mm.Item1 >= BestValue)
@@ -164,6 +169,11 @@ namespace Draughts
                                 BestMoveset = moveset;
                                 BestPiecePosition = pieceposition;
                             }
+                        }
+                        if (alpha >= beta && UsePruning)
+                        {
+                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                            Console.WriteLine("AB cutoff: " + alpha.ToString() + ", " + beta.ToString());
                         }
                     }
                     // If its the first call (highest depth) and we have finished a piece, report back to the worker our progress 
@@ -229,7 +239,11 @@ namespace Draughts
                         {
                             Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, alpha, beta, true, testboard, worker);
                             beta = Math.Min(beta, mm.Item1);
-
+                            if (Debug)
+                            {
+                                for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                                Console.WriteLine(alpha.ToString() + ", " + beta.ToString());
+                            }
 
                             // Change the best result if we need to
                             if (mm.Item1 <= BestValue)

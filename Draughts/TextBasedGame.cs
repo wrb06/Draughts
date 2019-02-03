@@ -22,12 +22,7 @@ namespace Draughts
             Stopwatch st = new Stopwatch();
 
             // Do board
-            b.PlacePiece(new Piece(false, 1, 0));
-            b.PlacePiece(new Piece(false, 3, 0));
-            b.PlacePiece(new Piece(false, 5, 0));
-            b.PlacePiece(new Piece(false, 7, 0));
-            b.PlacePiece(new Piece(false, 0, 1));
-            b.PlacePiece(new Piece(false, 7, 2));
+
             b.PlacePiece(new Piece(true, 2, 3));
             b.PlacePiece(new Piece(false, 5, 4));
             b.PlacePiece(new Piece(true, 1, 6));
@@ -37,10 +32,11 @@ namespace Draughts
             b.PlacePiece(new Piece(true, 4, 7));
             b.PlacePiece(new Piece(true, 6, 7));
 
-            AIPlayer white = new AIPlayer(true, 3, false);
-            AIPlayer black = new AIPlayer(false, 3, false);
+            AIPlayer white = new AIPlayer(true, 4, false);
+            AIPlayer black = new AIPlayer(false, 3, false, true);
 
             ShowBoard();
+
             Console.WriteLine();
             b = black.MakeMove(b, worker);
             ShowBoard();

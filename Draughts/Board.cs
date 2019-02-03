@@ -26,14 +26,14 @@ namespace Draughts
                 {
                     // Set White's peices up at the bottom
 
-                    PlacePeice(new Piece(true, new Position(i, 7)));
-                    PlacePeice(new Piece(true, new Position(i + 1, 6)));
-                    PlacePeice(new Piece(true, new Position(i, 5)));
+                    PlacePiece(new Piece(true, new Position(i, 7)));
+                    PlacePiece(new Piece(true, new Position(i + 1, 6)));
+                    PlacePiece(new Piece(true, new Position(i, 5)));
 
                     // Set Black's Peices at the top
-                    PlacePeice(new Piece(false, new Position(i + 1, 0)));
-                    PlacePeice(new Piece(false, new Position(i, 1)));
-                    PlacePeice(new Piece(false, new Position(i + 1, 2)));
+                    PlacePiece(new Piece(false, new Position(i + 1, 0)));
+                    PlacePiece(new Piece(false, new Position(i, 1)));
+                    PlacePiece(new Piece(false, new Position(i + 1, 2)));
                 }
             }
         }
@@ -84,7 +84,7 @@ namespace Draughts
         }
 
         // Adds the piece to the board
-        public void PlacePeice(Piece piece)
+        public void PlacePiece(Piece piece)
         {
             _boardArray[piece.CurrentPosition.Y, piece.CurrentPosition.X] = piece;
             NumberOfPeices++;
@@ -202,11 +202,11 @@ namespace Draughts
                 {
                     if (p.GetType() == typeof(Piece))
                     {
-                        copy.PlacePeice(new Piece(p.IsWhite, p.CurrentPosition));
+                        copy.PlacePiece(new Piece(p.IsWhite, p.CurrentPosition));
                     }
                     else
                     {
-                        copy.PlacePeice(new KingPiece(p.IsWhite, p.CurrentPosition));
+                        copy.PlacePiece(new KingPiece(p.IsWhite, p.CurrentPosition));
                     }
                     
                 }

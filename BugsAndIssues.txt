@@ -3,6 +3,8 @@ BUGS:
 
 	- Black Doesnt move? end turn broken?
 
+	- Some multistage moves cause an exception
+
 TODO:
 	- Prune the tree more with AB pruning
 

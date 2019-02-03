@@ -383,10 +383,10 @@ namespace DraughtsGUI
                     {
                         byte b = FileBytes[ByteCount];
 
-                        if (b == (byte)'w') { board.PlacePeice(new Piece(true, i % 8, i / 8)); }
-                        else if (b == (byte)'b') { board.PlacePeice(new Piece(false, i % 8, i / 8)); }
-                        else if (b == (byte)'W') { board.PlacePeice(new KingPiece(true, i % 8, i / 8)); }
-                        else if (b == (byte)'B') { board.PlacePeice(new KingPiece(false, i % 8, i / 8)); }
+                        if (b == (byte)'w') { board.PlacePiece(new Piece(true, i % 8, i / 8)); }
+                        else if (b == (byte)'b') { board.PlacePiece(new Piece(false, i % 8, i / 8)); }
+                        else if (b == (byte)'W') { board.PlacePiece(new KingPiece(true, i % 8, i / 8)); }
+                        else if (b == (byte)'B') { board.PlacePiece(new KingPiece(false, i % 8, i / 8)); }
 
                         ByteCount++;
                     }
@@ -523,10 +523,10 @@ namespace DraughtsGUI
                     {
                         char c = Boardstate[Charcount];
 
-                        if (c == 'w') { board.PlacePeice(new Piece(true, i % 8, i / 8)); }
-                        else if (c == 'b') { board.PlacePeice(new Piece(false, i % 8, i / 8)); }
-                        else if (c == 'W') { board.PlacePeice(new KingPiece(true, i % 8, i / 8)); }
-                        else if (c == 'B') { board.PlacePeice(new KingPiece(false, i % 8, i / 8)); }
+                        if (c == 'w') { board.PlacePiece(new Piece(true, i % 8, i / 8)); }
+                        else if (c == 'b') { board.PlacePiece(new Piece(false, i % 8, i / 8)); }
+                        else if (c == 'W') { board.PlacePiece(new KingPiece(true, i % 8, i / 8)); }
+                        else if (c == 'B') { board.PlacePiece(new KingPiece(false, i % 8, i / 8)); }
 
                         Charcount++;
                     }

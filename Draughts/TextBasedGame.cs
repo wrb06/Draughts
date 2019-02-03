@@ -11,30 +11,37 @@ namespace Draughts
     class TextBasedGame
     {
         Random rng = new Random();
-        static Board b = new Board(); // REMOVE TEST
+        static Board b = new Board(true); // REMOVE TEST
        
         static void Main(string[] args)
         {
-            AIPlayer white = new AIPlayer(true, 5);            
-            AIPlayer black = new AIPlayer(false, 5);
-
             
+            AIPlayer white = new AIPlayer(true, 2, true, true);            
+            AIPlayer black = new AIPlayer(false, 2);
+
+            b.PlacePiece(new Piece(false, 7, 4));
+            b.PlacePiece(new KingPiece(true, 4, 5));
+            b.PlacePiece(new Piece(false, 6, 5));
+            b.PlacePiece(new KingPiece(false, 1, 6));
+            b.PlacePiece(new Piece(false, 5, 6));
+            b.PlacePiece(new Piece(false, 7, 6));
+            b.PlacePiece(new KingPiece(false, 0, 7));
+            b.PlacePiece(new KingPiece(false, 2, 7));
+            b.PlacePiece(new KingPiece(false, 4, 7));
+            b.PlacePiece(new KingPiece(false, 6, 7));
+
             ShowBoard();
 
-            Console.WriteLine("\n BEGIN");
-
+            Console.WriteLine("\nBEGIN");
+            
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
-        
-            /*
-            b = black.MakeMove(b, worker);
+
+            b = white.MakeMove(b, worker);
             ShowBoard();
             Console.WriteLine();
-            */
-            
-                      
-            
 
+            /*
             for (int i = 0; i < 100; i++)
             {
                 b = white.MakeMove(b, worker);
@@ -51,6 +58,9 @@ namespace Draughts
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
                 if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
             }
+            */
+
+
 
             Console.ReadLine();
         }

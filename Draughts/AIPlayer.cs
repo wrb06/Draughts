@@ -9,8 +9,8 @@ namespace Draughts
 {
     class AIPlayer
     {
-        const bool UsePruning = false;
-        const bool Debug = false;
+        bool UsePruning;
+        bool Debug;
 
         private readonly bool _isWhite;
         private readonly int _depthOfSearch;
@@ -18,23 +18,23 @@ namespace Draughts
         public int DepthOfSearch => _depthOfSearch;
 
         // Constructor
-        public AIPlayer(bool white, int depth)
+        public AIPlayer(bool white, int depth, bool usePruning = false, bool debug = false)
         {
             _isWhite = white;
             _depthOfSearch = depth;
+            UsePruning = usePruning;
+            Debug = debug;
             
         }
 
         // Gets the move from minimax, then makes the move
         public Board MakeMove(Board board, BackgroundWorker worker)
         {
-            float alpha, beta;
-            if (IsWhite) { alpha = float.MaxValue; beta = float.MinValue; }
-            else { alpha = float.MinValue; beta = float.MaxValue; }
+            Tuple<float, Position, List<Position>> mm = Minimax(DepthOfSearch, float.MinValue, float.MaxValue, IsWhite, board, worker);
 
-            Tuple<float, Position, List<Position>> mm = Minimax(DepthOfSearch, alpha, beta, IsWhite, board, worker);
+            Console.WriteLine("\nSCORE: " + mm.Item1.ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
 
-            if (!mm.Item2.InBoard()) { return board; }
+            if (!mm.Item2.InBoard()) { throw new Exception("NOTHING HAPPENED SOMETHING IS WRONG"); } // return board; }
             else
             {
                 Piece MovingPiece = board.GetPiece(mm.Item2);
@@ -42,9 +42,10 @@ namespace Draughts
                 {
                     board.MovePeice(MovingPiece.CurrentPosition, move);
                 }
+                Console.WriteLine(board.ConvertForSave());
                 return board;
             }
-
+            
         }
 
         // Returns the best move
@@ -107,6 +108,14 @@ namespace Draughts
 
                 foreach (Position pieceposition in usablepieces)
                 {
+                    if (Debug)
+                    {
+                        Console.WriteLine();
+                        for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        Console.WriteLine("NEW PIECE");
+                    }
+                    
+
                     // generate all possible movesets
                     // testing prioritisation of take moves
                     possibleMovesets = board.GetPiece(pieceposition).GetTakeMovesOnly(board);
@@ -129,7 +138,8 @@ namespace Draughts
                         for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
                         Console.WriteLine("Take Moves found: " + FoundTakeMove);
                     }
-                        bool BreakOuterLoop = false;
+
+                    bool BreakOuterLoop = false;
                     foreach (List<Position> moveset in possibleMovesets)
                     {
                         // Make test board
@@ -185,6 +195,13 @@ namespace Draughts
 
                 foreach (Position pieceposition in usablepieces)
                 {
+                    if (Debug)
+                    {
+                        Console.WriteLine();
+                        for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        Console.WriteLine("NEW PIECE");
+                    }
+
                     // generate all possible movesets
                     // testing prioritisation of take moves                   
                     possibleMovesets = board.GetPiece(pieceposition).GetTakeMovesOnly(board);

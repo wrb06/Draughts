@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 //  This is to test the AI's without having to make a GUI.
 namespace Draughts
-{
+{ 
     class TextBasedGame
     {
         Random rng = new Random();

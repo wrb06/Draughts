@@ -61,6 +61,7 @@ Take Moves found: False
                         6|. w . b . . . w
                         7|w . w . w . w .
 
+                -3.402823E+38, 3.402823E+38
                         > MAX | Depth: 0 | Score: 3.402823E+38 | alpha: -3.402823E+38 | beta: 3.402823E+38 | White Position: 1,2
                         #|0_1_2_3_4_5_6_7
                         0|. . . . . . . .
@@ -72,7 +73,8 @@ Take Moves found: False
                         6|. w . . . b . w
                         7|w . w . w . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                -3.402823E+38, 3.402823E+38
+        3.402823E+38, 3.402823E+38
                 > MIN | Depth: 1 | Score: 8 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 3,2
                 #|0_1_2_3_4_5_6_7
                 0|. . . . . . . .
@@ -98,6 +100,7 @@ Take Moves found: False
                         6|. w . b . . . w
                         7|w . w . w . w .
 
+                3.402823E+38, 3.402823E+38
                         > MAX | Depth: 0 | Score: 3.402823E+38 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 3,2
                         #|0_1_2_3_4_5_6_7
                         0|. . . . . . . .
@@ -109,7 +112,8 @@ Take Moves found: False
                         6|. w . . . b . w
                         7|w . w . w . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+        3.402823E+38, 3.402823E+38
 
         NEW PIECE
         Take Moves found: False
@@ -138,6 +142,7 @@ Take Moves found: False
                         6|. . . b . . . w
                         7|w . w . w . w .
 
+                3.402823E+38, 3.402823E+38
                         > MAX | Depth: 0 | Score: 3.402823E+38 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 2,3
                         #|0_1_2_3_4_5_6_7
                         0|. . . . . . . .
@@ -149,7 +154,8 @@ Take Moves found: False
                         6|. . . . . b . w
                         7|w . w . w . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+        3.402823E+38, 3.402823E+38
                 > MIN | Depth: 1 | Score: 2 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 2,3
                 #|0_1_2_3_4_5_6_7
                 0|. . . . . . . .
@@ -175,6 +181,7 @@ Take Moves found: False
                         6|. . . b . . . w
                         7|w . w . w . w .
 
+                3.402823E+38, 3.402823E+38
                         > MAX | Depth: 0 | Score: 3.402823E+38 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 2,3
                         #|0_1_2_3_4_5_6_7
                         0|. . . . . . . .
@@ -186,7 +193,8 @@ Take Moves found: False
                         6|. . . . . b . w
                         7|w . w . w . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+        3.402823E+38, 3.402823E+38
 
         NEW PIECE
         Take Moves found: False
@@ -215,6 +223,7 @@ Take Moves found: False
                         6|. w . b . . . .
                         7|w . w . w . w .
 
+                3.402823E+38, 3.402823E+38
                         > MAX | Depth: 0 | Score: 3.402823E+38 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 2,3
                         #|0_1_2_3_4_5_6_7
                         0|. . . . . . . .
@@ -226,7 +235,8 @@ Take Moves found: False
                         6|. w . . . b . .
                         7|w . w . w . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+        3.402823E+38, 3.402823E+38
 
         NEW PIECE
         Take Moves found: False
@@ -258,7 +268,8 @@ Take Moves found: False
                         6|. w . . . . . w
                         7|w . B . w . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, -476
+        3.402823E+38, 3.402823E+38
 
         NEW PIECE
         Take Moves found: False
@@ -287,7 +298,8 @@ Take Moves found: False
                         6|. w . w . b . w
                         7|w . w . . . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, -11
+        3.402823E+38, 3.402823E+38
                 > MIN | Depth: 1 | Score: 0 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 2,3
                 #|0_1_2_3_4_5_6_7
                 0|. . . . . . . .
@@ -313,7 +325,8 @@ Take Moves found: False
                         6|. w . b . w . w
                         7|w . w . . . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, -11
+        3.402823E+38, 3.402823E+38
 
         NEW PIECE
         Take Moves found: False
@@ -342,7 +355,9 @@ Take Moves found: False
                         6|. w . . . . . w
                         7|w . w . w . B .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, -476
+        3.402823E+38, 3.402823E+38
+-3.402823E+38, 3.402823E+38
         > MAX | Depth: 2 | Score: -1 | alpha: -3.402823E+38 | beta: 3.402823E+38 | White Position: 2,3
         #|0_1_2_3_4_5_6_7
         0|. . . . . . . .
@@ -382,7 +397,8 @@ Take Moves found: False
                         6|. w . . . b . w
                         7|w . w . w . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                -3.402823E+38, 3.402823E+38
+        3.402823E+38, 3.402823E+38
                 > MIN | Depth: 1 | Score: 8 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 3,2
                 #|0_1_2_3_4_5_6_7
                 0|. . . . . . . .
@@ -408,7 +424,8 @@ Take Moves found: False
                         6|. w . . . b . w
                         7|w . w . w . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+        3.402823E+38, 3.402823E+38
 
         NEW PIECE
         Take Moves found: False
@@ -436,8 +453,9 @@ Take Moves found: False
                         5|w . . . . . . .
                         6|. . . . . b . w
                         7|w . w . w . w .
-        AB cutoff: 3.402823E+38, 3.402823E+38
 
+                3.402823E+38, 3.402823E+38
+        3.402823E+38, 3.402823E+38
                 > MIN | Depth: 1 | Score: 2 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 2,3
                 #|0_1_2_3_4_5_6_7
                 0|. . . . . . . .
@@ -463,7 +481,8 @@ Take Moves found: False
                         6|. . . . . b . w
                         7|w . w . w . w .
 
-        AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+        3.402823E+38, 3.402823E+38
 
         NEW PIECE
         Take Moves found: True
@@ -477,7 +496,8 @@ Take Moves found: False
                 5|. . . . . . . .
                 6|. w . . . . . .
                 7|w . w . w . w .
-        AB cutoff: 3.402823E+38, 3.402823E+38
+
+        3.402823E+38, 3.402823E+38
 
         NEW PIECE
         Take Moves found: True
@@ -490,6 +510,7 @@ Take Moves found: False
 
         NEW PIECE
         Take Moves found: True
+-3.402823E+38, 3.402823E+38
 #|0_1_2_3_4_5_6_7
 0|. . . . . . . .
 1|. . . . . . . .

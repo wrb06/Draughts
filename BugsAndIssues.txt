@@ -5,6 +5,8 @@ BUGS:
 
 	- Some multistage moves cause an exception
 
+	- Fix AB pruning
+
 TODO:
 	- Make end game more agressive
 

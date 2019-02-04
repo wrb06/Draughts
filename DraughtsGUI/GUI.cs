@@ -31,7 +31,10 @@ namespace DraughtsGUI
         Position TakingPiecePosition;
         Position SelectedPosition;
         bool FoundPieceToMove;
+
         bool GameEnded = false;
+        int CountSinceLastTake = 0;
+
         Board board;
         List<PictureBox> boxes;
         AIPlayer AIBlack = new AIPlayer(false, 3, false);
@@ -48,26 +51,28 @@ namespace DraughtsGUI
 
             worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
-            worker.DoWork += BlackMove;
-            worker.ProgressChanged += BlackMoveProgress;
-            worker.RunWorkerCompleted += BlackFinishedMove;
+            worker.WorkerSupportsCancellation = true;
+            worker.DoWork += BlackAIMove;
+            worker.ProgressChanged += BlackAIMoveProgress;
+            worker.RunWorkerCompleted += BlackAIFinishedMove;
 
 
             scale = FindScale();
             SetupBoard();
+            label9.Text = (40 - CountSinceLastTake).ToString();
 
             UpdateBoard();
             worker.RunWorkerAsync();
 
         }
 
-        private void BlackMoveProgress(object sender, ProgressChangedEventArgs e)
+        private void BlackAIMoveProgress(object sender, ProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
             //Console.WriteLine(e.ProgressPercentage);
         }
 
-        private void BlackFinishedMove(object sender, RunWorkerCompletedEventArgs e)
+        private void BlackAIFinishedMove(object sender, RunWorkerCompletedEventArgs e)
         {
             SaveButton.Enabled = true;
             button1.Enabled = true;
@@ -89,7 +94,7 @@ namespace DraughtsGUI
             progressBar1.Value = 0;
         }
 
-        private void BlackMove(object sender, DoWorkEventArgs e)
+        private void BlackAIMove(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker bgWorker = (BackgroundWorker)sender;
 
@@ -156,12 +161,18 @@ namespace DraughtsGUI
                         FoundPieceToMove = false;
                         MovedThisTurn = true;
                         TakingPiecePosition = ClickedPoint;
+                        CountSinceLastTake++;
 
                         // Update Display
                         textBox1.Text = board.EvaluateBoard().ToString();
 
                         // Update to show we have made a take move
-                        if (SelectedPosition.IsTakeMove(ClickedPoint)) { TakeMoveMade = true; SelectedPosition = ClickedPoint; }
+                        if (SelectedPosition.IsTakeMove(ClickedPoint))
+                        {
+                            CountSinceLastTake = 0;
+                            TakeMoveMade = true;
+                            SelectedPosition = ClickedPoint;
+                        }
 
                         // auto end turn stuff
                         CheckForTurnEnd();
@@ -283,17 +294,27 @@ namespace DraughtsGUI
             if ((MovedThisTurn && !TakeMoveMade) || (TakeMoveMade && board.GetPiece(SelectedPosition).GetTakeMovesOnly(board).Count == 0))
             {
                 // Add one to the move count and display
+                label9.Text = (40 - CountSinceLastTake).ToString();
                 label7.Text = (++MoveNum).ToString();
                 Console.WriteLine("W " + board.ConvertForSave());
                 pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
                 Application.DoEvents();
 
-                // Let Black make a move and display           
-                SaveButton.Enabled = false;
-                button1.Enabled = false;
-                button2.Enabled = false;
-                trackBar1.Enabled = false;
-                worker.RunWorkerAsync();
+                // Check for stalemate
+                if (CountSinceLastTake >= 40)
+                {
+                    Console.WriteLine("STALEMATE");
+                    DisplayEnd("No one");
+                }
+                else
+                {
+                    // Let Black make a move and display           
+                    SaveButton.Enabled = false;
+                    button1.Enabled = false;
+                    button2.Enabled = false;
+                    trackBar1.Enabled = false;
+                    worker.RunWorkerAsync();
+                }
 
             }
         }
@@ -433,6 +454,13 @@ namespace DraughtsGUI
 
         private void DisplayEnd(string Winner)
         {
+            if (worker.IsBusy)
+            {
+                // Shouldnt ever run
+                worker.CancelAsync();
+                Console.WriteLine("Canceled worker");
+            }
+
             GameEnded = true;
             restartgame.Text = Winner + " has won. \n Click to play again";
             restartgame.Location = new Point(3*scale, 120+(int)(3.5 * scale));

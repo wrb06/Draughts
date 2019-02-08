@@ -226,7 +226,6 @@ namespace Draughts
    
             if (from.IsTakeMove(to))
             {
-                // Store middlepiece in a variable
                 Piece middlepiece = this.GetPiece(from.GetMiddlePosition(to));
 
                 // middlepiece has to be black

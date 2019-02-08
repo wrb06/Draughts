@@ -13,6 +13,22 @@ namespace Draughts
     {
         Random rng = new Random();
         static Board b = new Board(true); // REMOVE TEST
+
+        static private Board TestSetup()
+        {
+            Board b = new Board(true);
+            b.PlacePiece(new Piece(false, 1, 0));
+            b.PlacePiece(new Piece(false, 7, 0));
+            b.PlacePiece(new Piece(false, 3, 2));
+            b.PlacePiece(new Piece(false, 0, 3));
+            b.PlacePiece(new Piece(false, 4, 3));
+            b.PlacePiece(new Piece(true, 1, 4));
+            b.PlacePiece(new Piece(true, 2, 7));
+            b.PlacePiece(new Piece(true, 4, 7));
+            b.PlacePiece(new Piece(true, 6, 7));
+
+            return b;
+        }
  
         static void Main(string[] args)
         {
@@ -21,52 +37,38 @@ namespace Draughts
             worker.WorkerReportsProgress = true;
             Stopwatch st = new Stopwatch();
 
-            // Do board
+            // Load
+            b = TestSetup();
 
-            b.PlacePiece(new Piece(true, 2, 3));
-            b.PlacePiece(new Piece(false, 5, 4));
-            b.PlacePiece(new Piece(true, 1, 6));
-            b.PlacePiece(new Piece(true, 7, 6));
-            b.PlacePiece(new Piece(true, 0, 7));
-            b.PlacePiece(new Piece(true, 2, 7));
-            b.PlacePiece(new Piece(true, 4, 7));
-            b.PlacePiece(new Piece(true, 6, 7));
 
-            AIPlayer white = new AIPlayer(true, 4, false);
-            AIPlayer black = new AIPlayer(false, 3, false, true);
+            AIPlayer white = new AIPlayer(true, 2, true, true);
+            AIPlayer black = new AIPlayer(true, 3, false);
 
             ShowBoard();
 
-            Console.WriteLine();
+            Console.WriteLine("Not pruned / Correct:");
             b = black.MakeMove(b, worker);
             ShowBoard();
-
-            /*
-            for (int i = 0; i < 10; i++)
-            {
-                st.Start();
-                b = white.MakeMove(b, worker);
-                st.Stop();
-                ShowBoard();
-                Console.WriteLine(b.ConvertForSave());
-
-                st.Start();
-                b = black.MakeMove(b, worker);
-                st.Stop();
-                ShowBoard();
-                Console.WriteLine(b.ConvertForSave());
-            }
-            ShowBoard();
-            Console.WriteLine(st.Elapsed);
             Console.WriteLine();
-            st.Reset();
-           
+
+            
+            b = TestSetup();
+
+            Console.WriteLine("pruned:");
+            ShowBoard();
+            b = white.MakeMove(b, worker);
+            ShowBoard();
+            Console.WriteLine();
+            
 
             /*
+
             for (int i = 0; i < 100; i++)
             {
                 b = white.MakeMove(b, worker);
                 ShowBoard();
+                Console.WriteLine(b.EvaluateBoard());
+                Console.WriteLine(b.ConvertForSave());
                 Console.WriteLine();
 
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
@@ -74,12 +76,15 @@ namespace Draughts
 
                 b = black.MakeMove(b, worker);
                 ShowBoard();
+                Console.WriteLine(b.EvaluateBoard());
+                Console.WriteLine(b.ConvertForSave());
                 Console.WriteLine();
 
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
                 if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
             }
             */
+            
 
 
             Console.ReadLine();

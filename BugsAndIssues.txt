@@ -1,6 +1,4 @@
 BUGS:
-	- Fix take move priority if final move is take
-
 	- Black Doesnt move? end turn broken?
 
 	- Some multistage moves cause an exception
@@ -12,5 +10,5 @@ TODO:
 
 	- Something for small changes in difficulty - randomness
 
-	- Stalemate 
+	- Update stalemate to work with AI moves 
 

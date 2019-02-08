@@ -32,9 +32,9 @@ namespace Draughts
         {
             Tuple<float, Position, List<Position>> mm = Minimax(DepthOfSearch, float.MinValue, float.MaxValue, IsWhite, board, worker);
 
-            //Console.WriteLine("\nSCORE: " + mm.Item1.ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
+            Console.WriteLine("\nSCORE: " + mm.Item1.ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
 
-            if (!mm.Item2.InBoard()) { throw new Exception("NOTHING HAPPENED SOMETHING IS WRONG"); } // return board; }
+            if (!mm.Item2.InBoard()) { return board; }
             else
             {
                 Piece MovingPiece = board.GetPiece(mm.Item2);
@@ -75,17 +75,20 @@ namespace Draughts
             List<Position> BestMoveset = new List<Position>();
 
             //Show the tree (console only)
-            if (Debug)
+            if (Debug && Depth > 0)
             {
+                Console.WriteLine();
                 for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
 
                 if ((DepthOfSearch % 2 == Depth % 2 && IsWhite) || (DepthOfSearch % 2 != Depth % 2 && !IsWhite)) { Console.Write("> MAX | "); }
                 else { Console.Write("> MIN | "); }
 
-                Console.Write("Depth: " + Depth.ToString() + " | Score: " + board.EvaluateBoard().ToString() + " | alpha: " + alpha.ToString() + " | beta: " + beta.ToString());
-                try { Console.Write(" | White Position: " + board.GetWhitePositions().First().ToString()); } catch { }
+                Console.Write("Depth: " + Depth.ToString());
                 Console.WriteLine();
-                ShowBoard(board, Depth);
+            }
+            if (Debug)
+            {
+                ShowBoard(board, Depth+1);
             }
             
   
@@ -110,9 +113,9 @@ namespace Draughts
                 {
                     if (Debug)
                     {
-                        Console.WriteLine();
-                        for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        Console.WriteLine("NEW PIECE");
+                        //Console.WriteLine();
+                        //for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        //Console.WriteLine("NEW PIECE");
                     }
                     
 
@@ -127,6 +130,8 @@ namespace Draughts
                             BestValue = float.MinValue;
                             FoundTakeMove = true;
                         }
+
+
                     }
                     else if (!FoundTakeMove)
                     {
@@ -135,8 +140,8 @@ namespace Draughts
 
                     if (Debug)
                     {
-                        for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                        //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        //Console.WriteLine("Take Moves found: " + FoundTakeMove);
                     }
 
                     foreach (List<Position> moveset in possibleMovesets)
@@ -158,8 +163,8 @@ namespace Draughts
                             alpha = Math.Max(alpha, mm.Item1);
                             if (Debug)
                             {
-                                for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                                Console.WriteLine(alpha.ToString() + ", " + beta.ToString());
+                                for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                                Console.WriteLine("Score: " + board.EvaluateBoard().ToString() + " | alpha: " + alpha.ToString() + " | beta: " + beta.ToString());
                             }
 
                             // Change the best result if we need to
@@ -170,9 +175,9 @@ namespace Draughts
                                 BestPiecePosition = pieceposition;
                             }
                         }
-                        if (alpha >= beta && UsePruning)
+                        if (alpha >= beta && UsePruning && Debug)
                         {
-                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                            for (int p = 0; p <= (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
                             Console.WriteLine("AB cutoff: " + alpha.ToString() + ", " + beta.ToString());
                         }
                     }
@@ -194,9 +199,9 @@ namespace Draughts
                 {
                     if (Debug)
                     {
-                        Console.WriteLine();
-                        for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        Console.WriteLine("NEW PIECE");
+                        //Console.WriteLine();
+                        //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        //Console.WriteLine("NEW PIECE");
                     }
 
                     // generate all possible movesets
@@ -218,8 +223,8 @@ namespace Draughts
 
                     if (Debug)
                     {
-                        for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                        //for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        //Console.WriteLine("Take Moves found: " + FoundTakeMove);
                     }
 
                     foreach (List<Position> moveset in possibleMovesets)
@@ -241,8 +246,9 @@ namespace Draughts
                             beta = Math.Min(beta, mm.Item1);
                             if (Debug)
                             {
-                                for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                                Console.WriteLine(alpha.ToString() + ", " + beta.ToString());
+                                for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                                Console.WriteLine("Score: " + board.EvaluateBoard().ToString() + " | alpha: " + alpha.ToString() + " | beta: " + beta.ToString());
+
                             }
 
                             // Change the best result if we need to
@@ -267,9 +273,9 @@ namespace Draughts
         
         void ShowBoard(Board b, int depth)
         {
-            for (int po = 0; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
+            for (int po = -1; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
             Console.WriteLine("#|0_1_2_3_4_5_6_7");
-            for (int po = 0; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
+            for (int po = -1; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
             Console.Write("0|");
             int i = 0;
             foreach (Piece p in b.GetBoard())
@@ -299,7 +305,7 @@ namespace Draughts
                 if (i % 8 == 0 && i != 64)
                 {
                     Console.WriteLine();
-                    for (int po = 0; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
+                    for (int po = -1; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }
                     Console.Write((i / 8) + "|");
                 }
             }

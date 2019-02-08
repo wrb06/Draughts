@@ -1,0 +1,549 @@
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . b
+1|. . . . . . . .
+2|. . . b . . . .
+3|b . . . b . . .
+4|. w . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . w . w . w .
+Not pruned / Correct:
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . b
+1|. . . . . . . .
+2|. . . b . . . .
+3|b . . . b . . .
+4|. w . . . . . .
+5|. . . . . . . .
+6|. . . w . . . .
+7|. . . . w . w .
+
+pruned:
+
+NEW PIECE
+Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: True
+                17, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+                > MAX | Depth: 1 | Score: -8 | alpha: 17 | beta: 3.402823E+38 | White Position: 2,3
+        -3.402823E+38, 17
+
+                NEW PIECE
+                Take Moves found: True
+                17, 17
+                AB cutoff: 17, 17
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+                > MAX | Depth: 1 | Score: -8 | alpha: 17 | beta: 17 | White Position: 2,3
+        -3.402823E+38, 17
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: True
+                17, 17
+                AB cutoff: 17, 17
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+                > MAX | Depth: 1 | Score: -8 | alpha: 17 | beta: 17 | White Position: 2,3
+        -3.402823E+38, 17
+
+        NEW PIECE
+        Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: False
+                -35, 17
+                -35, 17
+
+                NEW PIECE
+                Take Moves found: False
+                -35, 17
+                -35, 17
+
+                NEW PIECE
+                Take Moves found: False
+                -35, 17
+                -35, 17
+                > MAX | Depth: 1 | Score: -36 | alpha: -35 | beta: 17 | White Position: 2,7
+        -3.402823E+38, -35
+
+        NEW PIECE
+        Take Moves found: True
+
+        NEW PIECE
+        Take Moves found: True
+        > MIN | Depth: 2 | Score: -7 | alpha: -3.402823E+38 | beta: -35 | White Position: 2,3
+-35, 3.402823E+38
+
+NEW PIECE
+Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: False
+                -7, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                -7, 3.402823E+38
+                -7, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                -7, 3.402823E+38
+                -7, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                -7, 3.402823E+38
+                -7, 3.402823E+38
+                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: 3.402823E+38 | White Position: 1,4
+        -35, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: -7 | White Position: 1,4
+        -35, -7
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: -7 | White Position: 1,4
+        -35, -7
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: True
+                8, -7
+                AB cutoff: 8, -7
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+                > MAX | Depth: 1 | Score: -18 | alpha: 8 | beta: -7 | White Position: 1,4
+        -35, -7
+
+        NEW PIECE
+        Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+                -5, -7
+                AB cutoff: -5, -7
+                AB cutoff: -5, -7
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+                > MAX | Depth: 1 | Score: -39 | alpha: -5 | beta: -7 | White Position: 1,6
+        -35, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -35, -7
+                -35, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -35, -7
+                -35, -7
+                > MAX | Depth: 1 | Score: -515 | alpha: -35 | beta: -7 | White Position: 4,7
+        -35, -514
+
+        NEW PIECE
+        Take Moves found: True
+        > MIN | Depth: 2 | Score: -13 | alpha: -35 | beta: -514 | White Position: 1,4
+-35, 3.402823E+38
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: False
+                -7, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                -7, 3.402823E+38
+                -7, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                -7, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                -7, 3.402823E+38
+                -7, 3.402823E+38
+                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: 3.402823E+38 | White Position: 1,4
+        -35, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: -7 | White Position: 1,4
+        -35, -7
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+
+                NEW PIECE
+                Take Moves found: False
+                -7, -7
+                AB cutoff: -7, -7
+                -7, -7
+                AB cutoff: -7, -7
+                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: -7 | White Position: 1,4
+        -35, -7
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: True
+                8, -7
+                AB cutoff: 8, -7
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+                > MAX | Depth: 1 | Score: -18 | alpha: 8 | beta: -7 | White Position: 1,4
+        -35, -7
+
+        NEW PIECE
+        Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+                -5, -7
+                AB cutoff: -5, -7
+
+                NEW PIECE
+                Take Moves found: True
+
+                NEW PIECE
+                Take Moves found: True
+                > MAX | Depth: 1 | Score: -39 | alpha: -5 | beta: -7 | White Position: 3,6
+        -35, -7
+
+        NEW PIECE
+        Take Moves found: True
+        > MIN | Depth: 2 | Score: -13 | alpha: -35 | beta: -7 | White Position: 1,4
+-5, 3.402823E+38
+
+NEW PIECE
+Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: False
+                -5, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                -5, 3.402823E+38
+                -5, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                -5, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                -5, 3.402823E+38
+                -5, 3.402823E+38
+                > MAX | Depth: 1 | Score: -14 | alpha: -5 | beta: 3.402823E+38 | White Position: 1,4
+        -5, -7
+
+        NEW PIECE
+        Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: True
+
+        NEW PIECE
+        Take Moves found: True
+        > MIN | Depth: 2 | Score: -13 | alpha: -5 | beta: -7 | White Position: 1,4
+3.402823E+38, 3.402823E+38
+AB cutoff: 3.402823E+38, 3.402823E+38
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+                > MAX | Depth: 1 | Score: -14 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 1,4
+        3.402823E+38, -7
+
+        NEW PIECE
+        Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: True
+
+        NEW PIECE
+        Take Moves found: True
+        > MIN | Depth: 2 | Score: -13 | alpha: 3.402823E+38 | beta: -7 | White Position: 1,4
+3.402823E+38, 3.402823E+38
+AB cutoff: 3.402823E+38, 3.402823E+38
+
+NEW PIECE
+Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+                > MAX | Depth: 1 | Score: -14 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 1,4
+        3.402823E+38, -7
+
+        NEW PIECE
+        Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: True
+
+        NEW PIECE
+        Take Moves found: True
+        > MIN | Depth: 2 | Score: -13 | alpha: 3.402823E+38 | beta: -7 | White Position: 1,4
+3.402823E+38, 3.402823E+38
+AB cutoff: 3.402823E+38, 3.402823E+38
+
+        NEW PIECE
+        Take Moves found: False
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+
+                NEW PIECE
+                Take Moves found: False
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+                3.402823E+38, 3.402823E+38
+                AB cutoff: 3.402823E+38, 3.402823E+38
+                > MAX | Depth: 1 | Score: -14 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 1,4
+        3.402823E+38, -7
+
+        NEW PIECE
+        Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: False
+
+        NEW PIECE
+        Take Moves found: True
+
+        NEW PIECE
+        Take Moves found: True
+        > MIN | Depth: 2 | Score: -13 | alpha: 3.402823E+38 | beta: -7 | White Position: 1,4
+3.402823E+38, 3.402823E+38
+AB cutoff: 3.402823E+38, 3.402823E+38
+> MAX | Depth: 3 | Score: -14 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 1,4
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . b
+1|. . . . . . . .
+2|. . . b . . . .
+3|b . . . b . . .
+4|. w . . . . . .
+5|. . . . . . . .
+6|. . . . . . . w
+7|. . w . w . . .
+

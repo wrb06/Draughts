@@ -1,549 +1,3371 @@
 #|0_1_2_3_4_5_6_7
-0|. b . . . . . b
-1|. . . . . . . .
-2|. . . b . . . .
-3|b . . . b . . .
-4|. w . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . w . w . w .
-Not pruned / Correct:
+0|. b . b . b . b
+1|b . b . b . b .
+2|. b . b . b . b
+3|. . . . . . . .
+4|. . . . . . . .
+5|w . w . w . w .
+6|. w . w . w . w
+7|w . w . w . w .
+
+> MAX | Depth: 2
 #|0_1_2_3_4_5_6_7
-0|. b . . . . . b
-1|. . . . . . . .
-2|. . . b . . . .
-3|b . . . b . . .
-4|. w . . . . . .
-5|. . . . . . . .
-6|. . . w . . . .
-7|. . . . w . w .
+0|. b . b . b . b
+1|b . b . b . b .
+2|. b . b . b . b
+3|. . . . . . . .
+4|. . . . . . . .
+5|w . w . w . w .
+6|. w . w . w . w
+7|w . w . w . w .
 
-pruned:
-
-NEW PIECE
 Take Moves found: False
 
-        NEW PIECE
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . b .
+        2|. b . b . b . b
+        3|. . . . . . . .
+        4|. w . . . . . .
+        5|. . w . w . w .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: True
-                17, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: True
-
-                NEW PIECE
-                Take Moves found: True
-
-                NEW PIECE
-                Take Moves found: True
-                > MAX | Depth: 1 | Score: -8 | alpha: 17 | beta: 3.402823E+38 | White Position: 2,3
-        -3.402823E+38, 17
-
-                NEW PIECE
-                Take Moves found: True
-                17, 17
-                AB cutoff: 17, 17
-
-                NEW PIECE
-                Take Moves found: True
-
-                NEW PIECE
-                Take Moves found: True
-
-                NEW PIECE
-                Take Moves found: True
-                > MAX | Depth: 1 | Score: -8 | alpha: 17 | beta: 17 | White Position: 2,3
-        -3.402823E+38, 17
-
-        NEW PIECE
         Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|b . . . . . . .
+                4|. w . . . . . .
+                5|. . w . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-                NEW PIECE
-                Take Moves found: True
-                17, 17
-                AB cutoff: 17, 17
+                New best move
 
-                NEW PIECE
-                Take Moves found: True
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|. . b . . . . .
+                4|. w . . . . . .
+                5|. . w . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-                NEW PIECE
-                Take Moves found: True
+                New best move
 
-                NEW PIECE
-                Take Moves found: True
-                > MAX | Depth: 1 | Score: -8 | alpha: 17 | beta: 17 | White Position: 2,3
-        -3.402823E+38, 17
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . b . . . . .
+                4|. w . . . . . .
+                5|. . w . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-        NEW PIECE
-        Take Moves found: True
+                New best move
 
-                NEW PIECE
-                Take Moves found: False
-                -35, 17
-                -35, 17
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|. . w . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-                NEW PIECE
-                Take Moves found: False
-                -35, 17
-                -35, 17
+                New best move
 
-                NEW PIECE
-                Take Moves found: False
-                -35, 17
-                -35, 17
-                > MAX | Depth: 1 | Score: -36 | alpha: -35 | beta: 17 | White Position: 2,7
-        -3.402823E+38, -35
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|. . w . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-        NEW PIECE
-        Take Moves found: True
+                New best move
 
-        NEW PIECE
-        Take Moves found: True
-        > MIN | Depth: 2 | Score: -7 | alpha: -3.402823E+38 | beta: -35 | White Position: 2,3
--35, 3.402823E+38
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . . . b .
+                4|. w . . . . . .
+                5|. . w . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-NEW PIECE
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . b . .
+                3|. . . . . . b .
+                4|. w . . . . . .
+                5|. . w . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        New best move
+
+        Current Board Score: 5 | Best Value: 0
 Take Moves found: False
 
-        NEW PIECE
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . b .
+        2|. b . b . b . b
+        3|. . . . . . . .
+        4|. w . . . . . .
+        5|w . . . w . w .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: False
-                -7, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                -7, 3.402823E+38
-                -7, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                -7, 3.402823E+38
-                -7, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                -7, 3.402823E+38
-                -7, 3.402823E+38
-                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: 3.402823E+38 | White Position: 1,4
-        -35, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: -7 | White Position: 1,4
-        -35, -7
-
-        NEW PIECE
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: -7 | White Position: 1,4
-        -35, -7
-
-        NEW PIECE
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: True
-                8, -7
-                AB cutoff: 8, -7
-
-                NEW PIECE
-                Take Moves found: True
-
-                NEW PIECE
-                Take Moves found: True
-
-                NEW PIECE
-                Take Moves found: True
-                > MAX | Depth: 1 | Score: -18 | alpha: 8 | beta: -7 | White Position: 1,4
-        -35, -7
-
-        NEW PIECE
-        Take Moves found: True
-
-                NEW PIECE
-                Take Moves found: True
-                -5, -7
-                AB cutoff: -5, -7
-                AB cutoff: -5, -7
-
-                NEW PIECE
-                Take Moves found: True
-
-                NEW PIECE
-                Take Moves found: True
-                > MAX | Depth: 1 | Score: -39 | alpha: -5 | beta: -7 | White Position: 1,6
-        -35, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -35, -7
-                -35, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -35, -7
-                -35, -7
-                > MAX | Depth: 1 | Score: -515 | alpha: -35 | beta: -7 | White Position: 4,7
-        -35, -514
-
-        NEW PIECE
-        Take Moves found: True
-        > MIN | Depth: 2 | Score: -13 | alpha: -35 | beta: -514 | White Position: 1,4
--35, 3.402823E+38
-
-        NEW PIECE
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: False
-                -7, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                -7, 3.402823E+38
-                -7, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                -7, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                -7, 3.402823E+38
-                -7, 3.402823E+38
-                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: 3.402823E+38 | White Position: 1,4
-        -35, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: -7 | White Position: 1,4
-        -35, -7
-
-        NEW PIECE
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-
-                NEW PIECE
-                Take Moves found: False
-                -7, -7
-                AB cutoff: -7, -7
-                -7, -7
-                AB cutoff: -7, -7
-                > MAX | Depth: 1 | Score: -14 | alpha: -7 | beta: -7 | White Position: 1,4
-        -35, -7
-
-        NEW PIECE
         Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|b . . . . . . .
+                4|. w . . . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-                NEW PIECE
-                Take Moves found: True
-                8, -7
-                AB cutoff: 8, -7
+                New best move
 
-                NEW PIECE
-                Take Moves found: True
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|. . b . . . . .
+                4|. w . . . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-                NEW PIECE
-                Take Moves found: True
+                New best move
 
-                NEW PIECE
-                Take Moves found: True
-                > MAX | Depth: 1 | Score: -18 | alpha: 8 | beta: -7 | White Position: 1,4
-        -35, -7
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . b . . . . .
+                4|. w . . . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-        NEW PIECE
-        Take Moves found: True
+                New best move
 
-                NEW PIECE
-                Take Moves found: True
-                -5, -7
-                AB cutoff: -5, -7
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-                NEW PIECE
-                Take Moves found: True
+                New best move
 
-                NEW PIECE
-                Take Moves found: True
-                > MAX | Depth: 1 | Score: -39 | alpha: -5 | beta: -7 | White Position: 3,6
-        -35, -7
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-        NEW PIECE
-        Take Moves found: True
-        > MIN | Depth: 2 | Score: -13 | alpha: -35 | beta: -7 | White Position: 1,4
--5, 3.402823E+38
+                New best move
 
-NEW PIECE
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . . . b .
+                4|. w . . . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . b . .
+                3|. . . . . . b .
+                4|. w . . . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        New best move
+
+        Current Board Score: 5 | Best Value: 0
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . b .
+        2|. b . b . b . b
+        3|. . . . . . . .
+        4|. . . w . . . .
+        5|w . . . w . w .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|b . . . . . . .
+                4|. . . w . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|. . b . . . . .
+                4|. . . w . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . b . . . . .
+                4|. . . w . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . . . b .
+                4|. . . w . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . b . .
+                3|. . . . . . b .
+                4|. . . w . . . .
+                5|w . . . w . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        New best move
+
+        Current Board Score: 5 | Best Value: 0
 Take Moves found: False
 
-        NEW PIECE
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . b .
+        2|. b . b . b . b
+        3|. . . . . . . .
+        4|. . . w . . . .
+        5|w . w . . . w .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: False
-                -5, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                -5, 3.402823E+38
-                -5, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                -5, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                -5, 3.402823E+38
-                -5, 3.402823E+38
-                > MAX | Depth: 1 | Score: -14 | alpha: -5 | beta: 3.402823E+38 | White Position: 1,4
-        -5, -7
-
-        NEW PIECE
         Take Moves found: False
-
-        NEW PIECE
         Take Moves found: False
-
-        NEW PIECE
-        Take Moves found: True
-
-        NEW PIECE
-        Take Moves found: True
-        > MIN | Depth: 2 | Score: -13 | alpha: -5 | beta: -7 | White Position: 1,4
-3.402823E+38, 3.402823E+38
-AB cutoff: 3.402823E+38, 3.402823E+38
-
-        NEW PIECE
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-                > MAX | Depth: 1 | Score: -14 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 1,4
-        3.402823E+38, -7
-
-        NEW PIECE
         Take Moves found: False
-
-        NEW PIECE
         Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|b . . . . . . .
+                4|. . . w . . . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-        NEW PIECE
-        Take Moves found: True
+                New best move
 
-        NEW PIECE
-        Take Moves found: True
-        > MIN | Depth: 2 | Score: -13 | alpha: 3.402823E+38 | beta: -7 | White Position: 1,4
-3.402823E+38, 3.402823E+38
-AB cutoff: 3.402823E+38, 3.402823E+38
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|. . b . . . . .
+                4|. . . w . . . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-NEW PIECE
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . b . . . . .
+                4|. . . w . . . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . . . b .
+                4|. . . w . . . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . b . .
+                3|. . . . . . b .
+                4|. . . w . . . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        New best move
+
+        Current Board Score: 5 | Best Value: 0
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . b .
+        2|. b . b . b . b
+        3|. . . . . . . .
+        4|. . . . . w . .
+        5|w . w . . . w .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|b . . . . . . .
+                4|. . . . . w . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|. . b . . . . .
+                4|. . . . . w . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . b . . . . .
+                4|. . . . . w . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . . . b . . .
+                4|. . . . . w . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . w . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . . . b .
+                4|. . . . . w . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . b . .
+                3|. . . . . . b .
+                4|. . . . . w . .
+                5|w . w . . . w .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        New best move
+
+        Current Board Score: 5 | Best Value: 0
 Take Moves found: False
 
-        NEW PIECE
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . b .
+        2|. b . b . b . b
+        3|. . . . . . . .
+        4|. . . . . w . .
+        5|w . w . w . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-                > MAX | Depth: 1 | Score: -14 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 1,4
-        3.402823E+38, -7
-
-        NEW PIECE
         Take Moves found: False
-
-        NEW PIECE
         Take Moves found: False
-
-        NEW PIECE
-        Take Moves found: True
-
-        NEW PIECE
-        Take Moves found: True
-        > MIN | Depth: 2 | Score: -13 | alpha: 3.402823E+38 | beta: -7 | White Position: 1,4
-3.402823E+38, 3.402823E+38
-AB cutoff: 3.402823E+38, 3.402823E+38
-
-        NEW PIECE
         Take Moves found: False
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-
-                NEW PIECE
-                Take Moves found: False
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-                3.402823E+38, 3.402823E+38
-                AB cutoff: 3.402823E+38, 3.402823E+38
-                > MAX | Depth: 1 | Score: -14 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 1,4
-        3.402823E+38, -7
-
-        NEW PIECE
         Take Moves found: False
-
-        NEW PIECE
         Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|b . . . . . . .
+                4|. . . . . w . .
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
 
-        NEW PIECE
-        Take Moves found: True
+                New best move
 
-        NEW PIECE
-        Take Moves found: True
-        > MIN | Depth: 2 | Score: -13 | alpha: 3.402823E+38 | beta: -7 | White Position: 1,4
-3.402823E+38, 3.402823E+38
-AB cutoff: 3.402823E+38, 3.402823E+38
-> MAX | Depth: 3 | Score: -14 | alpha: 3.402823E+38 | beta: 3.402823E+38 | White Position: 1,4
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|. . b . . . . .
+                4|. . . . . w . .
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . b . . . . .
+                4|. . . . . w . .
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . . . b . . .
+                4|. . . . . w . .
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . w . .
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . . . b .
+                4|. . . . . w . .
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . b . .
+                3|. . . . . . b .
+                4|. . . . . w . .
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        New best move
+
+        Current Board Score: 5 | Best Value: 0
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . b .
+        2|. b . b . b . b
+        3|. . . . . . . .
+        4|. . . . . . . w
+        5|w . w . w . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|b . . . . . . .
+                4|. . . . . . . w
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. . . b . b . b
+                3|. . b . . . . .
+                4|. . . . . . . w
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . b . . . . .
+                4|. . . . . . . w
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . . . b . b
+                3|. . . . b . . .
+                4|. . . . . . . w
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . . . w
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . . . b .
+                4|. . . . . . . w
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . b .
+                2|. b . b . b . .
+                3|. . . . . . b .
+                4|. . . . . . . w
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 0 | Best Value: 0
+        New best move
+
+        Current Board Score: 5 | Best Value: 0
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+
+SCORE: 0 MOVED: 6,5 TO: 7,4
+bbbbbbbbbbbbEEEEEEEwwwwEwwwwwwww
 #|0_1_2_3_4_5_6_7
-0|. b . . . . . b
-1|. . . . . . . .
-2|. . . b . . . .
-3|b . . . b . . .
-4|. w . . . . . .
-5|. . . . . . . .
-6|. . . . . . . w
-7|. . w . w . . .
+0|. b . b . b . b
+1|b . b . b . b .
+2|. b . b . b . b
+3|. . . . . . . .
+4|. . . . . . . w
+5|w . w . w . . .
+6|. w . w . w . w
+7|w . w . w . w .
+5
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SCORE: -8 MOVED: 5,2 TO: 6,3
+bbbbbbbbbbEbEEEbEEEwwwwEwwwwwwww
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . b . b .
+2|. b . b . . . b
+3|. . . . . . b .
+4|. . . . . . . w
+5|w . w . w . . .
+6|. w . w . w . w
+7|w . w . w . w .
+0
+
+> MAX | Depth: 2
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . b . b .
+2|. b . b . . . b
+3|. . . . . . b .
+4|. . . . . . . w
+5|w . w . w . . .
+6|. w . w . w . w
+7|w . w . w . w .
+
+Take Moves found: True
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . b .
+        2|. b . b . w . b
+        3|. . . . . . . .
+        4|. . . . . . . .
+        5|w . w . w . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: True
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . b .
+                2|. b . b . . . b
+                3|. . . . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: True
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: True
+        Take Moves found: True
+        Take Moves found: True
+        New best move
+
+        Current Board Score: 26 | Best Value: -8
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+
+SCORE: 8 MOVED: 7,4 TO: 5,2
+bbbbbbbbbbwbEEEEEEEEwwwEwwwwwwww
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . b . b .
+2|. b . b . w . b
+3|. . . . . . . .
+4|. . . . . . . .
+5|w . w . w . . .
+6|. w . w . w . w
+7|w . w . w . w .
+26
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SCORE: -10 MOVED: 6,1 TO: 4,3
+bbbbbbbEbbEbEEbEEEEEwwwEwwwwwwww
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . b . . .
+2|. b . b . . . b
+3|. . . . b . . .
+4|. . . . . . . .
+5|w . w . w . . .
+6|. w . w . w . w
+7|w . w . w . w .
+-8
+
+> MAX | Depth: 2
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . b . . .
+2|. b . b . . . b
+3|. . . . b . . .
+4|. . . . . . . .
+5|w . w . w . . .
+6|. w . w . w . w
+7|w . w . w . w .
+
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . . .
+        2|. b . b . . . b
+        3|. . . . b . . .
+        4|. w . . . . . .
+        5|. . w . w . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|. . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|. . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . b . b . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|. . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -6 | Best Value: 6
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|b . . . b . . .
+                4|. w . . . . . .
+                5|. . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|. . b . b . . .
+                4|. w . . . . . .
+                5|. . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . b . . .
+                4|. w . . . . . .
+                5|. . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . .
+                3|. . . . b . b .
+                4|. w . . . . . .
+                5|. . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. w . b . . . .
+                5|. . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. w . . . b . .
+                5|. . w . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+        New best move
+
+        Current Board Score: -3 | Best Value: -10
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . . .
+        2|. b . b . . . b
+        3|. . . . b . . .
+        4|. w . . . . . .
+        5|w . . . w . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . b . b . b
+                3|. . . . b . . .
+                4|. w . . . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -6 | Best Value: 6
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|b . . . b . . .
+                4|. w . . . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|. . b . b . . .
+                4|. w . . . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . b . . .
+                4|. w . . . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . .
+                3|. . . . b . b .
+                4|. w . . . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. w . b . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. w . . . b . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+        New best move
+
+        Current Board Score: -3 | Best Value: -10
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . . .
+        2|. b . b . . . b
+        3|. . . . b . . .
+        4|. . . w . . . .
+        5|w . . . w . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . b . b . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -6 | Best Value: 6
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|b . . . b . . .
+                4|. . . w . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|. . b . b . . .
+                4|. . . w . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . b . . .
+                4|. . . w . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . .
+                3|. . . . b . b .
+                4|. . . w . . . .
+                5|w . . . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: True
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. . . . . . . .
+                5|w . b . w . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -29 | Best Value: 29
+        Current Board Score: -3 | Best Value: -10
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . . .
+        2|. b . b . . . b
+        3|. . . . b . . .
+        4|. . . w . . . .
+        5|w . w . . . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . b . b . b
+                3|. . . . b . . .
+                4|. . . w . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -6 | Best Value: 6
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|b . . . b . . .
+                4|. . . w . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|. . b . b . . .
+                4|. . . w . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . b . . .
+                4|. . . w . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . .
+                3|. . . . b . b .
+                4|. . . w . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. . . w . b . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+        New best move
+
+        Current Board Score: -3 | Best Value: -10
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . . .
+        2|. b . b . . . b
+        3|. . . . b . . .
+        4|. . . . . w . .
+        5|w . w . . . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . w . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . w . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -4 | Best Value: 4
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . b . b . b
+                3|. . . . b . . .
+                4|. . . . . w . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -6 | Best Value: 6
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|b . . . b . . .
+                4|. . . . . w . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|. . b . b . . .
+                4|. . . . . w . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . b . . .
+                4|. . . . . w . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . .
+                3|. . . . b . b .
+                4|. . . . . w . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: True
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. . . . . . . .
+                5|w . w . . . b .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -29 | Best Value: 29
+        Current Board Score: -3 | Best Value: -10
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . . .
+        2|. b . b . . . b
+        3|. . . . b . . .
+        4|. . . . . . . .
+        5|w . w . w . w .
+        6|. w . w . . . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -6 | Best Value: 6
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -6 | Best Value: 6
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . b . b . b
+                3|. . . . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|b . . . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|. . b . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . .
+                3|. . . . b . b .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. . . b . . . .
+                5|w . w . w . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. . . . . b . .
+                5|w . w . w . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Current Board Score: -5 | Best Value: -10
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . . .
+        2|. b . b . . . b
+        3|. . . . b . . .
+        4|. . . . . . . .
+        5|w . w . w . w .
+        6|. w . w . w . .
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -6 | Best Value: 6
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . b . b .
+                2|. b . b . . . b
+                3|. . . . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -6 | Best Value: 6
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . b . b . b
+                3|. . . . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -8 | Best Value: 8
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|b . . . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. . . b . . . b
+                3|. . b . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . b . . .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . .
+                3|. . . . b . b .
+                4|. . . . . . . .
+                5|w . w . w . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -10 | Best Value: 10
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. . . b . . . .
+                5|w . w . w . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . b . . .
+                2|. b . b . . . b
+                3|. . . . . . . .
+                4|. . . . . b . .
+                5|w . w . w . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Current Board Score: -5 | Best Value: -10
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+
+SCORE: 10 MOVED: 4,5 TO: 3,4
+bbbbbbbEbbEbEEbEEwEEwwEEwwwwwwww
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . b . . .
+2|. b . b . . . b
+3|. . . . b . . .
+4|. . . w . . . .
+5|w . w . . . . .
+6|. w . w . w . w
+7|w . w . w . w .
+-3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SCORE: -16 MOVED: 3,2 TO: 2,3
+bbbbbbbEbEEbEbbEEwEEwwEEwwwwwwww
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . b . . .
+2|. b . . . . . b
+3|. . b . b . . .
+4|. . . w . . . .
+5|w . w . . . . .
+6|. w . w . w . w
+7|w . w . w . w .
+-8
+
+> MAX | Depth: 2
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . b . . .
+2|. b . . . . . b
+3|. . b . b . . .
+4|. . . w . . . .
+5|w . w . . . . .
+6|. w . w . w . w
+7|w . w . w . w .
+
+Take Moves found: True
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . b . . .
+        2|. b . . . w . b
+        3|. . b . . . . .
+        4|. . . . . . . .
+        5|w . w . . . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . b .
+                2|. b . . . w . b
+                3|. . b . . . . .
+                4|. . . . . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 17 | Best Value: -17
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . b . b .
+                2|. b . . . w . b
+                3|. . b . . . . .
+                4|. . . . . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 17 | Best Value: -17
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . . . b . . .
+                2|. b . b . w . b
+                3|. . b . . . . .
+                4|. . . . . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: 15 | Best Value: -15
+        Take Moves found: True
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -16 | Best Value: 16
+        Take Moves found: True
+        Take Moves found: True
+        Take Moves found: True
+        New best move
+
+        Current Board Score: 18 | Best Value: -16
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+Take Moves found: True
+
+SCORE: 16 MOVED: 3,4 TO: 5,2
+bbbbbbbEbEwbEbEEEEEEwwEEwwwwwwww
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . b . . .
+2|. b . . . w . b
+3|. . b . . . . .
+4|. . . . . . . .
+5|w . w . . . . .
+6|. w . w . w . w
+7|w . w . w . w .
+18
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SCORE: -18 MOVED: 4,1 TO: 6,3
+bbbbbbEEbEEbEbEbEEEEwwEEwwwwwwww
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . . . . .
+2|. b . . . . . b
+3|. . b . . . b .
+4|. . . . . . . .
+5|w . w . . . . .
+6|. w . w . w . w
+7|w . w . w . w .
+-16
+
+> MAX | Depth: 2
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . . . . .
+2|. b . . . . . b
+3|. . b . . . b .
+4|. . . . . . . .
+5|w . w . . . . .
+6|. w . w . w . w
+7|w . w . w . w .
+
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . . . . .
+        2|. b . . . . . b
+        3|. . b . . . b .
+        4|. w . . . . . .
+        5|. . w . . . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . . . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|. . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|. . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|. . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|. . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . . . . . . .
+                2|. b . b . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|. . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. . . . . . . b
+                3|b . b . . . b .
+                4|. w . . . . . .
+                5|. . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -16 | Best Value: 16
+        Take Moves found: False
+        Take Moves found: True
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. . . . . . . .
+                5|b . w . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -37 | Best Value: 37
+        Take Moves found: True
+        New best move
+
+        Current Board Score: -11 | Best Value: -37
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . . . . .
+        2|. b . . . . . b
+        3|. . b . . . b .
+        4|. w . . . . . .
+        5|w . . . . . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . . . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . . . . . . .
+                2|. b . b . . . b
+                3|. . b . . . b .
+                4|. w . . . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. . . . . . . b
+                3|b . b . . . b .
+                4|. w . . . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -16 | Best Value: 16
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. w . b . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -18 | Best Value: 18
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. w . . . b . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -18 | Best Value: 18
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. w . . . . . b
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -18 | Best Value: 18
+        New best move
+
+        Current Board Score: -11 | Best Value: -18
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . . . . .
+        2|. b . . . . . b
+        3|. . b . . . b .
+        4|. . . w . . . .
+        5|w . . . . . . .
+        6|. w . w . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . . . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . w . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . w . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . w . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . w . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -12 | Best Value: 12
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . . . . . . .
+                2|. b . b . . . b
+                3|. . b . . . b .
+                4|. . . w . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. . . . . . . b
+                3|b . b . . . b .
+                4|. . . w . . . .
+                5|w . . . . . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -16 | Best Value: 16
+        Take Moves found: False
+        Take Moves found: True
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. . . . . . . .
+                5|w . . . b . . .
+                6|. w . w . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -37 | Best Value: 37
+        Take Moves found: True
+        Current Board Score: -11 | Best Value: -18
+Take Moves found: False
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . . . . .
+        2|. b . . . . . b
+        3|. . b . . . b .
+        4|. . . . . . . .
+        5|w . w . w . . .
+        6|. w . . . w . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . . . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . . . . . . .
+                2|. b . b . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -16 | Best Value: 16
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. . . . . . . b
+                3|b . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -18 | Best Value: 18
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. b . . . . . .
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. . . b . . . .
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. . . . . b . .
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. . . . . . . b
+                5|w . w . w . . .
+                6|. w . . . w . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+        Current Board Score: -13 | Best Value: -18
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . . . . .
+        2|. b . . . . . b
+        3|. . b . . . b .
+        4|. . . . . . . .
+        5|w . w . w . . .
+        6|. w . w . . . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . . . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . . . . . . .
+                2|. b . b . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -16 | Best Value: 16
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. . . . . . . b
+                3|b . b . . . b .
+                4|. . . . . . . .
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -18 | Best Value: 18
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. b . . . . . .
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. . . b . . . .
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. . . . . b . .
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. . . . . . . b
+                5|w . w . w . . .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+        Current Board Score: -13 | Best Value: -18
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . . . . .
+        2|. b . . . . . b
+        3|. . b . . . b .
+        4|. . . . . . . .
+        5|w . w . . . w .
+        6|. w . w . . . w
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . . . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . . . . . . .
+                2|. b . b . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -16 | Best Value: 16
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. . . . . . . b
+                3|b . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -18 | Best Value: 18
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. b . . . . . .
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. . . b . . . .
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. . . . . b . .
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. . . . . . . b
+                5|w . w . . . w .
+                6|. w . w . . . w
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+        Current Board Score: -13 | Best Value: -18
+Take Moves found: False
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . . . . .
+        2|. b . . . . . b
+        3|. . b . . . b .
+        4|. . . . . . . .
+        5|w . w . . . w .
+        6|. w . w . w . .
+        7|w . w . w . w .
+
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . . . b . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . b . . .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . . . b
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . .
+                1|b . b . . . b .
+                2|. b . . . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -14 | Best Value: 14
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . . . . . . .
+                2|. b . b . . . b
+                3|. . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -16 | Best Value: 16
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. . . . . . . b
+                3|b . b . . . b .
+                4|. . . . . . . .
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -18 | Best Value: 18
+        Take Moves found: False
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. b . . . . . .
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . . . . . b .
+                4|. . . b . . . .
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+        Take Moves found: False
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. . . . . b . .
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+                #|0_1_2_3_4_5_6_7
+                0|. b . b . b . b
+                1|b . b . . . . .
+                2|. b . . . . . b
+                3|. . b . . . . .
+                4|. . . . . . . b
+                5|w . w . . . w .
+                6|. w . w . w . .
+                7|w . w . w . w .
+
+                New best move
+
+                Current Board Score: -20 | Best Value: 20
+        Current Board Score: -13 | Best Value: -18
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+Take Moves found: False
+
+SCORE: 18 MOVED: 2,5 TO: 1,4
+bbbbbbEEbEEbEbEbwEEEwEEEwwwwwwww
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . . . . .
+2|. b . . . . . b
+3|. . b . . . b .
+4|. w . . . . . .
+5|w . . . . . . .
+6|. w . w . w . w
+7|w . w . w . w .
+-11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SCORE: -26 MOVED: 6,3 TO: 7,4
+bbbbbbEEbEEbEbEEwEEbwEEEwwwwwwww
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . . . . .
+2|. b . . . . . b
+3|. . b . . . . .
+4|. w . . . . . b
+5|w . . . . . . .
+6|. w . w . w . w
+7|w . w . w . w .
+-18
+
+> MAX | Depth: 2
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b
+1|b . b . . . . .
+2|. b . . . . . b
+3|. . b . . . . .
+4|. w . . . . . b
+5|w . . . . . . .
+6|. w . w . w . w
+7|w . w . w . w .
+
+Take Moves found: True
+
+        > MIN | Depth: 1
+        #|0_1_2_3_4_5_6_7
+        0|. b . b . b . b
+        1|b . b . . . . .
+        2|. b . w . . . b
+        3|. . . . . . . .
+        4|. . . . . . . b
+        5|w . . . . . . .
+        6|. w . w . w

@@ -30,9 +30,10 @@ namespace Draughts
         // Gets the move from minimax, then makes the move
         public Board MakeMove(Board board, BackgroundWorker worker)
         {
-            Tuple<float, Position, List<Position>> mm = Minimax(DepthOfSearch, float.MinValue, float.MaxValue, IsWhite, board, worker);
 
-            Console.WriteLine("\nSCORE: " + mm.Item1.ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
+            Tuple<float, Position, List<Position>> mm = NegaMax(DepthOfSearch, IsWhite ? 1 : -1, float.MinValue, float.MaxValue, board, worker);
+
+            Console.WriteLine("\nSCORE: " + (-mm.Item1).ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
 
             if (!mm.Item2.InBoard()) { return board; }
             else
@@ -42,32 +43,29 @@ namespace Draughts
                 {
                     board.MovePeice(MovingPiece.CurrentPosition, move);
                 }
-                //Console.WriteLine(board.ConvertForSave());
+                Console.WriteLine(board.ConvertForSave());
                 return board;
             }
             
         }
 
         // Returns the best move
-        private Tuple<float, Position, List<Position>> Minimax(int Depth, float alpha, float beta, bool MaximisingPlayer, Board board, BackgroundWorker worker)
+        private Tuple<float, Position, List<Position>> NegaMax(int Depth, int PlayerColour, float alpha, float beta, Board board, BackgroundWorker worker)
         {
             // Setup 
-            float BestValue;
+            float BestValue = float.MinValue;
             bool FoundTakeMove = false;
             List<List<Position>> possibleMovesets;
-
             Position BestPiecePosition = new Position(-1, -1);
             List<Position> usablepieces = new List<Position>();
-            if (MaximisingPlayer)
+
+
+            if (PlayerColour == 1)
             {
-                // Start low, aim high
-                BestValue = float.MinValue;
                 usablepieces = board.GetWhitePositions();
             }
             else
             {
-                // Start High, aim low
-                BestValue = float.MaxValue;
                 usablepieces = board.GetBlackPositions();
             }
 
@@ -88,187 +86,116 @@ namespace Draughts
             }
             if (Debug)
             {
-                ShowBoard(board, Depth+1);
+               // ShowBoard(board, Depth+1);
             }
-            
-  
-            // detect wins
-            if (board.WhiteHasWon()) { return Tuple.Create(float.MaxValue, BestPiecePosition, BestMoveset); }
-            if (board.BlackHasWon()) { return Tuple.Create(float.MinValue, BestPiecePosition, BestMoveset); }
-
-
+   
             // detect if we should stop
-            if (Depth == 0 || usablepieces.Count == 0)
+            if (Depth == 0 || usablepieces.Count == 0 || board.WhiteHasWon() || board.BlackHasWon())
             {
-                return Tuple.Create(board.EvaluateBoard(), BestPiecePosition, BestMoveset);
+                return Tuple.Create(PlayerColour*board.EvaluateBoard(), BestPiecePosition, BestMoveset); 
             }
 
-            // If we shouldnt stop
-            if (MaximisingPlayer)
+            // Counts the number of pieces we have searched
+            int piececount = 0;
+            foreach (Position pieceposition in usablepieces)
             {
-                // Counts the number of pieces we have searched
-                int piececount = 0;
-
-                foreach (Position pieceposition in usablepieces)
+                if (Debug)
                 {
-                    if (Debug)
+                    /*
+                    Console.WriteLine();
+                    for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    Console.WriteLine("NEW PIECE at " + pieceposition.ToString());
+                    */
+                }
+
+                // generate all possible movesets
+                possibleMovesets = board.GetPiece(pieceposition).GetTakeMovesOnly(board);
+                if (possibleMovesets.Count > 0)
+                {
+                    if (!FoundTakeMove)
                     {
-                        //Console.WriteLine();
-                        //for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        //Console.WriteLine("NEW PIECE");
+                        // mark it so that every move is better that this
+                        BestValue = float.MinValue;
+                        FoundTakeMove = true;
                     }
+                }
+                else if (!FoundTakeMove)
+                {
+                    possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
+                }
+
+                if (Debug)
+                {
+                    /*
+                    for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                    Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                    */
+                }
+
+                bool BreakOuterLoop = false;
+                foreach (List<Position> moveset in possibleMovesets)
+                {
+                    // Make test board
+                    Board testboard = board.MakeNewCopyOf();
+
+                    // Make move
+                    Position oldpos = pieceposition;
+                    foreach (Position move in moveset)
+                    {
+                        testboard.MovePeice(oldpos, move);
+                        oldpos = move;
+                    }
+
                     
+                    Tuple<float, Position, List<Position>> mm = NegaMax(Depth - 1, -PlayerColour, -beta, -alpha, testboard, worker);
 
-                    // generate all possible movesets
-                    // testing prioritisation of take moves
-                    possibleMovesets = board.GetPiece(pieceposition).GetTakeMovesOnly(board);
-                    if (possibleMovesets.Count > 0)
+                    // Change the best result if we need to
+                    if (BestValue <= -mm.Item1)
                     {
-                        if (!FoundTakeMove)
+                        //if (Debug)
+                        //{
+                        //    for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        //    Console.WriteLine(BestValue.ToString() + "|" + (-mm.Item1).ToString());
+                        //}
+                        BestValue = -mm.Item1;
+                        BestMoveset = moveset;
+                        BestPiecePosition = pieceposition;
+
+                        if (Debug)
                         {
-                            // mark it so that every move is better that this
-                            BestValue = float.MinValue;
-                            FoundTakeMove = true;
-                        }
-
-
-                    }
-                    else if (!FoundTakeMove)
-                    {
-                        possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
-                    }
-
-                    if (Debug)
-                    {
-                        //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        //Console.WriteLine("Take Moves found: " + FoundTakeMove);
-                    }
-
-                    foreach (List<Position> moveset in possibleMovesets)
-                    {
-                        // Make test board
-                        Board testboard = board.MakeNewCopyOf();
-
-                        // Make move
-                        Position oldpos = pieceposition;
-                        foreach (Position move in moveset)
-                        {
-                            testboard.MovePeice(oldpos, move);
-                            oldpos = move;
-                        }
-
-                        if (alpha <= beta || !UsePruning)
-                        {
-                            Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, alpha, beta, false, testboard, worker);
-                            alpha = Math.Max(alpha, mm.Item1);
-                            if (Debug)
-                            {
-                                for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                                Console.WriteLine("Score: " + board.EvaluateBoard().ToString() + " | alpha: " + alpha.ToString() + " | beta: " + beta.ToString());
-                            }
-
-                            // Change the best result if we need to
-                            if (mm.Item1 >= BestValue)
-                            {
-                                BestValue = mm.Item1;
-                                BestMoveset = moveset;
-                                BestPiecePosition = pieceposition;
-                            }
-                        }
-                        if (alpha >= beta && UsePruning && Debug)
-                        {
-                            for (int p = 0; p <= (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                            Console.WriteLine("AB cutoff: " + alpha.ToString() + ", " + beta.ToString());
+                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                            Console.Write("New best move from " + BestPiecePosition.ToString() + " to " + BestMoveset.Last().ToString() + " | ");
                         }
                     }
-                    // If its the first call (highest depth) and we have finished a piece, report back to the worker our progress 
-                    if (Depth == DepthOfSearch)
-                    {
-                        worker.ReportProgress((int)(100f * piececount) / usablepieces.Count);
-                    }
-                    piececount++;
-                }
-                return Tuple.Create(BestValue, BestPiecePosition, BestMoveset);
-            }
-            else
-            {
-                // Counts the number of pieces we have searched
-                int piececount = 0;
-
-                foreach (Position pieceposition in usablepieces)
-                {
-                    if (Debug)
-                    {
-                        //Console.WriteLine();
-                        //for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        //Console.WriteLine("NEW PIECE");
-                    }
-
-                    // generate all possible movesets
-                    // testing prioritisation of take moves                   
-                    possibleMovesets = board.GetPiece(pieceposition).GetTakeMovesOnly(board);
-                    if (possibleMovesets.Count > 0)
-                    {
-                        if (!FoundTakeMove)
-                        {
-                            // mark it so that every move is better that this
-                            BestValue = float.MaxValue;
-                            FoundTakeMove = true;
-                        }
-                    }
-                    else if (!FoundTakeMove)
-                    {
-                        possibleMovesets = board.GetPiece(pieceposition).GetMoves(board);
-                    }
+                    alpha = Math.Max(alpha, BestValue);
 
                     if (Debug)
                     {
                         //for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        //Console.WriteLine("Take Moves found: " + FoundTakeMove);
+                        Console.WriteLine("Current Board Score: " + (PlayerColour*testboard.EvaluateBoard()).ToString() + " | Best Value: " + BestValue.ToString());
                     }
 
-                    foreach (List<Position> moveset in possibleMovesets)
+                    if (alpha >= beta && UsePruning)
                     {
-                        // Make test board
-                        Board testboard = board.MakeNewCopyOf();
-
-                        // Make move
-                        Position oldpos = pieceposition;
-                        foreach (Position move in moveset)
+                        if (Debug)
                         {
-                            testboard.MovePeice(oldpos, move);
-                            oldpos = move;
+                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                            Console.WriteLine(alpha.ToString() + " " + beta.ToString() + "Broke");
                         }
-
-                        if (alpha <= beta || !UsePruning)
-                        {
-                            Tuple<float, Position, List<Position>> mm = Minimax(Depth - 1, alpha, beta, true, testboard, worker);
-                            beta = Math.Min(beta, mm.Item1);
-                            if (Debug)
-                            {
-                                for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                                Console.WriteLine("Score: " + board.EvaluateBoard().ToString() + " | alpha: " + alpha.ToString() + " | beta: " + beta.ToString());
-
-                            }
-
-                            // Change the best result if we need to
-                            if (mm.Item1 <= BestValue)
-                            {
-                                BestValue = mm.Item1;
-                                BestMoveset = moveset;
-                                BestPiecePosition = pieceposition;
-                            }
-                        }
-                    }
-
-                    // If its the first call (highest depth) and we have finished a piece, report back to the worker our progress 
-                    if (Depth == DepthOfSearch)
-                    {
-                        worker.ReportProgress((int)(100f * ++piececount) / usablepieces.Count);
+                        break;
                     }
                 }
-                return Tuple.Create(BestValue, BestPiecePosition, BestMoveset);
+
+                // If its the first call (highest depth) and we have finished a piece, report back to the worker our progress 
+                if (Depth == DepthOfSearch)
+                {
+                    worker.ReportProgress((int)(100f * piececount) / usablepieces.Count);
+                }
+                piececount++;
+                
             }
+
+            return Tuple.Create(BestValue, BestPiecePosition, BestMoveset); 
         }
         
         void ShowBoard(Board b, int depth)

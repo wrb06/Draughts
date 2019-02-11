@@ -12,3 +12,9 @@ TODO:
 
 	- Update stalemate to work with AI moves 
 
+
+
+
+NOTES:
+
+Negamax is the same as olt minimax

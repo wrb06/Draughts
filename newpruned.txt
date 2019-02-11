@@ -762,1848 +762,1848 @@ bEEWwEwEEEEEEEEEEEEEEEEEEwEEwEBB
 7|w . . . B . B .
 -424
 
-SCORE: -41 MOVED: 3,6 TO: 4,5
-bEEWwEwEEEEEEEEEEEEEEEwEEEEEwEBB
+SCORE: -83 MOVED: 0,7 TO: 1,6
+bEEWwEwEEEEEEEEEEEEEEEEEwwEEEEBB
 #|0_1_2_3_4_5_6_7
 0|. b . . . . . W
 1|w . . . w . . .
 2|. . . . . . . .
 3|. . . . . . . .
 4|. . . . . . . .
-5|. . . . w . . .
-6|. . . . . . . .
-7|w . . . B . B .
--421
+5|. . . . . . . .
+6|. w . w . . . .
+7|. . . . B . B .
+-423
 
-SCORE: 37 MOVED: 6,7 TO: 5,6
-bEEWwEwEEEEEEEEEEEEEEEwEEEBEwEBE
+SCORE: 35 MOVED: 4,7 TO: 0,7
+bEEWwEwEEEEEEEEEEEEEEEEEEEEEBEEB
 #|0_1_2_3_4_5_6_7
 0|. b . . . . . W
 1|w . . . w . . .
 2|. . . . . . . .
 3|. . . . . . . .
 4|. . . . . . . .
-5|. . . . w . . .
-6|. . . . . B . .
-7|w . . . B . . .
--421
-
-SCORE: -46 MOVED: 4,5 TO: 5,4
-bEEWwEwEEEEEEEEEEEwEEEEEEEBEwEBE
-#|0_1_2_3_4_5_6_7
-0|. b . . . . . W
-1|w . . . w . . .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . w . .
-5|. . . . . . . .
-6|. . . . . B . .
-7|w . . . B . . .
--416
-
-SCORE: 37 MOVED: 5,6 TO: 6,5
-bEEWwEwEEEEEEEEEEEwEEEEBEEEEwEBE
-#|0_1_2_3_4_5_6_7
-0|. b . . . . . W
-1|w . . . w . . .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . w . .
-5|. . . . . . B .
-6|. . . . . . . .
-7|w . . . B . . .
--416
-
-SCORE: -53 MOVED: 5,4 TO: 6,3
-bEEWwEwEEEEEEEEwEEEEEEEBEEEEwEBE
-#|0_1_2_3_4_5_6_7
-0|. b . . . . . W
-1|w . . . w . . .
-2|. . . . . . . .
-3|. . . . . . w .
-4|. . . . . . . .
-5|. . . . . . B .
-6|. . . . . . . .
-7|w . . . B . . .
--409
-
-SCORE: 37 MOVED: 6,5 TO: 7,4
-bEEWwEwEEEEEEEEwEEEBEEEEEEEEwEBE
-#|0_1_2_3_4_5_6_7
-0|. b . . . . . W
-1|w . . . w . . .
-2|. . . . . . . .
-3|. . . . . . w .
-4|. . . . . . . B
 5|. . . . . . . .
 6|. . . . . . . .
-7|w . . . B . . .
--409
+7|B . . . . . B .
+-427
 
-SCORE: -62 MOVED: 6,3 TO: 7,2
-bEEWwEwEEEEwEEEEEEEBEEEEEEEEwEBE
+SCORE: -36 MOVED: 4,1 TO: 5,0
+bEWWwEEEEEEEEEEEEEEEEEEEEEEEBEEB
 #|0_1_2_3_4_5_6_7
-0|. b . . . . . W
-1|w . . . w . . .
-2|. . . . . . . w
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . . . .
-7|w . . . B . . .
--400
-
-SCORE: 59 MOVED: 1,0 TO: 2,1
-EEEWwbwEEEEwEEEEEEEBEEEEEEEEwEBE
-#|0_1_2_3_4_5_6_7
-0|. . . . . . . W
-1|w . b . w . . .
-2|. . . . . . . w
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . . . .
-7|w . . . B . . .
--401
-
-SCORE: -522 MOVED: 4,1 TO: 5,0
-EEWWwbEEEEEwEEEEEEEBEEEEEEEEwEBE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . b . . . . .
-2|. . . . . . . w
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . . . .
-7|w . . . B . . .
-62
-
-SCORE: 517 MOVED: 2,1 TO: 3,2
-EEWWwEEEEbEwEEEEEEEBEEEEEEEEwEBE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
+0|. b . . . W . W
 1|w . . . . . . .
-2|. . . b . . . w
+2|. . . . . . . .
 3|. . . . . . . .
-4|. . . . . . . B
+4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
-7|w . . . B . . .
-59
+7|B . . . . . B .
+36
 
-SCORE: -528 MOVED: 7,2 TO: 6,1
-EEWWwEEwEbEEEEEEEEEBEEEEEEEEwEBE
+SCORE: 35 MOVED: 6,7 TO: 7,6
+bEWWwEEEEEEEEEEEEEEEEEEEEEEBBEEE
 #|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . b . . . .
+0|. b . . . W . W
+1|w . . . . . . .
+2|. . . . . . . .
 3|. . . . . . . .
-4|. . . . . . . B
+4|. . . . . . . .
 5|. . . . . . . .
-6|. . . . . . . .
-7|w . . . B . . .
-70
+6|. . . . . . . B
+7|B . . . . . . .
+36
 
-SCORE: 521 MOVED: 3,2 TO: 4,3
-EEWWwEEwEEEEEEbEEEEBEEEEEEEEwEBE
+SCORE: -36 MOVED: 7,0 TO: 6,1
+bEWEwEEWEEEEEEEEEEEEEEEEEEEBBEEE
 #|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
+0|. b . . . W . .
+1|w . . . . . W .
 2|. . . . . . . .
-3|. . . . b . . .
-4|. . . . . . . B
+3|. . . . . . . .
+4|. . . . . . . .
 5|. . . . . . . .
-6|. . . . . . . .
-7|w . . . B . . .
-65
+6|. . . . . . . B
+7|B . . . . . . .
+36
 
-SCORE: -522 MOVED: 0,7 TO: 1,6
-EEWWwEEwEEEEEEbEEEEBEEEEwEEEEEBE
+SCORE: 35 MOVED: 0,7 TO: 1,6
+bEWEwEEWEEEEEEEEEEEEEEEEBEEBEEEE
 #|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
+0|. b . . . W . .
+1|w . . . . . W .
 2|. . . . . . . .
-3|. . . . b . . .
-4|. . . . . . . B
+3|. . . . . . . .
+4|. . . . . . . .
 5|. . . . . . . .
-6|. w . . . . . .
-7|. . . . B . . .
-66
-
-SCORE: 513 MOVED: 4,3 TO: 5,4
-EEWWwEEwEEEEEEEEEEbBEEEEwEEEEEBE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . b . B
-5|. . . . . . . .
-6|. w . . . . . .
-7|. . . . B . . .
-59
-
-SCORE: -516 MOVED: 1,6 TO: 2,5
-EEWWwEEwEEEEEEEEEEbBEwEEEEEEEEBE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . b . B
-5|. . w . . . . .
-6|. . . . . . . .
-7|. . . . B . . .
-62
-
-SCORE: 505 MOVED: 5,4 TO: 6,5
-EEWWwEEwEEEEEEEEEEEBEwEbEEEEEEBE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . w . . . b .
-6|. . . . . . . .
-7|. . . . B . . .
-53
-
-SCORE: -510 MOVED: 2,5 TO: 3,4
-EEWWwEEwEEEEEEEEEwEBEEEbEEEEEEBE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . w . . . B
-5|. . . . . . b .
-6|. . . . . . . .
-7|. . . . B . . .
-58
-
-SCORE: 47 MOVED: 6,5 TO: 7,6
-EEWWwEEwEEEEEEEEEwEBEEEEEEEbEEBE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . w . . . B
-5|. . . . . . . .
-6|. . . . . . . b
-7|. . . . B . . .
-47
-
-SCORE: -54 MOVED: 3,4 TO: 4,3
-EEWWwEEwEEEEEEwEEEEBEEEEEEEbEEBE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . . . . . .
-3|. . . . w . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . . . b
-7|. . . . B . . .
-54
-
-SCORE: 54 MOVED: 4,7 TO: 5,6
-EEWWwEEwEEEEEEwEEEEBEEEEEEBbEEEE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . . . . . .
-3|. . . . w . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . B . b
+6|. B . . . . . B
 7|. . . . . . . .
-54
+36
 
-SCORE: -63 MOVED: 4,3 TO: 5,2
-EEWWwEEwEEwEEEEEEEEBEEEEEEBbEEEE
+SCORE: -36 MOVED: 6,1 TO: 7,2
+bEWEwEEEEEEWEEEEEEEEEEEEBEEBEEEE
 #|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . . . w . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . B . b
-7|. . . . . . . .
-63
-
-SCORE: 63 MOVED: 7,6 TO: 6,7
-EEWWwEEwEEwEEEEEEEEBEEEEEEBEEEEB
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . . . w .
-2|. . . . . w . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . B . .
-7|. . . . . . B .
--400
-
-SCORE: -74 MOVED: 5,2 TO: 4,1
-EEWWwEwwEEEEEEEEEEEBEEEEEEBEEEEB
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . w . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . B . .
-7|. . . . . . B .
--389
-
-SCORE: 74 MOVED: 6,7 TO: 7,6
-EEWWwEwwEEEEEEEEEEEBEEEEEEBBEEEE
-#|0_1_2_3_4_5_6_7
-0|. . . . . W . W
-1|w . . . w . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . B . B
-7|. . . . . . . .
--389
-
-SCORE: -537 MOVED: 4,1 TO: 3,0
-EWWWwEEwEEEEEEEEEEEBEEEEEEBBEEEE
-#|0_1_2_3_4_5_6_7
-0|. . . W . W . W
-1|w . . . . . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . . .
-6|. . . . . B . B
-7|. . . . . . . .
-74
-
-SCORE: 537 MOVED: 7,6 TO: 6,5
-EWWWwEEwEEEEEEEEEEEBEEEBEEBEEEEE
-#|0_1_2_3_4_5_6_7
-0|. . . W . W . W
-1|w . . . . . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . B .
-6|. . . . . B . .
-7|. . . . . . . .
-74
-
-SCORE: -537 MOVED: 0,1 TO: 1,0
-WWWWEEEwEEEEEEEEEEEBEEEBEEBEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . . . B .
-6|. . . . . B . .
-7|. . . . . . . .
-537
-
-SCORE: 537 MOVED: 5,6 TO: 4,5
-WWWWEEEwEEEEEEEEEEEBEEBBEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . B . B .
-6|. . . . . . . .
-7|. . . . . . . .
-537
-
-SCORE: -1000 MOVED: 5,0 TO: 4,1
-WWEWEEWwEEEEEEEEEEEBEEBBEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . W . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . . . B
-5|. . . . B . B .
-6|. . . . . . . .
-7|. . . . . . . .
-537
-
-SCORE: 1000 MOVED: 6,5 TO: 5,4
-WWEWEEWwEEEEEEEEEEBBEEBEEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . W . w .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . B . B
-5|. . . . B . . .
-6|. . . . . . . .
-7|. . . . . . . .
-537
-
-SCORE: -1000 MOVED: 6,1 TO: 5,0
-WWWWEEWEEEEEEEEEEEBBEEBEEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . W . . .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . . . B . B
-5|. . . . B . . .
-6|. . . . . . . .
-7|. . . . . . . .
-1000
-
-SCORE: 1000 MOVED: 4,5 TO: 3,4
-WWWWEEWEEEEEEEEEEBBBEEEEEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . W . . .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . B . B . B
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . . .
-1000
-
-SCORE: -1000 MOVED: 4,1 TO: 5,2
-WWWWEEEEEEWEEEEEEBBBEEEEEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . . .
-2|. . . . . W . .
-3|. . . . . . . .
-4|. . . B . B . B
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . . .
-1000
-
-SCORE: 1000 MOVED: 7,4 TO: 6,5
-WWWWEEEEEEWEEEEEEBBEEEEBEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . . .
-2|. . . . . W . .
-3|. . . . . . . .
-4|. . . B . B . .
-5|. . . . . . B .
-6|. . . . . . . .
-7|. . . . . . . .
-1000
-
-SCORE: -1000 MOVED: 5,2 TO: 6,1
-WWWWEEEWEEEEEEEEEBBEEEEBEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . W .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . B . B . .
-5|. . . . . . B .
-6|. . . . . . . .
-7|. . . . . . . .
-1000
-
-SCORE: 1000 MOVED: 6,5 TO: 7,4
-WWWWEEEWEEEEEEEEEBBBEEEEEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . W .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . B . B . B
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . . .
-1000
-
-SCORE: -1000 MOVED: 6,1 TO: 7,2
-WWWWEEEEEEEWEEEEEBBBEEEEEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . . .
+0|. b . . . W . .
+1|w . . . . . . .
 2|. . . . . . . W
 3|. . . . . . . .
-4|. . . B . B . B
+4|. . . . . . . .
 5|. . . . . . . .
-6|. . . . . . . .
+6|. B . . . . . B
 7|. . . . . . . .
-1000
+36
 
-SCORE: 1000 MOVED: 7,4 TO: 6,3
-WWWWEEEEEEEWEEEBEBBEEEEEEEEEEEEE
+SCORE: 35 MOVED: 7,6 TO: 6,5
+bEWEwEEEEEEWEEEEEEEEEEEBBEEEEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . . .
+0|. b . . . W . .
+1|w . . . . . . .
 2|. . . . . . . W
-3|. . . . . . B .
-4|. . . B . B . .
-5|. . . . . . . .
-6|. . . . . . . .
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . B .
+6|. B . . . . . .
 7|. . . . . . . .
-1000
+36
 
-SCORE: -1000 MOVED: 7,2 TO: 6,1
-WWWWEEEWEEEEEEEBEBBEEEEEEEEEEEEE
+SCORE: -36 MOVED: 7,2 TO: 6,3
+bEWEwEEEEEEEEEEWEEEEEEEBBEEEEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . W .
+0|. b . . . W . .
+1|w . . . . . . .
 2|. . . . . . . .
-3|. . . . . . B .
-4|. . . B . B . .
-5|. . . . . . . .
-6|. . . . . . . .
+3|. . . . . . W .
+4|. . . . . . . .
+5|. . . . . . B .
+6|. B . . . . . .
 7|. . . . . . . .
-1000
+36
 
-SCORE: 1000 MOVED: 5,4 TO: 4,3
-WWWWEEEWEEEEEEBBEBEEEEEEEEEEEEEE
+SCORE: 35 MOVED: 1,6 TO: 2,5
+bEWEwEEEEEEEEEEWEEEEEBEBEEEEEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . W .
+0|. b . . . W . .
+1|w . . . . . . .
 2|. . . . . . . .
-3|. . . . B . B .
-4|. . . B . . . .
-5|. . . . . . . .
+3|. . . . . . W .
+4|. . . . . . . .
+5|. . B . . . B .
 6|. . . . . . . .
 7|. . . . . . . .
-1000
+36
 
-SCORE: -1500 MOVED: 6,1 TO: 5,2
-WWWWEEEEEEWEEEBBEBEEEEEEEEEEEEEE
+SCORE: -36 MOVED: 6,3 TO: 7,4
+bEWEwEEEEEEEEEEEEEEWEBEBEEEEEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . . . . .
-2|. . . . . W . .
-3|. . . . B . B .
-4|. . . B . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . . .
-1000
-
-SCORE: 1500 MOVED: 6,3 TO: 4,1
-WWWWEEBEEEEEEEBEEBEEEEEEEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . W . W
-1|. . . . B . . .
+0|. b . . . W . .
+1|w . . . . . . .
 2|. . . . . . . .
+3|. . . . . . . .
+4|. . . . . . . W
+5|. . B . . . B .
+6|. . . . . . . .
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 6,5 TO: 5,4
+bEWEwEEEEEEEEEEEEEBWEBEEEEEEEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . W . .
+1|w . . . . . . .
+2|. . . . . . . .
+3|. . . . . . . .
+4|. . . . . B . W
+5|. . B . . . . .
+6|. . . . . . . .
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 5,0 TO: 6,1
+bEEEwEEWEEEEEEEEEEBWEBEEEEEEEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . . . W .
+2|. . . . . . . .
+3|. . . . . . . .
+4|. . . . . B . W
+5|. . B . . . . .
+6|. . . . . . . .
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 2,5 TO: 3,4
+bEEEwEEWEEEEEEEEEBBWEEEEEEEEEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . . . W .
+2|. . . . . . . .
+3|. . . . . . . .
+4|. . . B . B . W
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 6,1 TO: 7,2
+bEEEwEEEEEEWEEEEEBBWEEEEEEEEEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . . . . .
+2|. . . . . . . W
+3|. . . . . . . .
+4|. . . B . B . W
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 5,4 TO: 4,3
+bEEEwEEEEEEWEEBEEBEWEEEEEEEEEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . . . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . B . . . W
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 7,4 TO: 6,5
+bEEEwEEEEEEWEEBEEBEEEEEWEEEEEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . . . . .
+2|. . . . . . . W
 3|. . . . B . . .
 4|. . . B . . . .
-5|. . . . . . . .
+5|. . . . . . W .
 6|. . . . . . . .
 7|. . . . . . . .
-500
+36
 
-SCORE: -1500 MOVED: 5,0 TO: 5,4
-WWEWEEEEEEEEEEEEEBWEEEEEEEEEEEEE
+SCORE: 35 MOVED: 3,4 TO: 2,3
+bEEEwEEEEEEWEBBEEEEEEEEWEEEEEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . . .
-4|. . . B . W . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . . .
-1500
-
-SCORE: 1500 MOVED: 3,4 TO: 2,3
-WWEWEEEEEEEEEBEEEEWEEEEEEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . B . . . . .
-4|. . . . . W . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 5,4 TO: 6,5
-WWEWEEEEEEEEEBEEEEEEEEEWEEEEEEEE
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . B . . . . .
+0|. b . . . . . .
+1|w . . . . . . .
+2|. . . . . . . W
+3|. . B . B . . .
 4|. . . . . . . .
 5|. . . . . . W .
 6|. . . . . . . .
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 2,3 TO: 3,2
-WWEWEEEEEBEEEEEEEEEEEEEWEEEEEEEE
+SCORE: -36 MOVED: 6,5 TO: 7,6
+bEEEwEEEEEEWEBBEEEEEEEEEEEEWEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . B . . . .
+0|. b . . . . . .
+1|w . . . . . . .
+2|. . . . . . . W
+3|. . B . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEEEEEBWEBEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . . . . .
+2|. . . . . B . W
+3|. . B . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEEEEEBWEBEEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . . . . .
+2|. . . . . B . W
+3|. . B . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: 35 MOVED: 2,3 TO: 3,2
+bEEEwEEEEBBWEEEEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . . . . .
+2|. . . B . B . W
 3|. . . . . . . .
 4|. . . . . . . .
-5|. . . . . . W .
+5|. . . . . . . .
 6|. . . . . . . .
-7|. . . . . . . .
-1500
+7|. . . . . . W .
+36
 
-SCORE: -1500 MOVED: 6,5 TO: 7,6
-WWEWEEEEEBEEEEEEEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEEEEBBWEEEEEEEEEEEEEEEWEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . B . . . .
+0|. b . . . . . .
+1|w . . . . . . .
+2|. . . B . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 3,2 TO: 4,3
-WWEWEEEEEEEEEEBEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,1
+bEEEwEBEEBEWEEEEEEEEEEEEEEEWEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . B . . . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEBEWEEEEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . B . . . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: 35 MOVED: 3,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
 3|. . . . B . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEBEEEEEEEEEEEEEEEEW
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
 3|. . . . B . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: 1500 MOVED: 4,3 TO: 5,2
-WWEWEEEEEEBEEEEEEEEEEEEEEEEEEEEW
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . B . .
-3|. . . . . . . .
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
 4|. . . . . . . .
 5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
+6|. . . . . . . W
+7|. . . . . . . .
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEBEEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . B . .
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 5,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
 
-SCORE: -1500 MOVED: 6,7 TO: 7,6
-WWEWEEEEEEEBEEEEEEEEEEEEEEEWEEEE
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . W
 7|. . . . . . . .
-1500
+36
 
-SCORE: 1500 MOVED: 7,2 TO: 6,3
-WWEWEEEEEEEEEEEBEEEEEEEEEEEWEEEE
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
 #|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . W
-7|. . . . . . . .
-1500
-
-SCORE: -1500 MOVED: 7,6 TO: 6,7
-WWEWEEEEEEEEEEEBEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . .
-3|. . . . . . B .
-4|. . . . . . . .
-5|. . . . . . . .
-6|. . . . . . . .
-7|. . . . . . W .
-1500
-
-SCORE: 1500 MOVED: 6,3 TO: 7,2
-WWEWEEEEEEEBEEEEEEEEEEEEEEEEEEEW
-#|0_1_2_3_4_5_6_7
-0|. W . W . . . W
-1|. . . . . . . .
-2|. . . . . . . B
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
 3|. . . . . . . .
 4|. . . . . . . .
 5|. . . . . . . .
 6|. . . . . . . .
 7|. . . . . . W .
-1500
+36
+
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: -36 MOVED: 6,7 TO: 7,6
+bEEEwEBEEEEWEEBEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: 35 MOVED: 4,3 TO: 5,2
+bEEEwEBEEEBWEEEEEEEEEEEEEEEWEEEE
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . W
+7|. . . . . . . .
+36
+
+SCORE: -36 MOVED: 7,6 TO: 6,7
+bEEEwEBEEEBWEEEEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . B . W
+3|. . . . . . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36
+
+SCORE: 35 MOVED: 5,2 TO: 4,3
+bEEEwEBEEEEWEEBEEEEEEEEEEEEEEEEW
+#|0_1_2_3_4_5_6_7
+0|. b . . . . . .
+1|w . . . B . . .
+2|. . . . . . . W
+3|. . . . B . . .
+4|. . . . . . . .
+5|. . . . . . . .
+6|. . . . . . . .
+7|. . . . . . W .
+36

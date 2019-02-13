@@ -16,10 +16,9 @@ namespace Draughts
 
         static private Board TestSetup()
         {
-            Board b = new Board(false);
+            Board b = new Board();
 
-            
-            
+
             return b;
         }
  
@@ -33,25 +32,31 @@ namespace Draughts
             b = TestSetup();
             ShowBoard();
 
-            AIPlayer white = new AIPlayer(true, 3, !false);
-            AIPlayer black = new AIPlayer(false, 3, !false);
+            AIPlayer white = new AIPlayer(true, 3, !false, !true);
+            AIPlayer black = new AIPlayer(false, 3, false, !true);
+            /*
+            black.MakeMove(b, worker);
+            ShowBoard();
+            */
+
 
             for (int i = 0; i < 100; i++)
             {
                 b = white.MakeMove(b, worker);
-                ShowBoard();
+                //ShowBoard();
                 Console.WriteLine(b.EvaluateBoard());
 
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
                 if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
 
                 b = black.MakeMove(b, worker);
-                ShowBoard();
+                //ShowBoard();
                 Console.WriteLine(b.EvaluateBoard());
 
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
                 if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
             }
+            
             
             
 
@@ -178,11 +183,6 @@ namespace Draughts
 
             }
             
-        }
-
-        static void ExplainMove(Position from, Position to)
-        {
-            Console.WriteLine("moved peice from: " + from.ToString() + " to position: " + to.ToString());
         }
     }
 }

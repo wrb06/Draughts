@@ -33,7 +33,7 @@ namespace Draughts
 
             Tuple<float, Position, List<Position>> mm = NegaMax(DepthOfSearch, IsWhite ? 1 : -1, float.MinValue, float.MaxValue, board, worker);
 
-            Console.WriteLine("\nSCORE: " + (-mm.Item1).ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
+            //Console.WriteLine("\nSCORE: " + (-mm.Item1).ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
 
             if (!mm.Item2.InBoard()) { return board; }
             else
@@ -43,7 +43,7 @@ namespace Draughts
                 {
                     board.MovePeice(MovingPiece.CurrentPosition, move);
                 }
-                Console.WriteLine(board.ConvertForSave());
+                //Console.WriteLine(board.ConvertForSave());
                 return board;
             }
             
@@ -148,23 +148,19 @@ namespace Draughts
 
                     
                     Tuple<float, Position, List<Position>> mm = NegaMax(Depth - 1, -PlayerColour, -beta, -alpha, testboard, worker);
+                    float MoveScore = -mm.Item1;
 
                     // Change the best result if we need to
-                    if (BestValue <= -mm.Item1)
+                    if (BestValue < MoveScore)
                     {
-                        //if (Debug)
-                        //{
-                        //    for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        //    Console.WriteLine(BestValue.ToString() + "|" + (-mm.Item1).ToString());
-                        //}
-                        BestValue = -mm.Item1;
+                        BestValue = MoveScore;
                         BestMoveset = moveset;
                         BestPiecePosition = pieceposition;
 
                         if (Debug)
                         {
                             for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                            Console.Write("New best move from " + BestPiecePosition.ToString() + " to " + BestMoveset.Last().ToString() + " | ");
+                            Console.Write("New best move from " + BestPiecePosition.ToString() + " to " + BestMoveset.Last().ToString() + " with score of: " + BestValue.ToString() + " breating previous of: " +  (-mm.Item1).ToString());
                         }
                     }
                     alpha = Math.Max(alpha, BestValue);
@@ -172,7 +168,7 @@ namespace Draughts
                     if (Debug)
                     {
                         //for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                        Console.WriteLine("Current Board Score: " + (PlayerColour*testboard.EvaluateBoard()).ToString() + " | Best Value: " + BestValue.ToString());
+                        Console.WriteLine(" | Current Board Score: " + (PlayerColour*testboard.EvaluateBoard()).ToString() + " | Best Value: " + BestValue.ToString());
                     }
 
                     if (alpha >= beta && UsePruning)
@@ -182,6 +178,7 @@ namespace Draughts
                             for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
                             Console.WriteLine(alpha.ToString() + " " + beta.ToString() + "Broke");
                         }
+                        BreakOuterLoop = true;
                         break;
                     }
                 }
@@ -192,6 +189,8 @@ namespace Draughts
                     worker.ReportProgress((int)(100f * piececount) / usablepieces.Count);
                 }
                 piececount++;
+
+                if (BreakOuterLoop) { break; }
                 
             }
 

@@ -51,6 +51,9 @@
     <Compile Include="..\Draughts\Board.cs">
       <Link>Board.cs</Link>
     </Compile>
+    <Compile Include="..\Draughts\CalculatedMove.cs">
+      <Link>CalculatedMove.cs</Link>
+    </Compile>
     <Compile Include="..\Draughts\KingPeice.cs">
       <Link>KingPeice.cs</Link>
     </Compile>

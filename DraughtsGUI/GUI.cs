@@ -80,6 +80,7 @@ namespace DraughtsGUI
             trackBar1.Enabled = true;
 
             label7.Text = (++MoveNum).ToString();
+            label9.Text = (40 - CountSinceLastTake).ToString();
             numericUpDown1.Value = MoveNum;
             Console.WriteLine("B " + board.ConvertForSave());
             pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
@@ -97,8 +98,7 @@ namespace DraughtsGUI
         private void BlackAIMove(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker bgWorker = (BackgroundWorker)sender;
-
-            board = AIBlack.MakeMove(board, bgWorker);
+            board = AIBlack.MakeMove(board, bgWorker, ref CountSinceLastTake);
         }
 
         private int FindScale()
@@ -447,7 +447,7 @@ namespace DraughtsGUI
 
         private void ChangeDifficulty(object sender, EventArgs e)
         {
-            AIBlack = new AIPlayer(false, trackBar1.Value / 10 + 1, checkBox1.Checked);
+            AIBlack = new AIPlayer(false, trackBar1.Value + 1, checkBox1.Checked);
             label4.Text = trackBar1.Value.ToString();
             //Console.WriteLine((trackBar1.Value / 10 + 1).ToString());
         }
@@ -458,7 +458,7 @@ namespace DraughtsGUI
             {
                 // Shouldnt ever run
                 worker.CancelAsync();
-                Console.WriteLine("Canceled worker");
+                Console.WriteLine("Canceled worker"); 
             }
 
             GameEnded = true;
@@ -497,6 +497,9 @@ namespace DraughtsGUI
             MovedThisTurn = false;
             TakeMoveMade = false;
             GameEnded = false;
+
+            CountSinceLastTake = 0;
+            label9.Text = CountSinceLastTake.ToString();
             
         }
 

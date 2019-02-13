@@ -28,33 +28,49 @@ namespace Draughts
         }
 
         // Gets the move from minimax, then makes the move
-        public Board MakeMove(Board board, BackgroundWorker worker)
+        public Board MakeMove(Board board, BackgroundWorker worker, ref int CountSinceLastTake)
         {
+            Console.WriteLine((40 - CountSinceLastTake).ToString() + "Moves Untill a stalemate");
+            CalculatedMove Move = NegaMax(DepthOfSearch, IsWhite ? 1 : -1, float.MinValue, float.MaxValue, board, worker);
 
-            Tuple<float, Position, List<Position>> mm = NegaMax(DepthOfSearch, IsWhite ? 1 : -1, float.MinValue, float.MaxValue, board, worker);
+            try
+            {
+                Console.WriteLine("\nSCORE: " + Move.Value.ToString() + " MOVED: " + Move.MoveFrom.ToString() + " TO: " + Move.Moveset.Last().ToString());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
 
-            //Console.WriteLine("\nSCORE: " + (-mm.Item1).ToString() + " MOVED: " + mm.Item2.ToString() + " TO: " + mm.Item3.Last().ToString());
-
-            if (!mm.Item2.InBoard()) { return board; }
+            if (Move.MoveFrom.IsTakeMove(Move.Moveset.First()))
+            {
+                CountSinceLastTake = 0;
+            }
             else
             {
-                Piece MovingPiece = board.GetPiece(mm.Item2);
-                foreach (Position move in mm.Item3)
+                CountSinceLastTake++;
+            }
+
+            if (!Move.MoveFrom.InBoard()) { return board; }
+            else
+            {
+                Piece MovingPiece = board.GetPiece(Move.MoveFrom);
+                foreach (Position move in Move.Moveset)
                 {
                     board.MovePeice(MovingPiece.CurrentPosition, move);
                 }
-                //Console.WriteLine(board.ConvertForSave());
+                Console.WriteLine(board.ConvertForSave());
                 return board;
-            }
-            
+            }       
         }
 
         // Returns the best move
-        private Tuple<float, Position, List<Position>> NegaMax(int Depth, int PlayerColour, float alpha, float beta, Board board, BackgroundWorker worker)
+        private CalculatedMove NegaMax(int Depth, int PlayerColour, float alpha, float beta, Board board, BackgroundWorker worker)
         {
             // Setup 
             float BestValue = float.MinValue;
             bool FoundTakeMove = false;
+            bool AppliedTakeMove = false;
             List<List<Position>> possibleMovesets;
             Position BestPiecePosition = new Position(-1, -1);
             List<Position> usablepieces = new List<Position>();
@@ -92,7 +108,7 @@ namespace Draughts
             // detect if we should stop
             if (Depth == 0 || usablepieces.Count == 0 || board.WhiteHasWon() || board.BlackHasWon())
             {
-                return Tuple.Create(PlayerColour*board.EvaluateBoard(), BestPiecePosition, BestMoveset); 
+                return new CalculatedMove(PlayerColour * board.EvaluateBoard(), BestPiecePosition, BestMoveset);
             }
 
             // Counts the number of pieces we have searched
@@ -112,10 +128,9 @@ namespace Draughts
                 possibleMovesets = board.GetPiece(pieceposition).GetTakeMovesOnly(board);
                 if (possibleMovesets.Count > 0)
                 {
-                    if (!FoundTakeMove)
+                    if (!FoundTakeMove && !AppliedTakeMove)
                     {
                         // mark it so that every move is better that this
-                        BestValue = float.MinValue;
                         FoundTakeMove = true;
                     }
                 }
@@ -147,21 +162,22 @@ namespace Draughts
                     }
 
                     
-                    Tuple<float, Position, List<Position>> mm = NegaMax(Depth - 1, -PlayerColour, -beta, -alpha, testboard, worker);
-                    float MoveScore = -mm.Item1;
+                    CalculatedMove Move = NegaMax(Depth - 1, -PlayerColour, -beta, -alpha, testboard, worker);
 
                     // Change the best result if we need to
-                    if (BestValue < MoveScore)
+                    if (BestValue < Move.Value || (FoundTakeMove && !AppliedTakeMove))
                     {
-                        BestValue = MoveScore;
-                        BestMoveset = moveset;
-                        BestPiecePosition = pieceposition;
+                        if (FoundTakeMove && !AppliedTakeMove) { AppliedTakeMove = true; }
 
                         if (Debug)
                         {
                             for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                            Console.Write("New best move from " + BestPiecePosition.ToString() + " to " + BestMoveset.Last().ToString() + " with score of: " + BestValue.ToString() + " breating previous of: " +  (-mm.Item1).ToString());
+                            Console.Write("New best move from " + BestPiecePosition.ToString() + " to " + BestMoveset.Last().ToString() + " with score of: " + Move.Value.ToString() + " breating previous of: " +  BestValue.ToString());
                         }
+
+                        BestValue = Move.Value;
+                        BestMoveset = moveset;
+                        BestPiecePosition = pieceposition;
                     }
                     alpha = Math.Max(alpha, BestValue);
 
@@ -194,7 +210,7 @@ namespace Draughts
                 
             }
 
-            return Tuple.Create(BestValue, BestPiecePosition, BestMoveset); 
+            return new CalculatedMove(BestValue, BestPiecePosition, BestMoveset); 
         }
         
         void ShowBoard(Board b, int depth)

@@ -31,9 +31,9 @@ namespace Draughts
             // Load
             b = TestSetup();
             ShowBoard();
-
-            AIPlayer white = new AIPlayer(true, 3, !false, !true);
-            AIPlayer black = new AIPlayer(false, 3, false, !true);
+            
+            AIPlayer white = new AIPlayer(true, 7, !false, !true);
+            AIPlayer black = new AIPlayer(false, 7, false, !true);
             /*
             black.MakeMove(b, worker);
             ShowBoard();
@@ -43,14 +43,14 @@ namespace Draughts
             for (int i = 0; i < 100; i++)
             {
                 b = white.MakeMove(b, worker);
-                //ShowBoard();
+                ShowBoard();
                 Console.WriteLine(b.EvaluateBoard());
 
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
                 if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
 
                 b = black.MakeMove(b, worker);
-                //ShowBoard();
+                ShowBoard();
                 Console.WriteLine(b.EvaluateBoard());
 
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }

@@ -145,14 +145,13 @@
             // 
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBar1.LargeChange = 10;
+            this.trackBar1.LargeChange = 1;
             this.trackBar1.Location = new System.Drawing.Point(213, 32);
-            this.trackBar1.Maximum = 150;
+            this.trackBar1.Maximum = 15;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(568, 45);
             this.trackBar1.TabIndex = 13;
-            this.trackBar1.TickFrequency = 10;
-            this.trackBar1.Value = 20;
+            this.trackBar1.Value = 1;
             this.trackBar1.ValueChanged += new System.EventHandler(this.ChangeDifficulty);
             // 
             // label4
@@ -160,9 +159,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(263, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.Size = new System.Drawing.Size(13, 13);
             this.label4.TabIndex = 14;
-            this.label4.Text = "20";
+            this.label4.Text = "2";
             // 
             // restartgame
             // 

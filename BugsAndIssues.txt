@@ -7,4 +7,3 @@ TODO:
 	- Make end game more agressive
 
 	- Force Humans to take enemy pieces
-

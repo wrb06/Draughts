@@ -41,7 +41,7 @@ namespace DraughtsGUI
 
         BackgroundWorker worker;
 
-        List<String> pastboards;
+        List<string> pastboards;
 
         public GUI()
         {
@@ -132,7 +132,7 @@ namespace DraughtsGUI
                 picture.Location = new Point((i % 8) * scale, 120 + (i / 8) * scale);
                 picture.Size = new Size(scale, scale);
 
-                picture.Click += Picture_Click;
+                picture.Click += CellClicked;
 
                 this.Controls.Add(picture);
                 boxes.Add(picture);
@@ -140,7 +140,7 @@ namespace DraughtsGUI
             }
         }
 
-        private void Picture_Click(object sender, EventArgs e)
+        private void CellClicked(object sender, EventArgs e)
         {
             if (!GameEnded)
             {
@@ -330,7 +330,7 @@ namespace DraughtsGUI
             if (saveFileDialog.FileName != "")
             {
                 // Convert the board into computer readable form
-                string FileData = board.ConvertForSave() + MoveNum.ToString("00") + Environment.NewLine;
+                string FileData = board.ConvertForSave() + MoveNum.ToString("000") + Environment.NewLine;
 
                 // Add a human readable form so the user can see what state the board is in easily
                 FileData += "#|0_1_2_3_4_5_6_7" + Environment.NewLine +
@@ -389,8 +389,8 @@ namespace DraughtsGUI
                 FileStream fileStream = (FileStream)openFileDialog.OpenFile();
                 byte[] FileBytes = new byte[fileStream.Length];
 
-                // Only take the first 64 characters as that is the board
-                fileStream.Read(FileBytes, 0, 34);
+                // Only take the first 35 characters as that is the board and Move number
+                fileStream.Read(FileBytes, 0, 35);
 
                 // Empty board, place new pieces on board
                 board = new Board(true);
@@ -413,7 +413,7 @@ namespace DraughtsGUI
                 }
 
                 // Read MoveNum from final two bytes
-                int.TryParse(((char)FileBytes[32]).ToString() + ((char)FileBytes[33]).ToString(), out MoveNum);
+                int.TryParse(((char)FileBytes[32]).ToString() + ((char)FileBytes[33]).ToString() + ((char)FileBytes[34]).ToString(), out MoveNum);
                 UpdateBoard();
 
                 restartgame.Visible = false;

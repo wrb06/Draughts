@@ -14,16 +14,32 @@ namespace DraughtsGUI
 {
     public partial class GUI : Form
     {
-        const string WhitePieceLocation = "../../WhitePiece.png";
-        const string BlackPieceLocation = "../../BlackPiece.png";
-        const string WhiteKingPieceLocation = "../../WhiteKingPiece.png";
-        const string BlackKingPieceLocation = "../../BlackKingPiece.png";
-        const string EmptyPieceLocation1 = "../../EmptyPiece.png";
-        const string EmptyPieceLocation2 = "../../EmptyPiece1.png";
-        const string EmptyPieceHighlightLocation = "../../EmptyPieceHighlight.png";
-        const string WhitePieceHighlightLocation = "../../WhitePieceHighlight.png";
-        const string WhiteKingPieceHighlightLocation = "../../WhiteKingPieceHighlight.png";
+        // Set Image Constants
+        // ---------------------------------------------------------------------------------------------------------
+        const string WhitePieceLocation = "../../../Images/WhitePiece.png";
+        const string BlackPieceLocation = "../../../Images/BlackPiece.png";
+        const string WhiteKingPieceLocation = "../../../Images/WhiteKingPiece.png";
+        const string BlackKingPieceLocation = "../../../Images/BlackKingPiece.png";
 
+        const string EmptyImage1 = "../../../Images/EmptyPiece.png";
+        const string EmptyImage2 = "../../../Images/EmptyPiece1.png";
+        const string EmptyHighlightImage = "../../../Images/EmptyPieceHighlight.png";
+
+        const string WhitePieceHighlightLocation = "../../../Images/WhitePieceHighlight.png";
+        const string WhiteKingPieceHighlightLocation = "../../../Images/WhiteKingPieceHighlight.png";
+        const string BlackPieceHighlightLocation = "../../../Images/BlackPieceHighlight.png";
+        const string BlackKingPieceHighlightLocation = "../../BlackKingPieceHighlight.png";
+        // -----------------------------------------------------------------------------------------------------------
+
+        // Set Startup team;
+        string YourImage = WhitePieceLocation;
+        string YourKingImage = WhiteKingPieceLocation;
+        string YourHighlightImage = WhitePieceHighlightLocation;
+        string YourKingHighlightImage = WhiteKingPieceHighlightLocation;
+        string EnemyImage = BlackPieceLocation;
+        string EnemyKingImage = BlackKingPieceLocation;
+
+        // Other Variables
         int scale;
         int MoveNum = 0;
         bool MovedThisTurn = false;
@@ -38,6 +54,7 @@ namespace DraughtsGUI
         Board board;
         List<PictureBox> boxes;
         AIPlayer AIBlack = new AIPlayer(false, 3, false);
+        bool PlayingAsWhite = true;
 
         BackgroundWorker worker;
 
@@ -103,12 +120,15 @@ namespace DraughtsGUI
 
         private int FindScale()
         {
-            if (Height-160<Width) { return (Height-160) / 8; }
-            else { return (Width-16) / 8; }
+            return (int)Math.Floor(Math.Min(ClientSize.Width, ClientSize.Height - 160) / 8.0);
         }
-
         private void SetupBoard(bool empty = false)
         {
+            Console.WriteLine("SCALE: " + scale);
+            Console.WriteLine(Width - ClientSize.Width);
+            Console.WriteLine(Height - ClientSize.Height);
+
+
             board = new Board(empty);
 
             Console.WriteLine("  " + board.ConvertForSave());
@@ -120,16 +140,17 @@ namespace DraughtsGUI
             {
                 PictureBox picture = new PictureBox();
 
-                if (p == null){ picture.ImageLocation = (i % 2 + i / 8) % 2 == 0 ? EmptyPieceLocation1 : EmptyPieceLocation2; }
+                if (p == null){ picture.ImageLocation = (i % 2 + i / 8) % 2 == 0 ? EmptyImage1 : EmptyImage2; }
                 else
                 {
-                    if (p.Value == 1) { picture.ImageLocation = WhitePieceLocation; }
-                    if (p.Value == 500) { picture.ImageLocation = WhiteKingPieceLocation; }
-                    if (p.Value == -1) { picture.ImageLocation = BlackPieceLocation; }
-                    if (p.Value == -500) { picture.ImageLocation = BlackKingPieceLocation; }
+                    if (p.Value == 1) { picture.ImageLocation = YourImage; }
+                    if (p.Value == 500) { picture.ImageLocation = YourKingImage; }
+                    if (p.Value == -1) { picture.ImageLocation = EnemyImage; }
+                    if (p.Value == -500) { picture.ImageLocation = EnemyKingImage; }
                 }
                 picture.SizeMode = PictureBoxSizeMode.Zoom;
-                picture.Location = new Point((i % 8) * scale, 120 + (i / 8) * scale);
+                picture.Location = new Point((i % 8) * scale, 160 + (i / 8) * scale);
+                Console.WriteLine(((i % 8) * scale).ToString() + " " + (160 + (i / 8) * scale).ToString());
                 picture.Size = new Size(scale, scale);
 
                 picture.Click += CellClicked;
@@ -145,7 +166,6 @@ namespace DraughtsGUI
             if (!GameEnded)
             {
                 Position ClickedPoint = PointToPosition(PointToClient(Cursor.Position));
-                textBox3.Text = ClickedPoint.ToString();
 
                 if (FoundPieceToMove)
                 {
@@ -162,9 +182,6 @@ namespace DraughtsGUI
                         MovedThisTurn = true;
                         TakingPiecePosition = ClickedPoint;
                         CountSinceLastTake++;
-
-                        // Update Display
-                        textBox1.Text = board.EvaluateBoard().ToString();
 
                         // Update to show we have made a take move
                         if (SelectedPosition.IsTakeMove(ClickedPoint))
@@ -197,7 +214,6 @@ namespace DraughtsGUI
                     else
                     {
                         // Deselect the piece
-                        textBox2.Text = "";
                         FoundPieceToMove = false;
 
                         // Redraw board, clearing highlights
@@ -214,11 +230,10 @@ namespace DraughtsGUI
                         {
                             FoundPieceToMove = true;
                             SelectedPosition = ClickedPoint;
-                            textBox2.Text = SelectedPosition.ToString();
 
                             // Highlight this piece
-                            if (board.GetPiece(ClickedPoint).Value == 1) { UpdatePiece(ClickedPoint, WhitePieceHighlightLocation); }
-                            else { UpdatePiece(ClickedPoint, WhiteKingPieceHighlightLocation); }
+                            if (board.GetPiece(ClickedPoint).Value == 1) { UpdatePiece(ClickedPoint, YourHighlightImage); }
+                            else { UpdatePiece(ClickedPoint, YourKingHighlightImage); }
 
                             // Highlight take moves
                             if (MovedThisTurn && TakeMoveMade)
@@ -226,7 +241,7 @@ namespace DraughtsGUI
                                 // Highlight only take moves if we have moved allready
                                 foreach (List<Position> move in board.GetPiece(ClickedPoint).GetTakeMovesOnly(board))
                                 {
-                                    UpdatePiece(move.Last(), EmptyPieceHighlightLocation);
+                                    UpdatePiece(move.Last(), EmptyHighlightImage);
                                 }
                             }
                             else if (!MovedThisTurn)
@@ -234,7 +249,7 @@ namespace DraughtsGUI
                                 // Highlight all moves if this is the first move this turn
                                 foreach (List<Position> move in board.GetPiece(ClickedPoint).GetMoves(board))
                                 {
-                                    UpdatePiece(move.Last(), EmptyPieceHighlightLocation);
+                                    UpdatePiece(move.Last(), EmptyHighlightImage);
                                 }
                             }
                         }
@@ -252,15 +267,15 @@ namespace DraughtsGUI
                 if (p == null)
                 {   
                     // If the square is empty show the correct empty square picture
-                    boxes[i].ImageLocation = (i % 2 + i / 8) % 2 == 0 ? EmptyPieceLocation1 : EmptyPieceLocation2;
+                    boxes[i].ImageLocation = (i % 2 + i / 8) % 2 == 0 ? EmptyImage1 : EmptyImage2;
                 }
                 else
                 {
                     // Show the correct piece 
-                    if (p.Value == 1) { boxes[i].ImageLocation = WhitePieceLocation; }
-                    if (p.Value == 500) { boxes[i].ImageLocation = WhiteKingPieceLocation; }
-                    if (p.Value == -1) { boxes[i].ImageLocation = BlackPieceLocation; }
-                    if (p.Value == -500) { boxes[i].ImageLocation = BlackKingPieceLocation; }
+                    if (p.Value == 1) { boxes[i].ImageLocation = YourImage; }
+                    if (p.Value == 500) { boxes[i].ImageLocation = YourKingImage; }
+                    if (p.Value == -1) { boxes[i].ImageLocation = EnemyImage; }
+                    if (p.Value == -500) { boxes[i].ImageLocation = EnemyKingImage; }
                 }
             }
         }
@@ -280,7 +295,7 @@ namespace DraughtsGUI
 
         private Position PointToPosition(Point point)
         {
-            return new Position(point.X / scale, (point.Y-120) / scale);
+            return new Position(point.X / scale, (point.Y-160) / scale);
         }
 
         private void GUI_Load(object sender, EventArgs e)
@@ -434,13 +449,20 @@ namespace DraughtsGUI
             scale = FindScale();
             for (int i = 0; i<64; i++)
             {
-                boxes[i].Location = new Point((i % 8) * scale, 120 + (i / 8) * scale);
+                if (ClientSize.Width > ClientSize.Height - 160)
+                {
+                    boxes[i].Location = new Point((ClientSize.Width - 8 * scale) / 2 + (i % 8) * scale, 160 + (i / 8) * scale);
+                }
+                else
+                {
+                    boxes[i].Location = new Point((i % 8) * scale, 160 + (i / 8) * scale);
+                }
                 boxes[i].Size = new Size(scale, scale);
             }
             UpdateBoard();
             if (restartgame.Visible)
             {
-                restartgame.Location = new Point(3 * scale, 120 + (int)(3.5 * scale));
+                restartgame.Location = new Point(3 * scale, 160 + (int)(3.5 * scale));
                 restartgame.Size = new Size(2 * scale, scale);
             }
         }
@@ -463,7 +485,7 @@ namespace DraughtsGUI
 
             GameEnded = true;
             restartgame.Text = Winner + " has won. \n Click to play again";
-            restartgame.Location = new Point(3*scale, 120+(int)(3.5 * scale));
+            restartgame.Location = new Point(3*scale, 160+(int)(3.5 * scale));
             restartgame.Size = new Size(2*scale, scale);
             restartgame.Visible = true;
 
@@ -569,6 +591,41 @@ namespace DraughtsGUI
         {
             AIBlack = new AIPlayer(false, trackBar1.Value / 10 + 1, checkBox1.Checked);
             Console.WriteLine("prune" + checkBox1.Checked.ToString());
+        }
+
+        private void SwitchTeamColor(object sender, EventArgs e)
+        {
+            // switch teams
+            PlayingAsWhite = !PlayingAsWhite;
+
+            if (PlayingAsWhite)
+            {
+                // Change images;
+                YourImage = WhitePieceLocation;
+                YourKingImage = WhiteKingPieceLocation;
+
+                YourHighlightImage = WhitePieceHighlightLocation;
+                YourKingHighlightImage = WhiteKingPieceHighlightLocation;
+
+                EnemyImage = BlackPieceLocation;
+                EnemyKingImage = BlackKingPieceLocation;
+
+                label11.Text = "White";
+            }
+            else
+            {
+                // Change images;
+                YourImage = BlackPieceLocation;
+                YourKingImage = BlackKingPieceLocation;
+
+                YourHighlightImage = BlackPieceHighlightLocation;
+                YourKingHighlightImage = BlackKingPieceHighlightLocation;
+
+                EnemyImage = WhitePieceLocation;
+                EnemyKingImage = WhiteKingPieceLocation;
+                label11.Text = "Black";
+            }
+            UpdateBoard();
         }
     }
 }

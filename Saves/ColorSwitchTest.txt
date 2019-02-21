@@ -1,0 +1,10 @@
+EWEbEEEbbEEEEEEEEEEEEEEEbEEwwwEB045
+#|0_1_2_3_4_5_6_7
+0|. . . W . . . b 
+1|. . . . . . b . 
+2|. b . . . . . . 
+3|. . . . . . . . 
+4|. . . . . . . . 
+5|. . . . . . . . 
+6|. b . . . . . w 
+7|w . w . . . B . Moves Made so far: 45

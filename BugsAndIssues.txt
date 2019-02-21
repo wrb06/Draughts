@@ -8,10 +8,4 @@ TODO:
 
 	- Force Humans to take enemy pieces
 
-	- Indicate whos turn it is
-
 	- Randomly pick from joint best
-
-	- Difficulty before game begins
-
-	- Multistep moves should step through

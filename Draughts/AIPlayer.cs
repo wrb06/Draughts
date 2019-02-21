@@ -28,7 +28,7 @@ namespace Draughts
         }
 
         // Gets the move from minimax, then makes the move
-        public Board MakeMove(Board board, BackgroundWorker worker, ref int CountSinceLastTake)
+        public List<Board> MakeMove(Board board, BackgroundWorker worker, ref int CountSinceLastTake)
         {
             Console.WriteLine((40 - CountSinceLastTake).ToString() + "Moves Untill a stalemate");
             CalculatedMove Move = NegaMax(DepthOfSearch, IsWhite ? 1 : -1, float.MinValue, float.MaxValue, board, worker);
@@ -51,16 +51,20 @@ namespace Draughts
                 CountSinceLastTake++;
             }
 
-            if (!Move.MoveFrom.InBoard()) { return board; }
+            
+            if (!Move.MoveFrom.InBoard()) { return new List<Board>(); }
             else
             {
+                List<Board> Boardstates = new List<Board>();
                 Piece MovingPiece = board.GetPiece(Move.MoveFrom);
                 foreach (Position move in Move.Moveset)
                 {
                     board.MovePeice(MovingPiece.CurrentPosition, move);
+                    Boardstates.Add(board.MakeNewCopyOf());
+                    
                 }
                 Console.WriteLine(board.ConvertForSave());
-                return board;
+                return Boardstates;
             }       
         }
 

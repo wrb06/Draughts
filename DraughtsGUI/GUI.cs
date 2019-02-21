@@ -101,7 +101,6 @@ namespace DraughtsGUI
             numericUpDown1.Value = MoveNum;
             Console.WriteLine("B " + board.ConvertForSave());
             pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
-            UpdateBoard();
 
             MovedThisTurn = false;
             TakeMoveMade = false;
@@ -115,7 +114,23 @@ namespace DraughtsGUI
         private void BlackAIMove(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker bgWorker = (BackgroundWorker)sender;
-            board = AIBlack.MakeMove(board, bgWorker, ref CountSinceLastTake);
+
+            List<Board> Boardstates = AIBlack.MakeMove(board, bgWorker, ref CountSinceLastTake);
+
+            board = Boardstates.First();
+            UpdateBoard();
+
+            if (Boardstates.Count > 1)
+            {
+                foreach (Board state in Boardstates.Skip(1))
+                {
+                    // Sleeping the Backgroundworker doesnt affect UI
+                    System.Threading.Thread.Sleep(500);
+
+                    board = state;
+                    UpdateBoard();
+                }
+            }
         }
 
         private int FindScale()
@@ -295,7 +310,15 @@ namespace DraughtsGUI
 
         private Position PointToPosition(Point point)
         {
-            return new Position(point.X / scale, (point.Y-160) / scale);
+            if (ClientSize.Width > ClientSize.Height - 160)
+            {
+                return new Position((point.X - (ClientSize.Width - 8 * scale) / 2) / scale, (point.Y - 160) / scale);
+            }
+            else
+            {
+
+                return new Position(point.X / scale, (point.Y - 160) / scale);
+            }
         }
 
         private void GUI_Load(object sender, EventArgs e)

@@ -16,8 +16,16 @@ namespace Draughts
 
         static private Board TestSetup()
         {
-            Board b = new Board();
-
+            Board b = new Board(true);
+            b.PlacePiece(new Piece(true, 0, 1));
+            b.PlacePiece(new KingPiece(true, 2, 1));
+            b.PlacePiece(new Piece(true, 4, 1));
+            b.PlacePiece(new KingPiece(false, 0, 3));
+            b.PlacePiece(new Piece(true, 5, 4));
+            b.PlacePiece(new Piece(true, 7, 4));
+            b.PlacePiece(new Piece(true, 0, 5));
+            b.PlacePiece(new Piece(true, 7, 6));
+            b.PlacePiece(new Piece(true, 0, 7));
 
             return b;
         }
@@ -32,14 +40,17 @@ namespace Draughts
             b = TestSetup();
             ShowBoard();
             
-            AIPlayer white = new AIPlayer(true, 7, !false, !true);
-            AIPlayer black = new AIPlayer(false, 7, false, !true);
-            /*
-            black.MakeMove(b, worker);
+            //AIPlayer white = new AIPlayer(true, 7, !false, !true);
+            AIPlayer black = new AIPlayer(false, 2, false, true);
+
+
+            int i = 0;
+            black.MakeMove(b, worker, ref i);
+
             ShowBoard();
-            */
+            
 
-
+            /*
             for (int i = 0; i < 100; i++)
             {
                 b = white.MakeMove(b, worker);
@@ -56,6 +67,7 @@ namespace Draughts
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
                 if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
             }
+            */
             
             
             

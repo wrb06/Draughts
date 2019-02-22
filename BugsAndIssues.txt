@@ -1,7 +1,4 @@
 BUGS:
-	- Black Doesnt move? end turn broken?
-
-	- Some multistage moves cause an exception
 
 TODO:
 	- Make end game more agressive

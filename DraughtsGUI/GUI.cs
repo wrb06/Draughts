@@ -139,11 +139,6 @@ namespace DraughtsGUI
         }
         private void SetupBoard(bool empty = false)
         {
-            Console.WriteLine("SCALE: " + scale);
-            Console.WriteLine(Width - ClientSize.Width);
-            Console.WriteLine(Height - ClientSize.Height);
-
-
             board = new Board(empty);
 
             Console.WriteLine("  " + board.ConvertForSave());
@@ -331,27 +326,33 @@ namespace DraughtsGUI
             // Auto ends turn if no more moves are found
             if ((MovedThisTurn && !TakeMoveMade) || (TakeMoveMade && board.GetPiece(SelectedPosition).GetTakeMovesOnly(board).Count == 0))
             {
-                // Add one to the move count and display
-                label9.Text = (40 - CountSinceLastTake).ToString();
-                label7.Text = (++MoveNum).ToString();
-                Console.WriteLine("W " + board.ConvertForSave());
-                pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
-                Application.DoEvents();
-
-                // Check for stalemate
-                if (CountSinceLastTake >= 40)
-                {
-                    Console.WriteLine("STALEMATE");
-                    DisplayEnd("No one");
-                }
+                if (board.BlackHasWon()) { DisplayEnd("Black"); }
+                else if (board.WhiteHasWon()) { DisplayEnd("White"); }
                 else
                 {
-                    // Let Black make a move and display           
-                    SaveButton.Enabled = false;
-                    button1.Enabled = false;
-                    button2.Enabled = false;
-                    trackBar1.Enabled = false;
-                    worker.RunWorkerAsync();
+
+                    // Add one to the move count and display
+                    label9.Text = (40 - CountSinceLastTake).ToString();
+                    label7.Text = (++MoveNum).ToString();
+                    Console.WriteLine("W " + board.ConvertForSave());
+                    pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
+                    Application.DoEvents();
+
+                    // Check for stalemate
+                    if (CountSinceLastTake >= 40)
+                    {
+                        Console.WriteLine("STALEMATE");
+                        DisplayEnd("No one");
+                    }
+                    else
+                    {
+                        // Let Black make a move and display           
+                        SaveButton.Enabled = false;
+                        button1.Enabled = false;
+                        button2.Enabled = false;
+                        trackBar1.Enabled = false;
+                        worker.RunWorkerAsync();
+                    }
                 }
 
             }
@@ -483,11 +484,16 @@ namespace DraughtsGUI
                 boxes[i].Size = new Size(scale, scale);
             }
             UpdateBoard();
-            if (restartgame.Visible)
+            // If the size of the board is height limited display the button in the centre of the screen
+            if (ClientSize.Width > ClientSize.Height - 160)
+            {
+                restartgame.Location = new Point((ClientSize.Width - 8 * scale) / 2 + 3 * scale, 160 + (int)(3.5 * scale));
+            }
+            else
             {
                 restartgame.Location = new Point(3 * scale, 160 + (int)(3.5 * scale));
-                restartgame.Size = new Size(2 * scale, scale);
             }
+            restartgame.Size = new Size(2 * scale, scale);
         }
 
         private void ChangeDifficulty(object sender, EventArgs e)
@@ -508,7 +514,15 @@ namespace DraughtsGUI
 
             GameEnded = true;
             restartgame.Text = Winner + " has won. \n Click to play again";
-            restartgame.Location = new Point(3*scale, 160+(int)(3.5 * scale));
+            // If the size of the board is height limited display the button in the centre of the screen
+            if (ClientSize.Width > ClientSize.Height - 160)
+            {
+                restartgame.Location = new Point((ClientSize.Width - 8 * scale) / 2 + 3 * scale, 160 + (int)(3.5 * scale));
+            }
+            else
+            {
+                restartgame.Location = new Point(3 * scale, 160 + (int)(3.5 * scale));
+            }
             restartgame.Size = new Size(2*scale, scale);
             restartgame.Visible = true;
 

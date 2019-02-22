@@ -35,10 +35,13 @@ namespace Draughts
 
             try
             {
-                Console.WriteLine("\nSCORE: " + Move.Value.ToString() + " MOVED: " + Move.MoveFrom.ToString() + " TO: " + Move.Moveset.Last().ToString());
+                Console.Write("\nSCORE: " + Move.Value.ToString());
+                Console.Write(" MOVED: " + Move.MoveFrom.ToString());
+                Console.WriteLine(" TO: " + Move.Moveset.Last().ToString());
             }
             catch (Exception e)
             {
+                Console.WriteLine();
                 Console.WriteLine(e.ToString());
             }
 
@@ -76,23 +79,17 @@ namespace Draughts
             bool FoundTakeMove = false;
             bool AppliedTakeMove = false;
             List<List<Position>> possibleMovesets;
-            Position BestPiecePosition = new Position(-1, -1);
+
             List<Position> usablepieces = new List<Position>();
-
-
             if (PlayerColour == 1)
             {
-                usablepieces = board.GetWhitePositions();
-            }
+                usablepieces = board.GetWhitePositions();            }
             else
             {
                 usablepieces = board.GetBlackPositions();
             }
 
-            // setup best moveset
-            List<Position> BestMoveset = new List<Position>();
-
-            //Show the tree (console only)
+            //Show the tree (to the console)
             if (Debug && Depth > 0)
             {
                 Console.WriteLine();
@@ -106,13 +103,26 @@ namespace Draughts
             }
             if (Debug)
             {
-               // ShowBoard(board, Depth+1);
+                ShowBoard(board, Depth+1);
             }
    
             // detect if we should stop
             if (Depth == 0 || usablepieces.Count == 0 || board.WhiteHasWon() || board.BlackHasWon())
             {
-                return new CalculatedMove(PlayerColour * board.EvaluateBoard(), BestPiecePosition, BestMoveset);
+                return new CalculatedMove(PlayerColour * board.EvaluateBoard(), new Position(-1, -1), new List<Position>());
+            }
+
+            // If we can carry on searching, setup BestPiece and BestMoveset with first valid move we come accross
+            Position BestPiecePosition = new Position(-1, -1);
+            List<Position> BestMoveset = new List<Position>();
+            foreach (Position p in usablepieces)
+            {
+                BestPiecePosition = p;
+                if (board.GetPiece(p).GetMoves(board).Count > 0)
+                {
+                    BestMoveset = board.GetPiece(p).GetMoves(board).First();
+                    break;
+                }
             }
 
             // Counts the number of pieces we have searched
@@ -167,21 +177,21 @@ namespace Draughts
 
                     
                     CalculatedMove Move = NegaMax(Depth - 1, -PlayerColour, -beta, -alpha, testboard, worker);
-
+                    Console.WriteLine(BestValue + " " + Move.Value);
                     // Change the best result if we need to
                     if (BestValue < Move.Value || (FoundTakeMove && !AppliedTakeMove))
                     {
                         if (FoundTakeMove && !AppliedTakeMove) { AppliedTakeMove = true; }
 
-                        if (Debug)
-                        {
-                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                            Console.Write("New best move from " + BestPiecePosition.ToString() + " to " + BestMoveset.Last().ToString() + " with score of: " + Move.Value.ToString() + " breating previous of: " +  BestValue.ToString());
-                        }
-
-                        BestValue = Move.Value;
                         BestMoveset = moveset;
                         BestPiecePosition = pieceposition;
+
+                        if (Debug && Depth > 1)
+                        {
+                            for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                            Console.Write("New best move from " + Move.MoveFrom.ToString() + " to " + Move.Moveset.Last().ToString() + " with score of: " + Move.Value.ToString() + " breating previous of: " + BestValue.ToString());
+                        }
+                        BestValue = Move.Value;
                     }
                     alpha = Math.Max(alpha, BestValue);
 
@@ -213,7 +223,6 @@ namespace Draughts
                 if (BreakOuterLoop) { break; }
                 
             }
-
             return new CalculatedMove(BestValue, BestPiecePosition, BestMoveset); 
         }
         

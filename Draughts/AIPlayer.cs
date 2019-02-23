@@ -177,7 +177,7 @@ namespace Draughts
 
                     
                     CalculatedMove Move = NegaMax(Depth - 1, -PlayerColour, -beta, -alpha, testboard, worker);
-                    Console.WriteLine(BestValue + " " + Move.Value);
+
                     // Change the best result if we need to
                     if (BestValue < Move.Value || (FoundTakeMove && !AppliedTakeMove))
                     {
@@ -186,10 +186,10 @@ namespace Draughts
                         BestMoveset = moveset;
                         BestPiecePosition = pieceposition;
 
-                        if (Debug && Depth > 1)
+                        if (Debug && Move.Moveset.Count > 0)
                         {
                             for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                            Console.Write("New best move from " + Move.MoveFrom.ToString() + " to " + Move.Moveset.Last().ToString() + " with score of: " + Move.Value.ToString() + " breating previous of: " + BestValue.ToString());
+                            Console.WriteLine("New best move from " + Move.MoveFrom.ToString() + " to " + Move.Moveset.Last().ToString() + " with score of: " + Move.Value.ToString() + " breating previous of: " + BestValue.ToString());
                         }
                         BestValue = Move.Value;
                     }
@@ -197,7 +197,7 @@ namespace Draughts
 
                     if (Debug)
                     {
-                        //for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
+                        for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
                         Console.WriteLine(" | Current Board Score: " + (PlayerColour*testboard.EvaluateBoard()).ToString() + " | Best Value: " + BestValue.ToString());
                     }
 

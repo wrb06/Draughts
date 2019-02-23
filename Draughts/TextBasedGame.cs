@@ -41,7 +41,7 @@ namespace Draughts
             ShowBoard();
             
             //AIPlayer white = new AIPlayer(true, 7, !false, !true);
-            AIPlayer black = new AIPlayer(false, 2, false, true);
+            AIPlayer black = new AIPlayer(false, 5, false, true);
 
 
             int i = 0;

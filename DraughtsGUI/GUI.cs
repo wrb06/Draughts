@@ -667,6 +667,9 @@ namespace DraughtsGUI
 
         private void SwitchTeamColor(object sender, EventArgs e)
         {
+            // Disable the button
+            button3.Enabled = false;
+
             // switch teams
             PlayingAsWhite = !PlayingAsWhite;
 
@@ -697,7 +700,12 @@ namespace DraughtsGUI
                 EnemyKingImage = WhiteKingPieceLocation;
                 label11.Text = "Black";
             }
+
+            // Apply the update
             UpdateBoard();
+
+            // Enable the button again
+            button3.Enabled = true;
         }
     }
 }

@@ -10,9 +10,9 @@ namespace Draughts
     {
         public float Value;
         public Position MoveFrom;
-        public List<Position> Moveset;
+        public MoveSet Moveset;
 
-        public CalculatedMove(float value, Position moveFrom, List<Position> moveset)
+        public CalculatedMove(float value, Position moveFrom, MoveSet moveset)
         {
             // Automatically does the negating
             Value = -value;

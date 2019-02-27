@@ -21,23 +21,23 @@ namespace Draughts
         }
 
         // Returns all possible moves this peice can make
-        public override List<List<Position>> GetMoves(Board board)
+        public override List<MoveSet> GetMoves(Board board)
         {
-            List<List<Position>> Moves = new List<List<Position>>();
+            List<MoveSet> Moves = new List<MoveSet>();
 
             // Adds non take moves
             Moves.AddRange(GetNonTakeMoves(board));
 
             // Adds backwards take moves
-            Moves.AddRange(GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>()));
+            Moves.AddRange(GetTakeMoves(board, CurrentPosition, IsWhite, new MoveSet()));
 
             return Moves;
         }
 
         // Non recursive checking the 4 moves around the piece
-        public override List<List<Position>> GetNonTakeMoves(Board board)
+        public override List<MoveSet> GetNonTakeMoves(Board board)
         {
-            List<List<Position>> Moves = new List<List<Position>>();
+            List<MoveSet> Moves = new List<MoveSet>();
 
             // Adds backwards non take moves
             Position LB = this.CurrentPosition.GetLeftBack(IsWhite);
@@ -49,10 +49,7 @@ namespace Draughts
             {
                 if (board.GetPiece(LF) == null)
                 {
-                    List<Position> moveset = new List<Position>
-                    {
-                        LF
-                    };
+                    MoveSet moveset = new MoveSet(LF);
                     Moves.Add(moveset);
                 }
             }
@@ -60,10 +57,7 @@ namespace Draughts
             {
                 if (board.GetPiece(RF) == null)
                 {
-                    List<Position> moveset = new List<Position>
-                    {
-                        RF
-                    };
+                    MoveSet moveset = new MoveSet(RF);
                     Moves.Add(moveset);
                 }
             }
@@ -71,10 +65,7 @@ namespace Draughts
             {
                 if (board.GetPiece(LB) == null)
                 {
-                    List<Position> moveset = new List<Position>
-                    {
-                        LB
-                    };
+                    MoveSet moveset = new MoveSet(LB);
                     Moves.Add(moveset);
                 }
             }
@@ -82,10 +73,7 @@ namespace Draughts
             {
                 if (board.GetPiece(RB) == null)
                 {
-                    List<Position> moveset = new List<Position>
-                    {
-                        RB
-                    };
+                    MoveSet moveset = new MoveSet(RB);
                     Moves.Add(moveset);
                 }
             }
@@ -94,9 +82,9 @@ namespace Draughts
         }
 
         // recursive structure to find multi-step moves
-        private List<List<Position>> GetTakeMoves(Board board, Position position, bool iswhite, List<Position> moveset)
+        private List<MoveSet> GetTakeMoves(Board board, Position position, bool iswhite, MoveSet moveset)
         {
-            List<List<Position>> Moves = new List<List<Position>>();
+            List<MoveSet> Moves = new List<MoveSet>();
 
             Position LB = position.GetLeftBack(iswhite);
             Position LBT = position.GetLeftBackTake(IsWhite);
@@ -110,7 +98,7 @@ namespace Draughts
             Position RF = position.GetRightForward(IsWhite);
             Position RFT = position.GetRightForwardTake(IsWhite);
 
-            List<Position> CurrentMove = new List<Position>(moveset);
+            MoveSet CurrentMove = new MoveSet(moveset);
             if (LB.InBoard() && LBT.InBoard())
             {
                 if (board.GetPiece(LB) != null && board.GetPiece(LBT) == null)
@@ -128,7 +116,7 @@ namespace Draughts
                     }
                 }
             }
-            CurrentMove = new List<Position>(moveset);
+            CurrentMove = new MoveSet(moveset);
             if (RB.InBoard() && RBT.InBoard())
             {
                 if (board.GetPiece(RB) != null && board.GetPiece(RBT) == null)
@@ -147,7 +135,7 @@ namespace Draughts
                     }
                 }
             }
-            CurrentMove = new List<Position>(moveset);
+            CurrentMove = new MoveSet(moveset);
             if (LF.InBoard() && LFT.InBoard())
             {
                 if (board.GetPiece(LF) != null && board.GetPiece(LFT) == null)
@@ -168,7 +156,7 @@ namespace Draughts
 
                 }
             }
-            CurrentMove = new List<Position>(moveset);
+            CurrentMove = new MoveSet(moveset);
             if (RF.InBoard() && RFT.InBoard())
             {
                 if (board.GetPiece(RF) != null && board.GetPiece(RFT) == null)
@@ -191,9 +179,9 @@ namespace Draughts
         }
 
         // public version of GetTakeMoves which only needs the board as an input
-        public override List<List<Position>> GetTakeMovesOnly(Board board)
+        public override List<MoveSet> GetTakeMovesOnly(Board board)
         {
-            return GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>());
+            return GetTakeMoves(board, CurrentPosition, IsWhite, new MoveSet());
         }
     }
 }

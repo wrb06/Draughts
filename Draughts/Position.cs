@@ -14,7 +14,6 @@ namespace Draughts
         // properties
         public int X => _x;
         public int Y => _y;
-        const int size = 8;
 
         public Position(int x_value, int y_value)
         {
@@ -25,13 +24,13 @@ namespace Draughts
         // Returns true if the position is in the board
         public bool InBoard()
         {
-            return ((X < size && X >= 0) && (Y < size && Y >= 0));
+            return ((X < 8 && X >= 0) && (Y < 8 && Y >= 0));
         }
 
         // Returns the position as a single number rather than XY cords
         public int GetAsSingleNum()
         {
-            return Y * size + X;
+            return Y * 8 + X;
         }
 
         // Returns the middle point between two positions
@@ -41,7 +40,7 @@ namespace Draughts
         }
 
         // Checks if the position could be a take move
-        public bool IsTakeMove(Position to)
+        public bool CouldBeTakeMove(Position to)
         {
             return (Math.Abs(this.X - to.X) == 2 && Math.Abs(this.Y - to.Y) == 2);
         }

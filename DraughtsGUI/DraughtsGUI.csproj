@@ -60,6 +60,9 @@
     <Compile Include="..\Draughts\KingPeice.cs">
       <Link>KingPeice.cs</Link>
     </Compile>
+    <Compile Include="..\Draughts\MoveSet.cs">
+      <Link>MoveSet.cs</Link>
+    </Compile>
     <Compile Include="..\Draughts\Peice.cs">
       <Link>Peice.cs</Link>
     </Compile>
@@ -86,7 +89,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

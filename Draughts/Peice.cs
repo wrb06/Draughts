@@ -8,6 +8,8 @@ namespace Draughts
 {
     class Piece
     {
+
+        
         // private variables
         protected int _value;
         protected readonly bool _isWhite;
@@ -35,21 +37,21 @@ namespace Draughts
         }
 
         // Returns all possible movesets a piece can make, including ones with multiple steps
-        public virtual List<List<Position>> GetMoves(Board board)
+        public virtual List<MoveSet> GetMoves(Board board)
         {
-            List<List<Position>> Moves = new List<List<Position>>();
+            List<MoveSet> Moves = new List<MoveSet>();
          
             Moves.AddRange(GetNonTakeMoves(board));
 
             // Calls recursive function to find multi-step take moves
-            Moves.AddRange(GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>()));
+            Moves.AddRange(GetTakeMoves(board, CurrentPosition, IsWhite, new MoveSet()));
 
             return Moves;
         }        
            
-        public virtual List<List<Position>> GetNonTakeMoves(Board board)
+        public virtual List<MoveSet> GetNonTakeMoves(Board board)
         {
-            List<List<Position>> Moves = new List<List<Position>>();
+            List<MoveSet> Moves = new List<MoveSet>();
 
             // Adds non take moves
             Position Left = this.CurrentPosition.GetLeftForward(IsWhite);
@@ -58,10 +60,8 @@ namespace Draughts
             {
                 if (board.GetPiece(Left) == null)
                 {
-                    List<Position> moveset = new List<Position>
-                    {
-                        Left
-                    };
+                    MoveSet moveset = new MoveSet();
+                    moveset.Add(Left);
                     Moves.Add(moveset);
                 }
             }
@@ -69,10 +69,8 @@ namespace Draughts
             {
                 if (board.GetPiece(Right) == null)
                 {
-                    List<Position> moveset = new List<Position>
-                    {
-                        Right
-                    };
+                    MoveSet moveset = new MoveSet();
+                    moveset.Add(Right);
                     Moves.Add(moveset);
                 }
             }
@@ -81,9 +79,9 @@ namespace Draughts
         }
 
         // recursive structure to find multi-step moves
-        private List<List<Position>> GetTakeMoves(Board board, Position position, bool iswhite, List<Position> moveset)
+        private List<MoveSet> GetTakeMoves(Board board, Position position, bool iswhite, MoveSet moveset)
         {
-            List<List<Position>> Moves = new List<List<Position>>();
+            List<MoveSet> Moves = new List<MoveSet>();
 
             Position LF = position.GetLeftForward(iswhite);
             Position LFT = position.GetLeftForwardTake(IsWhite);
@@ -91,7 +89,7 @@ namespace Draughts
             Position RF = position.GetRightForward(IsWhite);
             Position RFT = position.GetRightForwardTake(IsWhite);
 
-            List<Position> CurrentMove = new List<Position>(moveset);
+            MoveSet CurrentMove = new MoveSet(moveset);
 
             if (LF.InBoard() && LFT.InBoard())
             {
@@ -110,7 +108,7 @@ namespace Draughts
 
                 }
             }
-            CurrentMove = new List<Position>(moveset);
+            CurrentMove = new MoveSet(moveset);
             if (RF.InBoard() && RFT.InBoard())
             {
                 if (board.GetPiece(RF) != null && board.GetPiece(RFT) == null)
@@ -130,9 +128,9 @@ namespace Draughts
         }
 
         // public version of GetTakeMoves which only needs the board as an input
-        public virtual List<List<Position>> GetTakeMovesOnly(Board board)
+        public virtual List<MoveSet> GetTakeMovesOnly(Board board)
         {
-            return GetTakeMoves(board, CurrentPosition, IsWhite, new List<Position>());
+            return GetTakeMoves(board, CurrentPosition, IsWhite, new MoveSet());
         }
 
 

@@ -50,6 +50,7 @@
     <Compile Include="AIPlayer.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="CalculatedMove.cs" />
+    <Compile Include="MoveSet.cs" />
     <Compile Include="KingPeice.cs" />
     <Compile Include="Peice.cs" />
     <Compile Include="Position.cs" />

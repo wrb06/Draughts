@@ -187,7 +187,7 @@ namespace DraughtsGUI
                     {
                         if (board.GetPiece(p).GetTakeMovesOnly(board).Count > 0)
                         { 
-                            TakeMoves.AddRange(board.GetPiece(p).GetTakeMovesOnly(board).First());
+                            TakeMoves.AddRange(board.GetPiece(p).GetTakeMovesOnly(board).First().Moves);
                         }
                     }
 
@@ -206,7 +206,7 @@ namespace DraughtsGUI
                         CountSinceLastTake++;
 
                         // Update to show we have made a take move
-                        if (SelectedPosition.IsTakeMove(ClickedPosition))
+                        if (SelectedPosition.CouldBeTakeMove(ClickedPosition))
                         {
                             CountSinceLastTake = 0;
                             TakeMoveMade = true;
@@ -217,7 +217,7 @@ namespace DraughtsGUI
                         CheckForTurnEnd();
 
                     }
-                    else if (TakeMoveMade && SelectedPosition.Equals(TakingPiecePosition) && SelectedPosition.IsTakeMove(ClickedPosition))
+                    else if (TakeMoveMade && SelectedPosition.Equals(TakingPiecePosition) && SelectedPosition.CouldBeTakeMove(ClickedPosition))
                     {
                         // Select the empty spot and move
                         board.MovePeice(SelectedPosition, ClickedPosition);
@@ -261,7 +261,7 @@ namespace DraughtsGUI
                             if (MovedThisTurn && TakeMoveMade)
                             {
                                 // Highlight only take moves if we have moved allready
-                                foreach (List<Position> move in board.GetPiece(ClickedPosition).GetTakeMovesOnly(board))
+                                foreach (MoveSet move in board.GetPiece(ClickedPosition).GetTakeMovesOnly(board))
                                 {
                                     UpdatePiece(move.Last(), EmptyHighlightImage);
                                 }
@@ -274,7 +274,7 @@ namespace DraughtsGUI
                                 {
                                     if (board.GetPiece(p).GetTakeMovesOnly(board).Count > 0)
                                     {
-                                        TakeMoves.AddRange(board.GetPiece(p).GetTakeMovesOnly(board).First());
+                                        TakeMoves.AddRange(board.GetPiece(p).GetTakeMovesOnly(board).First().Moves);
                                     }
                                 }
 
@@ -282,7 +282,7 @@ namespace DraughtsGUI
                                 if (TakeMoves.Count > 0)
                                 {
                                     // If there are take moves only highlight the take moves this piece can make
-                                    foreach (List<Position> move in board.GetPiece(ClickedPosition).GetTakeMovesOnly(board))
+                                    foreach (MoveSet move in board.GetPiece(ClickedPosition).GetTakeMovesOnly(board))
                                     {
                                         UpdatePiece(move.Last(), EmptyHighlightImage);
                                     }
@@ -291,9 +291,9 @@ namespace DraughtsGUI
                                 {
 
                                     // Highlight all moves if this is the first move this turn
-                                    foreach (List<Position> move in board.GetPiece(ClickedPosition).GetMoves(board))
+                                    foreach (MoveSet move in board.GetPiece(ClickedPosition).GetMoves(board))
                                     {
-                                        UpdatePiece(move.Last(), EmptyHighlightImage);
+                                        UpdatePiece(move.Moves.Last(), EmptyHighlightImage);
                                     }
                                 }
                             }

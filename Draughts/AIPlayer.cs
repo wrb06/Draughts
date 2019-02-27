@@ -45,7 +45,7 @@ namespace Draughts
                 Console.WriteLine(e.ToString());
             }
 
-            if (Move.MoveFrom.IsTakeMove(Move.Moveset.First()))
+            if (Move.MoveFrom.CouldBeTakeMove(Move.Moveset.First()))
             {
                 CountSinceLastTake = 0;
             }
@@ -60,7 +60,7 @@ namespace Draughts
             {
                 List<Board> Boardstates = new List<Board>();
                 Piece MovingPiece = board.GetPiece(Move.MoveFrom);
-                foreach (Position move in Move.Moveset)
+                foreach (Position move in Move.Moveset.Moves)
                 {
                     board.MovePeice(MovingPiece.CurrentPosition, move);
                     Boardstates.Add(board.MakeNewCopyOf());
@@ -78,7 +78,7 @@ namespace Draughts
             float BestValue = float.MinValue;
             bool FoundTakeMove = false;
             bool AppliedTakeMove = false;
-            List<List<Position>> possibleMovesets;
+            List<MoveSet> possibleMovesets;
 
             List<Position> usablepieces = new List<Position>();
             if (PlayerColour == 1)
@@ -109,12 +109,12 @@ namespace Draughts
             // detect if we should stop
             if (Depth == 0 || usablepieces.Count == 0 || board.WhiteHasWon() || board.BlackHasWon())
             {
-                return new CalculatedMove(PlayerColour * board.EvaluateBoard(), new Position(-1, -1), new List<Position>());
+                return new CalculatedMove(PlayerColour * board.EvaluateBoard(), new Position(-1, -1), new MoveSet());
             }
 
             // If we can carry on searching, setup BestPiece and BestMoveset with first valid move we come accross
             Position BestPiecePosition = new Position(-1, -1);
-            List<Position> BestMoveset = new List<Position>();
+            MoveSet BestMoveset = new MoveSet();
             foreach (Position p in usablepieces)
             {
                 BestPiecePosition = p;
@@ -162,14 +162,14 @@ namespace Draughts
                 }
 
                 bool BreakOuterLoop = false;
-                foreach (List<Position> moveset in possibleMovesets)
+                foreach (MoveSet moveset in possibleMovesets)
                 {
                     // Make test board
                     Board testboard = board.MakeNewCopyOf();
 
                     // Make move
                     Position oldpos = pieceposition;
-                    foreach (Position move in moveset)
+                    foreach (Position move in moveset.Moves)
                     {
                         testboard.MovePeice(oldpos, move);
                         oldpos = move;
@@ -186,7 +186,7 @@ namespace Draughts
                         BestMoveset = moveset;
                         BestPiecePosition = pieceposition;
 
-                        if (Debug && Move.Moveset.Count > 0)
+                        if (Debug && Move.Moveset.Count() > 0)
                         {
                             for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
                             Console.WriteLine("New best move from " + Move.MoveFrom.ToString() + " to " + Move.Moveset.Last().ToString() + " with score of: " + Move.Value.ToString() + " breating previous of: " + BestValue.ToString());

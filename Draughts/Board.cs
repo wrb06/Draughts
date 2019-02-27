@@ -224,7 +224,7 @@ namespace Draughts
 
             if (GetPiece(to) != null) { return false; }
    
-            if (from.IsTakeMove(to))
+            if (from.CouldBeTakeMove(to))
             {
                 Piece middlepiece = this.GetPiece(from.GetMiddlePosition(to));
 
@@ -240,7 +240,7 @@ namespace Draughts
             {
                 List<Position> PosMoves;
 
-                if (from.IsTakeMove(to))
+                if (from.CouldBeTakeMove(to))
                 {                   
                     // if its a normal white piece and is taking
                     PosMoves = new List<Position>()
@@ -263,7 +263,7 @@ namespace Draughts
             {
                 List<Position> PosMoves;
 
-                if (from.IsTakeMove(to))
+                if (from.CouldBeTakeMove(to))
                 {
                     // if its a normal white piece and is taking
                     PosMoves = new List<Position>()

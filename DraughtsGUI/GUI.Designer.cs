@@ -41,7 +41,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,7 +48,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -186,20 +184,6 @@
             this.progressBar1.Size = new System.Drawing.Size(419, 8);
             this.progressBar1.TabIndex = 20;
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(114, 126);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(76, 20);
-            this.numericUpDown1.TabIndex = 21;
-            this.numericUpDown1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.StepThoughBoardStates);
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -234,7 +218,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(374, 15);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(58, 63);
             this.button3.TabIndex = 25;
@@ -274,7 +258,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
@@ -295,7 +278,6 @@
             this.Load += new System.EventHandler(this.GUI_Load);
             this.ResizeEnd += new System.EventHandler(this.Resized);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,7 +297,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

@@ -1,1 +1,11 @@
-EEEEEEEEEEEEEEEEEwBwwEwwwwwwwww003
+bbbbbbbbEbbbEbEEEEEEwwwwwwwwwwww001
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b 
+1|b . b . b . b . 
+2|. . . b . b . b 
+3|. . b . . . . . 
+4|. . . . . . . . 
+5|w . w . w . w . 
+6|. w . w . w . w 
+7|w . w . w . w . 
+Moves Made so far: 1

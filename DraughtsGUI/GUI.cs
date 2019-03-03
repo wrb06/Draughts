@@ -60,13 +60,10 @@ namespace DraughtsGUI
        
         BackgroundWorker worker;
 
-        List<string> pastboards;
-
         public GUI()
         {
             InitializeComponent();
 
-            pastboards = new List<string>();
 
             worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
@@ -100,9 +97,7 @@ namespace DraughtsGUI
 
             label7.Text = (++MoveNum).ToString();
             label9.Text = (40 - CountSinceLastTake).ToString();
-            numericUpDown1.Value = MoveNum;
-            Console.WriteLine("B " + board.ConvertForSave());
-            pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
+            //Console.WriteLine("B " + board.ConvertForSave());
 
             MovedThisTurn = false;
             TakeMoveMade = false;
@@ -144,8 +139,7 @@ namespace DraughtsGUI
         {
             board = new Board(empty);
 
-            Console.WriteLine("  " + board.ConvertForSave());
-            pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
+            // Console.WriteLine("  " + board.ConvertForSave());
 
             boxes = new List<PictureBox>();
             int i = 0;
@@ -187,7 +181,10 @@ namespace DraughtsGUI
                     {
                         if (board.GetPiece(p).GetTakeMovesOnly(board).Count > 0)
                         { 
-                            TakeMoves.AddRange(board.GetPiece(p).GetTakeMovesOnly(board).First().Moves);
+                            foreach (MoveSet moveset in board.GetPiece(p).GetTakeMovesOnly(board))
+                            {
+                                TakeMoves.Add(moveset.First());
+                            }
                         }
                     }
 
@@ -369,8 +366,7 @@ namespace DraughtsGUI
                     // Add one to the move count and display
                     label9.Text = (40 - CountSinceLastTake).ToString();
                     label7.Text = (++MoveNum).ToString();
-                    Console.WriteLine("W " + board.ConvertForSave());
-                    pastboards.Add(board.ConvertForSave() + MoveNum.ToString("00"));
+                    //Console.WriteLine("W " + board.ConvertForSave());
                     Application.DoEvents();
 
                     // Check for stalemate
@@ -613,7 +609,6 @@ namespace DraughtsGUI
             MoveNum = 0;
 
             label7.Text = MoveNum.ToString();
-            numericUpDown1.Value = MoveNum;
             //Console.WriteLine("B " + board.ConvertForSave());
             UpdateBoard();
 
@@ -627,42 +622,10 @@ namespace DraughtsGUI
             GameEnded = false;
         }
 
-        private void StepThoughBoardStates(object sender, KeyEventArgs e)
-        {
-            // Step through debug mode
-            
-            bool changed = false;
-            if (e.KeyCode == Keys.Left) { numericUpDown1.Value--; changed = true; }
-            else if (e.KeyCode == Keys.Right) { numericUpDown1.Value++; changed = true; }
-
-            if (changed)
-            {
-                board = new Board(true);
-                // Load the board state with index stored
-                int Charcount = 0;
-                String Boardstate = pastboards[(int)numericUpDown1.Value];
-                for (int i = 0; i < 64; i++)
-                {
-                    if ((i % 2 + i / 8) % 2 == 1)
-                    {
-                        char c = Boardstate[Charcount];
-
-                        if (c == 'w') { board.PlacePiece(new Piece(true, i % 8, i / 8)); }
-                        else if (c == 'b') { board.PlacePiece(new Piece(false, i % 8, i / 8)); }
-                        else if (c == 'W') { board.PlacePiece(new KingPiece(true, i % 8, i / 8)); }
-                        else if (c == 'B') { board.PlacePiece(new KingPiece(false, i % 8, i / 8)); }
-
-                        Charcount++;
-                    }
-                }
-                UpdateBoard();
-            }
-        }
-
         private void TogglePruning(object sender, EventArgs e)
         {
             AIBlack = new AIPlayer(false, trackBar1.Value / 10 + 1, checkBox1.Checked);
-            Console.WriteLine("prune" + checkBox1.Checked.ToString());
+            //Console.WriteLine("prune" + checkBox1.Checked.ToString());
         }
 
         private void SwitchTeamColor(object sender, EventArgs e)

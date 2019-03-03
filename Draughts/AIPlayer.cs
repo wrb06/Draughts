@@ -30,9 +30,10 @@ namespace Draughts
         // Gets the move from minimax, then makes the move
         public List<Board> MakeMove(Board board, BackgroundWorker worker, ref int CountSinceLastTake)
         {
-            Console.WriteLine((40 - CountSinceLastTake).ToString() + "Moves Untill a stalemate");
+            //Console.WriteLine((40 - CountSinceLastTake).ToString() + "Moves Untill a stalemate");
             CalculatedMove Move = NegaMax(DepthOfSearch, IsWhite ? 1 : -1, float.MinValue, float.MaxValue, board, worker);
 
+            /*
             try
             {
                 Console.Write("\nSCORE: " + Move.Value.ToString());
@@ -44,6 +45,7 @@ namespace Draughts
                 Console.WriteLine();
                 Console.WriteLine(e.ToString());
             }
+            */
 
             if (Move.MoveFrom.CouldBeTakeMove(Move.Moveset.First()))
             {
@@ -66,7 +68,7 @@ namespace Draughts
                     Boardstates.Add(board.MakeNewCopyOf());
                     
                 }
-                Console.WriteLine(board.ConvertForSave());
+                // Console.WriteLine(board.ConvertForSave());
                 return Boardstates;
             }       
         }

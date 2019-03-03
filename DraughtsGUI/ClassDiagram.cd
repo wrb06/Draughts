@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Draughts.AIPlayer">
-    <Position X="6" Y="3.75" Width="1.5" />
+    <Position X="4.75" Y="2.75" Width="1.5" />
     <Members>
       <Field Name="_depthOfSearch" Hidden="true" />
       <Field Name="_isWhite" Hidden="true" />
@@ -10,29 +10,29 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAIIAABAAAECAAAAAAAgAAgAAAAAAAQAA=</HashCode>
-      <FileName>C:\Users\William\Source\Repos\wrb06\Draughts\Draughts\AIPlayer.cs</FileName>
+      <FileName>C:\Users\William\source\repos\wrb06\Draughts\Draughts\AIPlayer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Draughts.Board">
-    <Position X="2" Y="2.25" Width="2.25" />
+    <Position X="1.75" Y="1.25" Width="2.25" />
     <Members>
       <Field Name="_numberOfPeices" Hidden="true" />
       <Method Name="Board" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AAAQAAAAgAIAAAAAAIABoAAAAAEgIAISACAAECAAAAA=</HashCode>
-      <FileName>C:\Users\William\Source\Repos\wrb06\Draughts\Draughts\Board.cs</FileName>
+      <FileName>C:\Users\William\source\repos\wrb06\Draughts\Draughts\Board.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Draughts.KingPiece">
-    <Position X="2" Y="7" Width="1.5" />
+    <Position X="4" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEQAAAAAgAA=</HashCode>
-      <FileName>C:\Users\William\Source\Repos\wrb06\Draughts\Draughts\KingPeice.cs</FileName>
+      <FileName>C:\Users\William\source\repos\wrb06\Draughts\Draughts\KingPeice.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Draughts.Piece">
-    <Position X="4" Y="7" Width="1.5" />
+    <Position X="1.75" Y="6.25" Width="1.5" />
     <Members>
       <Field Name="_currentPosition" Hidden="true" />
       <Field Name="_isWhite" Hidden="true" />
@@ -41,11 +41,11 @@
     </Members>
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAABAQAEAAIAAAAAgAAAEQgAAAAgAA=</HashCode>
-      <FileName>C:\Users\William\Source\Repos\wrb06\Draughts\Draughts\Peice.cs</FileName>
+      <FileName>C:\Users\William\source\repos\wrb06\Draughts\Draughts\Peice.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Draughts.Position">
-    <Position X="6" Y="7.75" Width="1.5" />
+    <Position X="4" Y="9" Width="1.5" />
     <Members>
       <Field Name="_x" Hidden="true" />
       <Field Name="_y" Hidden="true" />
@@ -62,42 +62,42 @@
     </Members>
     <TypeIdentifier>
       <HashCode>AAAASAAIACQAAAAEgCAAEIAgAAAAAEAAgAgAAACBYAA=</HashCode>
-      <FileName>C:\Users\William\Source\Repos\wrb06\Draughts\Draughts\Position.cs</FileName>
+      <FileName>C:\Users\William\source\repos\wrb06\Draughts\Draughts\Position.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DraughtsGUI.GUI" Collapsed="true">
-    <Position X="4.5" Y="1.5" Width="1.5" />
+    <Position X="4.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>OKwwAEgQUCIRABAQECLAGRoCBGw4AAAEJAIAQo8aRjA=</HashCode>
       <FileName>GUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DraughtsGUI.Program" Collapsed="true">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Draughts.MoveSet">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="6" Width="1.5" />
     <Members>
       <Field Name="_moves" Hidden="true" />
       <Method Name="MoveSet" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAQAAAAAIBAQAAAAAAEAAAAACAAAAAAA=</HashCode>
-      <FileName>C:\Users\William\Source\Repos\wrb06\Draughts\Draughts\MoveSet.cs</FileName>
+      <FileName>C:\Users\William\source\repos\wrb06\Draughts\Draughts\MoveSet.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Draughts.CalculatedMove">
-    <Position X="8.5" Y="3.75" Width="1.5" />
+    <Position X="7" Y="2.75" Width="1.5" />
     <Members>
       <Method Name="CalculatedMove" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAgAAAAAAA=</HashCode>
-      <FileName>C:\Users\William\Source\Repos\wrb06\Draughts\Draughts\CalculatedMove.cs</FileName>
+      <FileName>C:\Users\William\source\repos\wrb06\Draughts\Draughts\CalculatedMove.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Font Name="Segoe UI" Size="9" />

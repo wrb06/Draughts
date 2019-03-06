@@ -30,6 +30,7 @@ namespace Draughts
         // Gets the move from minimax, then makes the move
         public List<Board> MakeMove(Board board, BackgroundWorker worker, ref int CountSinceLastTake)
         {
+            //Console.WriteLine(DepthOfSearch);
             //Console.WriteLine((40 - CountSinceLastTake).ToString() + "Moves Untill a stalemate");
             CalculatedMove Move = NegaMax(DepthOfSearch, IsWhite ? 1 : -1, float.MinValue, float.MaxValue, board, worker);
 

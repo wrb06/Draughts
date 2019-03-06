@@ -459,11 +459,18 @@ namespace DraughtsGUI
                 FileStream fileStream = (FileStream)openFileDialog.OpenFile();
                 byte[] FileBytes = new byte[fileStream.Length];
 
+                if (FileBytes.Length < 35)
+                {
+                    MessageBox.Show("The file you have chosen is too small to be a board file");
+                    return;
+                }
+
                 // Only take the first 35 characters as that is the board and Move number
                 fileStream.Read(FileBytes, 0, 35);
 
                 // Empty board, place new pieces on board
-                board = new Board(true);
+                
+                Board newboard = new Board(true);
 
                 // Read the first 32 characters and turn into pieces
                 int ByteCount = 0;
@@ -473,23 +480,40 @@ namespace DraughtsGUI
                     {
                         byte b = FileBytes[ByteCount];
 
-                        if (b == (byte)'w') { board.PlacePiece(new Piece(true, i % 8, i / 8)); }
-                        else if (b == (byte)'b') { board.PlacePiece(new Piece(false, i % 8, i / 8)); }
-                        else if (b == (byte)'W') { board.PlacePiece(new KingPiece(true, i % 8, i / 8)); }
-                        else if (b == (byte)'B') { board.PlacePiece(new KingPiece(false, i % 8, i / 8)); }
+                        if (b == (byte)'w') { newboard.PlacePiece(new Piece(true, i % 8, i / 8)); }
+                        else if (b == (byte)'b') { newboard.PlacePiece(new Piece(false, i % 8, i / 8)); }
+                        else if (b == (byte)'W') { newboard.PlacePiece(new KingPiece(true, i % 8, i / 8)); }
+                        else if (b == (byte)'B') { newboard.PlacePiece(new KingPiece(false, i % 8, i / 8)); }
+                        else if (b == (byte)'E') { }
+                        else
+                        {
+                            MessageBox.Show("The file you have chosen contains invalid pieces");
+                            return;
+                        }
 
                         ByteCount++;
                     }
                 }
 
-                // Read MoveNum from final two bytes
-                int.TryParse(((char)FileBytes[32]).ToString() + ((char)FileBytes[33]).ToString() + ((char)FileBytes[34]).ToString(), out MoveNum);
+                // Read MoveNum from final three bytes
+                try
+                {
+                    MoveNum = int.Parse(((char)FileBytes[32]).ToString() + ((char)FileBytes[33]).ToString() + ((char)FileBytes[34]).ToString());
+                }
+                catch
+                {
+                    MessageBox.Show("Error in loading the number of moves");
+                    return;
+                }
+                
                 UpdateBoard();
+
+                this.board = newboard;
 
                 restartgame.Visible = false;
                 restartgame.Location = new Point(0, 0);
                 restartgame.Size = new Size(0, 0);
-                
+
                 MovedThisTurn = false;
                 TakeMoveMade = false;
                 GameEnded = false;

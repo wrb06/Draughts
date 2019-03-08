@@ -506,10 +506,10 @@ namespace DraughtsGUI
                     return;
                 }
                 
-                UpdateBoard();
+                
 
                 this.board = newboard;
-
+                UpdateBoard();
                 restartgame.Visible = false;
                 restartgame.Location = new Point(0, 0);
                 restartgame.Size = new Size(0, 0);

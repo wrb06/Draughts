@@ -12,6 +12,7 @@ namespace Draughts
         public Position MoveFrom;
         public MoveSet Moveset;
 
+        // Holds the move for negamax
         public CalculatedMove(float value, Position moveFrom, MoveSet moveset)
         {
             // Automatically does the negating

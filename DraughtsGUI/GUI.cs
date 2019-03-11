@@ -29,7 +29,7 @@ namespace DraughtsGUI
         const string WhiteKingPieceHighlightLocation = "../../../Images/WhiteKingPieceHighlight.png";
         const string BlackPieceHighlightLocation = "../../../Images/BlackPieceHighlight.png";
         const string BlackKingPieceHighlightLocation = "../../BlackKingPieceHighlight.png";
-        // -----------------------------------------------------------------------------------------------------------
+        // ---------------------------------------------------------------------------------------------------------
 
 
         // Set Startup team;
@@ -54,12 +54,17 @@ namespace DraughtsGUI
         bool GameEnded = false;
         int CountSinceLastTake = 0;
 
+        // Setup the board
         Board board;
         List<PictureBox> boxes;
+
+        // Setup the AI
         AIPlayer AIBlack = new AIPlayer(false, 3, false);
        
+        // Setup the background thread
         BackgroundWorker worker;
 
+        // Initialise the board and tell black to make the first move 
         public GUI()
         {
             InitializeComponent();
@@ -82,12 +87,14 @@ namespace DraughtsGUI
 
         }
 
+        // Runs whenever the worker is told we have made progress, updates the progressbar
         private void BlackAIMoveProgress(object sender, ProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
             //Console.WriteLine(e.ProgressPercentage);
         }
 
+        // AFter the move has been made, reenable the buttons and check if the game has ended
         private void BlackAIFinishedMove(object sender, RunWorkerCompletedEventArgs e)
         {
             SaveButton.Enabled = true;
@@ -108,6 +115,7 @@ namespace DraughtsGUI
             progressBar1.Value = 0;
         }
 
+        // Runs the search, then updates the board with what is returned. Does multistage moves in steps.
         private void BlackAIMove(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker bgWorker = (BackgroundWorker)sender;
@@ -130,11 +138,13 @@ namespace DraughtsGUI
             }
         }
 
+        // Finds the largest one square in the board can be while still remaining inside the window
         private int FindScale()
         {
             return (int)Math.Floor(Math.Min(ClientSize.Width, ClientSize.Height - 160) / 8.0);
         }
 
+        // Generates both backend and frontend board. Shows GUI board to the user
         private void SetupBoard(bool empty = false)
         {
             board = new Board(empty);
@@ -167,6 +177,7 @@ namespace DraughtsGUI
             }
         }
 
+        // User interface when the user clicks on a square
         private void CellClicked(object sender, EventArgs e)
         {
             if (!GameEnded)
@@ -175,6 +186,8 @@ namespace DraughtsGUI
 
                 if (FoundPieceToMove)
                 {
+                    // If the user has allready selected a move, and has just clicked another.
+
                     // Collect all takemoves
                     List<Position> TakeMoves = new List<Position>();
                     foreach (Position p in board.GetWhitePositions())
@@ -241,6 +254,8 @@ namespace DraughtsGUI
                 }
                 else
                 {
+                    // If this is the first click
+
                     // if the square isnt empty
                     if (board.GetPiece(ClickedPosition) != null)
                     {
@@ -300,6 +315,7 @@ namespace DraughtsGUI
             }
         }
 
+        // Updates every square in the board
         private void UpdateBoard()
         { 
             // For every square in the board
@@ -322,6 +338,7 @@ namespace DraughtsGUI
             }
         }
 
+        // Updates a certain square with a new picture
         private void UpdatePiece(Position position, string filelocation)
         {
             boxes[position.Y * 8 + position.X].ImageLocation = filelocation;
@@ -335,6 +352,7 @@ namespace DraughtsGUI
             boxes[y * 8 + x].ImageLocation = filelocation;
         }
 
+        // Converts a pixel position into a board position
         private Position PointToPosition(Point point)
         {
             if (ClientSize.Width > ClientSize.Height - 160)
@@ -348,11 +366,13 @@ namespace DraughtsGUI
             }
         }
 
+        // Runs when the GUI loads
         private void GUI_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.Sizable;
         }
 
+        // Checks if the users turn has ended, runs the AI if it has.
         private void CheckForTurnEnd()
         {
             // Auto ends turn if no more moves are found
@@ -389,6 +409,7 @@ namespace DraughtsGUI
             }
         }
 
+        // Saves the current board
         private void SaveFile(object sender, EventArgs e)
         {
             // Opens a new dialogue box
@@ -446,6 +467,8 @@ namespace DraughtsGUI
                 file.Close();
             }
         }
+
+        // Loads a board
         private void LoadFile(object sender, EventArgs e)
         {
             // Open a new Dialogue box

@@ -28,7 +28,7 @@ namespace Draughts
             // Adds non take moves
             Moves.AddRange(GetNonTakeMoves(board));
 
-            // Adds backwards take moves
+            // Adds take moves
             Moves.AddRange(GetTakeMoves(board, CurrentPosition, IsWhite, new MoveSet()));
 
             return Moves;
@@ -81,7 +81,7 @@ namespace Draughts
             return Moves;
         }
 
-        // recursive structure to find multi-step moves
+        // recursive structure to find multi-step moves around the piece
         private List<MoveSet> GetTakeMoves(Board board, Position position, bool iswhite, MoveSet moveset)
         {
             List<MoveSet> Moves = new List<MoveSet>();

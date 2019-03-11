@@ -12,6 +12,7 @@ namespace Draughts
         private readonly List<Position> _moves;
         internal List<Position> Moves => _moves;
 
+        // Constructors that generate a new moveset containing a list of positions for every stage in a move
         public MoveSet()
         {
             _moves = new List<Position>();
@@ -23,7 +24,7 @@ namespace Draughts
         public MoveSet(MoveSet moveset)
         {
             _moves = new List<Position>();
-            if (moveset.Count() > 0)
+            if (moveset.NumberOfStages() > 0)
             {
                 foreach (Position p in moveset.Moves)
                 {
@@ -39,23 +40,32 @@ namespace Draughts
             };
         }
 
+        // Adds something to the moveset
         public void Add(Position p)
         {
             _moves.Add(p);
         }
+
+        // Removes from the moveset
         public void Remove(Position p)
         {
             _moves.Remove(p);
         }
+
+        // Gets the first position in the moveset
         public Position First()
         {
             return Moves.First();
         }
+
+        // Gets the last position in the moveset
         public Position Last()
         {
             return Moves.Last();
         }
-        public int Count()
+
+        //Gets the number of stages in the moveset
+        public int NumberOfStages()
         {
             return Moves.Count();
         }

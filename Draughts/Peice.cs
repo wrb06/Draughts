@@ -8,8 +8,6 @@ namespace Draughts
 {
     class Piece
     {
-
-        
         // private variables
         protected int _value;
         protected readonly bool _isWhite;
@@ -49,6 +47,7 @@ namespace Draughts
             return Moves;
         }        
            
+        // Checks the four moves around this piece to see we it can move there
         public virtual List<MoveSet> GetNonTakeMoves(Board board)
         {
             List<MoveSet> Moves = new List<MoveSet>();

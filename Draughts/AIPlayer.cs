@@ -27,26 +27,10 @@ namespace Draughts
             
         }
 
-        // Gets the move from minimax, then makes the move
+        // Gets the move from minimax, then makes the move, returns the board at every stage of the move
         public List<Board> MakeMove(Board board, BackgroundWorker worker, ref int CountSinceLastTake)
         {
-            //Console.WriteLine(DepthOfSearch);
-            //Console.WriteLine((40 - CountSinceLastTake).ToString() + "Moves Untill a stalemate");
             CalculatedMove Move = NegaMax(DepthOfSearch, IsWhite ? 1 : -1, float.MinValue, float.MaxValue, board, worker);
-
-            /*
-            try
-            {
-                Console.Write("\nSCORE: " + Move.Value.ToString());
-                Console.Write(" MOVED: " + Move.MoveFrom.ToString());
-                Console.WriteLine(" TO: " + Move.Moveset.Last().ToString());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine();
-                Console.WriteLine(e.ToString());
-            }
-            */
 
             if (Move.MoveFrom.CouldBeTakeMove(Move.Moveset.First()))
             {
@@ -57,10 +41,11 @@ namespace Draughts
                 CountSinceLastTake++;
             }
 
-            
+            // if the search has failed, this should never run
             if (!Move.MoveFrom.InBoard()) { return new List<Board>(); }
             else
             {
+                // Generate and return boards
                 List<Board> Boardstates = new List<Board>();
                 Piece MovingPiece = board.GetPiece(Move.MoveFrom);
                 foreach (Position move in Move.Moveset.Moves)
@@ -69,12 +54,11 @@ namespace Draughts
                     Boardstates.Add(board.MakeNewCopyOf());
                     
                 }
-                // Console.WriteLine(board.ConvertForSave());
                 return Boardstates;
             }       
         }
 
-        // Returns the best move
+        // Searches Depth moves ahead in the game and finds the best move
         private CalculatedMove NegaMax(int Depth, int PlayerColour, float alpha, float beta, Board board, BackgroundWorker worker)
         {
             // Setup 
@@ -134,20 +118,18 @@ namespace Draughts
             {
                 if (Debug)
                 {
-                    /*
                     Console.WriteLine();
                     for (int p = -1; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
                     Console.WriteLine("NEW PIECE at " + pieceposition.ToString());
-                    */
                 }
 
-                // generate all possible movesets
+                // generate all possible take movesets
                 possibleMovesets = board.GetPiece(pieceposition).GetTakeMovesOnly(board);
                 if (possibleMovesets.Count > 0)
                 {
                     if (!FoundTakeMove && !AppliedTakeMove)
                     {
-                        // mark it so that every move is better that this
+                        // if this is the first piece that has take movesets, mark it so that every move is better than what we had.
                         FoundTakeMove = true;
                     }
                 }
@@ -158,10 +140,8 @@ namespace Draughts
 
                 if (Debug)
                 {
-                    /*
                     for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
-                    Console.WriteLine("Take Moves found: " + FoundTakeMove);
-                    */
+                    Console.WriteLine("Take Moves found: " + FoundTakeMove);                  
                 }
 
                 bool BreakOuterLoop = false;
@@ -178,7 +158,7 @@ namespace Draughts
                         oldpos = move;
                     }
 
-                    
+                    // Run the search
                     CalculatedMove Move = NegaMax(Depth - 1, -PlayerColour, -beta, -alpha, testboard, worker);
 
                     // Change the best result if we need to
@@ -189,7 +169,7 @@ namespace Draughts
                         BestMoveset = moveset;
                         BestPiecePosition = pieceposition;
 
-                        if (Debug && Move.Moveset.Count() > 0)
+                        if (Debug && Move.Moveset.NumberOfStages() > 0)
                         {
                             for (int p = 0; p < (DepthOfSearch - Depth); p++) { Console.Write("\t"); }
                             Console.WriteLine("New best move from " + Move.MoveFrom.ToString() + " to " + Move.Moveset.Last().ToString() + " with score of: " + Move.Value.ToString() + " breating previous of: " + BestValue.ToString());
@@ -229,6 +209,7 @@ namespace Draughts
             return new CalculatedMove(BestValue, BestPiecePosition, BestMoveset); 
         }
         
+        // Debug script to output the board to the console.
         void ShowBoard(Board b, int depth)
         {
             for (int po = -1; po < (DepthOfSearch - depth); po++) { Console.Write("\t"); }

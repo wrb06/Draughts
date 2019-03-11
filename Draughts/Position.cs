@@ -11,7 +11,6 @@ namespace Draughts
         private readonly int _x;
         private readonly int _y;
 
-        // properties
         public int X => _x;
         public int Y => _y;
 
@@ -45,7 +44,7 @@ namespace Draughts
             return (Math.Abs(this.X - to.X) == 2 && Math.Abs(this.Y - to.Y) == 2);
         }
 
-        /* Each peice sees themselves as moving forward
+        /* Each peice sees themselves as moving forward up the board
          * RFT|__|__|__|LFT
          *  __|RF|__|LF|__
          *  __|__|W_|__|__
@@ -89,14 +88,36 @@ namespace Draughts
             return GetLeftForwardTake(!iswhite);
         }
 
-        // Override functions
+        // Convert the position to a string
         public override string ToString()
         {
             return X.ToString() + "," + Y.ToString();
         }
+
+        // Tests if two positions are the same
         public override bool Equals(object obj)
         {
-            return obj.ToString() == this.ToString();
+            // Tests if the object doesnt exist or is a different type
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            if (obj.ToString() == this.ToString())
+            {
+                // Tests if the two objects are the same by checking if the string versions are the same
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // Overrides object.GetHashCode
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 

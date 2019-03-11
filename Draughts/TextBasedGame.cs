@@ -30,6 +30,7 @@ namespace Draughts
             return b;
         }
  
+        // Runs a test game where both players are AIs
         static void Main(string[] args)
         {
             // Setup
@@ -40,84 +41,36 @@ namespace Draughts
             b = TestSetup();
             ShowBoard();
             
-            //AIPlayer white = new AIPlayer(true, 7, !false, !true);
+            AIPlayer white = new AIPlayer(true, 7, !false, !true);
             AIPlayer black = new AIPlayer(false, 5, false, true);
 
 
-            int i = 0;
-            black.MakeMove(b, worker, ref i);
-
+            int a = 0;
             ShowBoard();
-            
 
-            /*
+            // Test game
             for (int i = 0; i < 100; i++)
-            {
-                b = white.MakeMove(b, worker);
+            { 
+
+                b = white.MakeMove(b, worker, ref a).Last();
                 ShowBoard();
                 Console.WriteLine(b.EvaluateBoard());
 
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
                 if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
 
-                b = black.MakeMove(b, worker);
+                b = black.MakeMove(b, worker, ref a).Last();
                 ShowBoard();
                 Console.WriteLine(b.EvaluateBoard());
 
                 if (b.BlackHasWon()) { Console.WriteLine("black"); break; }
                 if (b.WhiteHasWon()) { Console.WriteLine("white"); break; }
             }
-            */
-            
-            
-            
-
-
-
-
-
+          
             Console.ReadLine();
         }
 
-        static void ShowBoardNums()
-        {
-            int i = 0;
-            foreach (Piece p in b.GetBoard())
-            {
-
-                if (p != null)
-                {
-                    if (p.IsWhite)
-                    {
-                        if (p.GetType() == typeof(KingPiece)) { Console.Write("W "); }
-                        else { Console.Write("w "); }
-                    }
-                    else
-                    {
-                        if (p.GetType() == typeof(KingPiece)) { Console.Write("B "); }
-                        else { Console.Write("b "); }
-                    }
-                }
-                else
-                {
-                    Console.Write(Convert.ToString(i));
-                    if (i < 10)
-                    {
-                        Console.Write("  ");
-                    }
-                    else { Console.Write(" "); }
-                }
-
-
-
-                if ((i+1) % 8 == 0)
-                {
-                    Console.WriteLine("");
-                }
-                i++;
-            }
-        }
-
+        // shows the board in the console
         static void ShowBoard()
         {
             Console.WriteLine("#|0_1_2_3_4_5_6_7");
@@ -156,6 +109,7 @@ namespace Draughts
 
         }
 
+        // Show the board in the console, highlghting certain numbers 
         static void ShowBoardHighlight(List<Position> positions, string highlight = "# ")
         {
             int count = 0;

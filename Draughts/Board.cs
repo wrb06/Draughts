@@ -25,7 +25,6 @@ namespace Draughts
                 for (int i = 0; i < size; i += 2)
                 {
                     // Set White's peices up at the bottom
-
                     PlacePiece(new Piece(true, new Position(i, 7)));
                     PlacePiece(new Piece(true, new Position(i + 1, 6)));
                     PlacePiece(new Piece(true, new Position(i, 5)));
@@ -36,12 +35,6 @@ namespace Draughts
                     PlacePiece(new Piece(false, new Position(i + 1, 2)));
                 }
             }
-        }
-
-        // Returns the board so it can be displayed
-        public Piece[,] GetBoard()
-        {
-            return _boardArray;
         }
 
         // Moves a piece in position from to position to
@@ -100,7 +93,7 @@ namespace Draughts
             _boardArray[position.Y, position.X] = null;
         }
 
-        // Gets a list of all white/black peices positions
+        // Gets a list of all positions that have white pieces
         public List<Position> GetWhitePositions()
         {
             List<Position> WhitePositions = new List<Position>();
@@ -116,6 +109,8 @@ namespace Draughts
             }
             return WhitePositions;
         }
+
+        // Gets a list of all positions that have black pieces
         public List<Position> GetBlackPositions()
         {
             List<Position> BlackPositions = new List<Position>();
@@ -163,7 +158,7 @@ namespace Draughts
             return BoardScore;
         }
 
-        // Evaluates whether someone, returns 1 if white wins, -1 if black wins, 0 if neither side has won.
+        // Tests whether white has won
         public bool WhiteHasWon()
         {
             List<Position> BlackPositions = GetBlackPositions();
@@ -177,6 +172,8 @@ namespace Draughts
                 return true;
             }
         }
+
+        // Tests whether black has won
         public bool BlackHasWon()
         {
             List<Position> WhitePositions = GetWhitePositions();
@@ -191,7 +188,7 @@ namespace Draughts
             }
         }
 
-        // creates a new version of the board
+        // Creates a copy of the board
         public Board MakeNewCopyOf()
         {
             Board copy = new Board(true);
@@ -215,10 +212,12 @@ namespace Draughts
             return copy;
         }
 
+        // Tests if it would be a legal move if the piece in from moved to the square to.
         public bool IsLegalMove(Position from, Position to)
         {
             if (!from.InBoard() || !to.InBoard()) { return false; }
 
+            // test if the positionin is valid
             int i = to.GetAsSingleNum();
             if ((i % 2 + i / 8) % 2 == 0) { return false; }
 
@@ -287,6 +286,7 @@ namespace Draughts
             return true;
         }
 
+        // Converts the board into a string of 32 characters in order to save the board
         public string ConvertForSave()
         {
             Piece p;
@@ -307,6 +307,12 @@ namespace Draughts
             }
 
             return BoardString;
+        }
+
+        // Returns the board array, used for debugging
+        public Piece[,] GetBoard()
+        {
+            return _boardArray;
         }
     }
 }

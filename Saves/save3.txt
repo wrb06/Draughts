@@ -1,0 +1,12 @@
+bbbbEEbbEEEEEEEbEEEEwEwEwEEwwEwE01A
+#|0_1_2_3_4_5_6_7
+0|. b . b . b . b 
+1|. . . . b . b . 
+2|. . . . . . . . 
+3|. . . . . . b . 
+4|. . . . . . . . 
+5|w . . . w . . . 
+6|. w . . . . . w 
+7|w . w . w . . . Moves Made so far: 15
+
+invalid file because of invalid move number "01A"

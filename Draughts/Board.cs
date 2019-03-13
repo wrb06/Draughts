@@ -9,20 +9,18 @@ namespace Draughts
     // Need to improve islegalmove funct
     class Board
     {
-        const int size = 8;
-        private Piece[,] _boardArray = new Piece[size, size];
+        private Piece[,] _boardArray = new Piece[8, 8];
         private int _numberOfPeices;
 
         // property to access the number of pieces
-        public int NumberOfPeices { get => _numberOfPeices; private set => _numberOfPeices = value; }
-        
+        public int NumberOfPeices  => _numberOfPeices; 
         // Constructor, if not empty will place peices in their starting positions
         public Board(bool empty = false)
         {
-            NumberOfPeices = 0;
+            _numberOfPeices = 0;
             if (!empty)
             {
-                for (int i = 0; i < size; i += 2)
+                for (int i = 0; i < 8; i += 2)
                 {
                     // Set White's peices up at the bottom
                     PlacePiece(new Piece(true, new Position(i, 7)));
@@ -43,7 +41,6 @@ namespace Draughts
             // If trying to move an empty scquare throw an error
             if (_boardArray[from.Y, from.X] == null) { throw new NullReferenceException(); }
 
-
             if (to.Y == 0 || to.Y == 7)
             {
                 bool WasWhite = _boardArray[from.Y, from.X].IsWhite;
@@ -59,7 +56,7 @@ namespace Draughts
             }
 
             // If the move was a take move, remove the piece
-            if (Math.Abs(from.Y - to.Y) == 2) { _boardArray[from.GetMiddlePosition(to).Y, from.GetMiddlePosition(to).X] = null; NumberOfPeices--; }
+            if (Math.Abs(from.Y - to.Y) == 2) { _boardArray[from.GetMiddlePosition(to).Y, from.GetMiddlePosition(to).X] = null; _numberOfPeices--; }
 
             // Clear the origional position
             _boardArray[from.Y, from.X] = null;
@@ -80,7 +77,7 @@ namespace Draughts
         public void PlacePiece(Piece piece)
         {
             _boardArray[piece.CurrentPosition.Y, piece.CurrentPosition.X] = piece;
-            NumberOfPeices++;
+            _numberOfPeices++;
         }
 
         // Removes a piece from the board

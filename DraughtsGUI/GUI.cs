@@ -43,7 +43,7 @@ namespace DraughtsGUI
 
 
         // Other Variables
-        int scale;
+        int BoardScale;
         int MoveNum = 0;
         bool MovedThisTurn = false;
         bool TakeMoveMade = false;
@@ -55,14 +55,14 @@ namespace DraughtsGUI
         int CountSinceLastTake = 0;
 
         // Setup the board
-        Board board;
-        List<PictureBox> boxes;
+        Board GameBoard;
+        List<PictureBox> Boxes;
 
         // Setup the AI
         AIPlayer AIBlack = new AIPlayer(false, 3, false);
        
         // Setup the background thread
-        BackgroundWorker worker;
+        BackgroundWorker Worker;
 
         // Initialise the board and tell black to make the first move 
         public GUI()
@@ -70,20 +70,20 @@ namespace DraughtsGUI
             InitializeComponent();
 
 
-            worker = new BackgroundWorker();
-            worker.WorkerReportsProgress = true;
-            worker.WorkerSupportsCancellation = true;
-            worker.DoWork += BlackAIMove;
-            worker.ProgressChanged += BlackAIMoveProgress;
-            worker.RunWorkerCompleted += BlackAIFinishedMove;
+            Worker = new BackgroundWorker();
+            Worker.WorkerReportsProgress = true;
+            Worker.WorkerSupportsCancellation = true;
+            Worker.DoWork += BlackAIMove;
+            Worker.ProgressChanged += BlackAIMoveProgress;
+            Worker.RunWorkerCompleted += BlackAIFinishedMove;
 
 
-            scale = FindScale();
+            BoardScale = FindScale();
             SetupBoard();
             label9.Text = (40 - CountSinceLastTake).ToString();
 
             UpdateBoard();
-            worker.RunWorkerAsync();
+            Worker.RunWorkerAsync();
 
         }
 
@@ -109,8 +109,8 @@ namespace DraughtsGUI
             MovedThisTurn = false;
             TakeMoveMade = false;
 
-            if (board.BlackHasWon()) { DisplayEnd("Black");  }
-            else if (board.WhiteHasWon()) { DisplayEnd("White"); }
+            if (GameBoard.BlackHasWon()) { DisplayEnd("Black");  }
+            else if (GameBoard.WhiteHasWon()) { DisplayEnd("White"); }
 
             progressBar1.Value = 0;
         }
@@ -120,9 +120,9 @@ namespace DraughtsGUI
         {
             BackgroundWorker bgWorker = (BackgroundWorker)sender;
 
-            List<Board> Boardstates = AIBlack.MakeMove(board, bgWorker, ref CountSinceLastTake);
+            List<Board> Boardstates = AIBlack.MakeMove(GameBoard, bgWorker, ref CountSinceLastTake);
 
-            board = Boardstates.First();
+            GameBoard = Boardstates.First();
             UpdateBoard();
 
             if (Boardstates.Count > 1)
@@ -132,7 +132,7 @@ namespace DraughtsGUI
                     // Sleeping the Backgroundworker doesnt affect UI
                     System.Threading.Thread.Sleep(500);
 
-                    board = state;
+                    GameBoard = state;
                     UpdateBoard();
                 }
             }
@@ -147,13 +147,13 @@ namespace DraughtsGUI
         // Generates both backend and frontend board. Shows GUI board to the user
         private void SetupBoard(bool empty = false)
         {
-            board = new Board(empty);
+            GameBoard = new Board(empty);
 
             // Console.WriteLine("  " + board.ConvertForSave());
 
-            boxes = new List<PictureBox>();
+            Boxes = new List<PictureBox>();
             int i = 0;
-            foreach (Piece p in board.GetBoard())
+            foreach (Piece p in GameBoard.GetBoard())
             {
                 PictureBox picture = new PictureBox();
 
@@ -166,13 +166,13 @@ namespace DraughtsGUI
                     if (p.Value == -500) { picture.ImageLocation = EnemyKingImage; }
                 }
                 picture.SizeMode = PictureBoxSizeMode.Zoom;
-                picture.Location = new Point((i % 8) * scale, 160 + (i / 8) * scale);
-                picture.Size = new Size(scale, scale);
+                picture.Location = new Point((i % 8) * BoardScale, 160 + (i / 8) * BoardScale);
+                picture.Size = new Size(BoardScale, BoardScale);
 
                 picture.Click += CellClicked;
 
                 this.Controls.Add(picture);
-                boxes.Add(picture);
+                Boxes.Add(picture);
                 i++;
             }
         }
@@ -190,21 +190,21 @@ namespace DraughtsGUI
 
                     // Collect all takemoves
                     List<Position> TakeMoves = new List<Position>();
-                    foreach (Position p in board.GetWhitePositions())
+                    foreach (Position p in GameBoard.GetWhitePositions())
                     {
-                        if (board.GetPiece(p).GetTakeMovesOnly(board).Count > 0)
+                        if (GameBoard.GetPiece(p).GetTakeMovesOnly(GameBoard).Count > 0)
                         { 
-                            foreach (MoveSet moveset in board.GetPiece(p).GetTakeMovesOnly(board))
+                            foreach (MoveSet moveset in GameBoard.GetPiece(p).GetTakeMovesOnly(GameBoard))
                             {
                                 TakeMoves.Add(moveset.First());
                             }
                         }
                     }
 
-                    if (!MovedThisTurn && board.IsLegalMove(SelectedPosition, ClickedPosition) && (TakeMoves.Count == 0 || TakeMoves.Contains(ClickedPosition)))
+                    if (!MovedThisTurn && GameBoard.IsLegalMove(SelectedPosition, ClickedPosition) && (TakeMoves.Count == 0 || TakeMoves.Contains(ClickedPosition)))
                     {
                         // Select the empty spot and move
-                        board.MovePeice(SelectedPosition, ClickedPosition);
+                        GameBoard.MovePeice(SelectedPosition, ClickedPosition);
 
                         // Redraw board, clearing highlights
                         UpdateBoard();
@@ -230,7 +230,7 @@ namespace DraughtsGUI
                     else if (TakeMoveMade && SelectedPosition.Equals(TakingPiecePosition) && SelectedPosition.CouldBeTakeMove(ClickedPosition))
                     {
                         // Select the empty spot and move
-                        board.MovePeice(SelectedPosition, ClickedPosition);
+                        GameBoard.MovePeice(SelectedPosition, ClickedPosition);
 
                         // Redraw board, clearing highlights
                         UpdateBoard();
@@ -257,23 +257,23 @@ namespace DraughtsGUI
                     // If this is the first click
 
                     // if the square isnt empty
-                    if (board.GetPiece(ClickedPosition) != null)
+                    if (GameBoard.GetPiece(ClickedPosition) != null)
                     {
                         // if its our piece
-                        if (board.GetPiece(ClickedPosition).Value > 0)
+                        if (GameBoard.GetPiece(ClickedPosition).Value > 0)
                         {
                             FoundPieceToMove = true;
                             SelectedPosition = ClickedPosition;
 
                             // Highlight this piece
-                            if (board.GetPiece(ClickedPosition).Value == 1) { UpdatePiece(ClickedPosition, YourHighlightImage); }
+                            if (GameBoard.GetPiece(ClickedPosition).Value == 1) { UpdatePiece(ClickedPosition, YourHighlightImage); }
                             else { UpdatePiece(ClickedPosition, YourKingHighlightImage); }
 
                             // Highlight take moves
                             if (MovedThisTurn && TakeMoveMade)
                             {
                                 // Highlight only take moves if we have moved allready
-                                foreach (MoveSet move in board.GetPiece(ClickedPosition).GetTakeMovesOnly(board))
+                                foreach (MoveSet move in GameBoard.GetPiece(ClickedPosition).GetTakeMovesOnly(GameBoard))
                                 {
                                     UpdatePiece(move.Last(), EmptyHighlightImage);
                                 }
@@ -282,11 +282,11 @@ namespace DraughtsGUI
                             {
                                 // Collect all takemoves
                                 List<Position> TakeMoves = new List<Position>();
-                                foreach (Position p in board.GetWhitePositions())
+                                foreach (Position p in GameBoard.GetWhitePositions())
                                 {
-                                    if (board.GetPiece(p).GetTakeMovesOnly(board).Count > 0)
+                                    if (GameBoard.GetPiece(p).GetTakeMovesOnly(GameBoard).Count > 0)
                                     {
-                                        TakeMoves.AddRange(board.GetPiece(p).GetTakeMovesOnly(board).First().Moves);
+                                        TakeMoves.AddRange(GameBoard.GetPiece(p).GetTakeMovesOnly(GameBoard).First().Moves);
                                     }
                                 }
 
@@ -294,7 +294,7 @@ namespace DraughtsGUI
                                 if (TakeMoves.Count > 0)
                                 {
                                     // If there are take moves only highlight the take moves this piece can make
-                                    foreach (MoveSet move in board.GetPiece(ClickedPosition).GetTakeMovesOnly(board))
+                                    foreach (MoveSet move in GameBoard.GetPiece(ClickedPosition).GetTakeMovesOnly(GameBoard))
                                     {
                                         UpdatePiece(move.Last(), EmptyHighlightImage);
                                     }
@@ -303,7 +303,7 @@ namespace DraughtsGUI
                                 {
 
                                     // Highlight all moves if this is the first move this turn
-                                    foreach (MoveSet move in board.GetPiece(ClickedPosition).GetMoves(board))
+                                    foreach (MoveSet move in GameBoard.GetPiece(ClickedPosition).GetMoves(GameBoard))
                                     {
                                         UpdatePiece(move.Moves.Last(), EmptyHighlightImage);
                                     }
@@ -321,19 +321,19 @@ namespace DraughtsGUI
             // For every square in the board
             for (int i = 0; i < 64; i++)
             {
-                Piece p = board.GetBoard()[i / 8, i % 8];
+                Piece p = GameBoard.GetBoard()[i / 8, i % 8];
                 if (p == null)
                 {   
                     // If the square is empty show the correct empty square picture
-                    boxes[i].ImageLocation = (i % 2 + i / 8) % 2 == 0 ? EmptyImage1 : EmptyImage2;
+                    Boxes[i].ImageLocation = (i % 2 + i / 8) % 2 == 0 ? EmptyImage1 : EmptyImage2;
                 }
                 else
                 {
                     // Show the correct piece 
-                    if (p.Value == 1) { boxes[i].ImageLocation = YourImage; }
-                    if (p.Value == 500) { boxes[i].ImageLocation = YourKingImage; }
-                    if (p.Value == -1) { boxes[i].ImageLocation = EnemyImage; }
-                    if (p.Value == -500) { boxes[i].ImageLocation = EnemyKingImage; }
+                    if (p.Value == 1) { Boxes[i].ImageLocation = YourImage; }
+                    if (p.Value == 500) { Boxes[i].ImageLocation = YourKingImage; }
+                    if (p.Value == -1) { Boxes[i].ImageLocation = EnemyImage; }
+                    if (p.Value == -500) { Boxes[i].ImageLocation = EnemyKingImage; }
                 }
             }
         }
@@ -341,15 +341,15 @@ namespace DraughtsGUI
         // Updates a certain square with a new picture
         private void UpdatePiece(Position position, string filelocation)
         {
-            boxes[position.Y * 8 + position.X].ImageLocation = filelocation;
+            Boxes[position.Y * 8 + position.X].ImageLocation = filelocation;
         }  
         private void UpdatePiece(int index, string filelocation)
         {
-            boxes[index].ImageLocation = filelocation;
+            Boxes[index].ImageLocation = filelocation;
         }
         private void UpdatePiece(int x, int y, string filelocation)
         {
-            boxes[y * 8 + x].ImageLocation = filelocation;
+            Boxes[y * 8 + x].ImageLocation = filelocation;
         }
 
         // Converts a pixel position into a board position
@@ -357,12 +357,12 @@ namespace DraughtsGUI
         {
             if (ClientSize.Width > ClientSize.Height - 160)
             {
-                return new Position((point.X - (ClientSize.Width - 8 * scale) / 2) / scale, (point.Y - 160) / scale);
+                return new Position((point.X - (ClientSize.Width - 8 * BoardScale) / 2) / BoardScale, (point.Y - 160) / BoardScale);
             }
             else
             {
 
-                return new Position(point.X / scale, (point.Y - 160) / scale);
+                return new Position(point.X / BoardScale, (point.Y - 160) / BoardScale);
             }
         }
 
@@ -376,10 +376,10 @@ namespace DraughtsGUI
         private void CheckForTurnEnd()
         {
             // Auto ends turn if no more moves are found
-            if ((MovedThisTurn && !TakeMoveMade) || (TakeMoveMade && board.GetPiece(SelectedPosition).GetTakeMovesOnly(board).Count == 0))
+            if ((MovedThisTurn && !TakeMoveMade) || (TakeMoveMade && GameBoard.GetPiece(SelectedPosition).GetTakeMovesOnly(GameBoard).Count == 0))
             {
-                if (board.BlackHasWon()) { DisplayEnd("Black"); }
-                else if (board.WhiteHasWon()) { DisplayEnd("White"); }
+                if (GameBoard.BlackHasWon()) { DisplayEnd("Black"); }
+                else if (GameBoard.WhiteHasWon()) { DisplayEnd("White"); }
                 else
                 {
 
@@ -402,7 +402,7 @@ namespace DraughtsGUI
                         button1.Enabled = false;
                         button2.Enabled = false;
                         trackBar1.Enabled = false;
-                        worker.RunWorkerAsync();
+                        Worker.RunWorkerAsync();
                     }
                 }
 
@@ -421,13 +421,13 @@ namespace DraughtsGUI
             if (saveFileDialog.FileName != "")
             {
                 // Convert the board into computer readable form
-                string FileData = board.ConvertForSave() + MoveNum.ToString("000") + Environment.NewLine;
+                string FileData = GameBoard.ConvertForSave() + MoveNum.ToString("000") + Environment.NewLine;
 
                 // Add a human readable form so the user can see what state the board is in easily
                 FileData += "#|0_1_2_3_4_5_6_7" + Environment.NewLine +
                             "0|";
                 int i = 0;
-                foreach (Piece p in board.GetBoard())
+                foreach (Piece p in GameBoard.GetBoard())
                 {
                     i++;
                     if (p != null)
@@ -531,7 +531,7 @@ namespace DraughtsGUI
                 
                 
 
-                this.board = newboard;
+                this.GameBoard = newboard;
                 UpdateBoard();
                 restartgame.Visible = false;
                 restartgame.Location = new Point(0, 0);
@@ -549,31 +549,31 @@ namespace DraughtsGUI
         // Whenever the board is resized, this moves and resizes the board to fit the new screen size
         private void Resized(object sender, EventArgs e)
         {
-            scale = FindScale();
+            BoardScale = FindScale();
             for (int i = 0; i<64; i++)
             {
                 if (ClientSize.Width > ClientSize.Height - 160)
                 {
-                    boxes[i].Location = new Point((ClientSize.Width - 8 * scale) / 2 + (i % 8) * scale, 160 + (i / 8) * scale);
+                    Boxes[i].Location = new Point((ClientSize.Width - 8 * BoardScale) / 2 + (i % 8) * BoardScale, 160 + (i / 8) * BoardScale);
                 }
                 else
                 {
-                    boxes[i].Location = new Point((i % 8) * scale, 160 + (i / 8) * scale);
+                    Boxes[i].Location = new Point((i % 8) * BoardScale, 160 + (i / 8) * BoardScale);
                 }
-                boxes[i].Size = new Size(scale, scale);
+                Boxes[i].Size = new Size(BoardScale, BoardScale);
             }
             UpdateBoard();
 
             // If the size of the board is height limited display the button in the centre of the screen
             if (ClientSize.Width > ClientSize.Height - 160)
             {
-                restartgame.Location = new Point((ClientSize.Width - 8 * scale) / 2 + 3 * scale, 160 + (int)(3.5 * scale));
+                restartgame.Location = new Point((ClientSize.Width - 8 * BoardScale) / 2 + 3 * BoardScale, 160 + (int)(3.5 * BoardScale));
             }
             else
             {
-                restartgame.Location = new Point(3 * scale, 160 + (int)(3.5 * scale));
+                restartgame.Location = new Point(3 * BoardScale, 160 + (int)(3.5 * BoardScale));
             }
-            restartgame.Size = new Size(2 * scale, scale);
+            restartgame.Size = new Size(2 * BoardScale, BoardScale);
         }
 
         // When the difficulty slider is changed, this updates the AI
@@ -587,10 +587,10 @@ namespace DraughtsGUI
         // Displays the button to start a new game after the old game has finished
         private void DisplayEnd(string Winner)
         {
-            if (worker.IsBusy)
+            if (Worker.IsBusy)
             {
                 // Shouldnt ever run
-                worker.CancelAsync();
+                Worker.CancelAsync();
                 Console.WriteLine("Canceled worker"); 
             }
 
@@ -599,13 +599,13 @@ namespace DraughtsGUI
             // If the size of the board is height limited display the button in the centre of the screen
             if (ClientSize.Width > ClientSize.Height - 160)
             {
-                restartgame.Location = new Point((ClientSize.Width - 8 * scale) / 2 + 3 * scale, 160 + (int)(3.5 * scale));
+                restartgame.Location = new Point((ClientSize.Width - 8 * BoardScale) / 2 + 3 * BoardScale, 160 + (int)(3.5 * BoardScale));
             }
             else
             {
-                restartgame.Location = new Point(3 * scale, 160 + (int)(3.5 * scale));
+                restartgame.Location = new Point(3 * BoardScale, 160 + (int)(3.5 * BoardScale));
             }
-            restartgame.Size = new Size(2*scale, scale);
+            restartgame.Size = new Size(2*BoardScale, BoardScale);
             restartgame.Visible = true;
 
         }
@@ -614,7 +614,7 @@ namespace DraughtsGUI
         private void RestartGameClick(object sender, EventArgs e)
         {
             
-            board = new Board();
+            GameBoard = new Board();
             //Console.WriteLine("\n");
             //Console.WriteLine("  " + board.ConvertForSave());
 
@@ -625,7 +625,7 @@ namespace DraughtsGUI
             button1.Enabled = false;
             button2.Enabled = false;
             trackBar1.Enabled = false;
-            worker.RunWorkerAsync();
+            Worker.RunWorkerAsync();
 
             MoveNum = 1;
             //Console.WriteLine("B " + board.ConvertForSave());
@@ -648,7 +648,7 @@ namespace DraughtsGUI
         // Whenever the new game button is clicked, this resets the board and starts a new game.
         private void NewGame(object sender, EventArgs e)
         {
-            board = new Board();
+            GameBoard = new Board();
             //Console.WriteLine("\n");
             //Console.WriteLine("  " + board.ConvertForSave());
 
@@ -658,7 +658,7 @@ namespace DraughtsGUI
             button1.Enabled = false;
             button2.Enabled = false;
             trackBar1.Enabled = false;
-            worker.RunWorkerAsync();
+            Worker.RunWorkerAsync();
             MoveNum = 0;
 
             label7.Text = MoveNum.ToString();
